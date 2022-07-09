@@ -1,0 +1,7 @@
+money = input('현재 있는 금액과 제품가격을 입력하세요(ex.100,2000): ')
+money = money.split(",")
+money[0] = money[0].strip()
+money[1] = money[1].strip()
+gus = int(money[0])-int(money[1])
+print(f'거스름돈은 {gus} 원 입니다.')
+print(f'거스름돈으로 오천원 지폐는 {gus//5000}장, 천원 지폐는 {(gus%5000)//1000}장 받았습니다')
