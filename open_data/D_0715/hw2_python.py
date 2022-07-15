@@ -34,7 +34,7 @@ for i in range(7):
     result = line_list[i] + ": " + max_station[i]
     x_ticks.append(result)
 
-plt.figure(dpi=200)
+plt.figure(dpi=100)
 plt.bar(range(7), max_number)
 plt.xticks(range(7), x_ticks, rotation=80)
 plt.title("출근 시간대 지하철 노선별 최대 하차 인원 및 하차역")
