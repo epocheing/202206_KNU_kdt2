@@ -17,20 +17,21 @@ for row in data:
         if max_number[line_index] < int(row[11]) + int(row[13]):
             max_number[line_index] = int(row[11]) + int(row[13])
             max_station[line_index] = row[3]
+f.close()
 
 for i in range(7):
     print(
         f"출근 시간대 {line_list[i]} 최대 하차역은 {max_station[i]}역이고 하차인원은 {max_number[i]:,}명 입니다"
     )
 
-if(platform.system() == 'Windows'):
-    plt.rc('font', family='Malgun Gothic')
+if platform.system() == "Windows":
+    plt.rc("font", family="Malgun Gothic")
 else:
-    plt.rc('font', family='AppleGothic')
+    plt.rc("font", family="AppleGothic")
 
 x_ticks = []
 for i in range(7):
-    result = line_list[i] + ': ' + max_station[i]
+    result = line_list[i] + ": " + max_station[i]
     x_ticks.append(result)
 
 plt.figure(dpi=200)
