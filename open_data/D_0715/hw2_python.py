@@ -1,6 +1,7 @@
 import csv
-import matplotlib.pyplot as plt
 import platform
+
+import matplotlib.pyplot as plt
 
 f = open("../Data/subwaytime.csv", encoding="utf-8")
 data = csv.reader(f)
@@ -20,9 +21,7 @@ for row in data:
 f.close()
 
 for i in range(7):
-    print(
-        f"출근 시간대 {line_list[i]} 최대 하차역은 {max_station[i]}역이고 하차인원은 {max_number[i]:,}명 입니다"
-    )
+    print(f"출근 시간대 {line_list[i]} 최대 하차역은 {max_station[i]}역이고 하차인원은 {max_number[i]:,}명 입니다")
 
 if platform.system() == "Windows":
     plt.rc("font", family="Malgun Gothic")
