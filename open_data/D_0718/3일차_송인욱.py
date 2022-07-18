@@ -43,6 +43,7 @@ def Daegu_Gu_Gender_pop():
                     male_list.append(int(row[104].replace(",", "")))
                     female_list.append(int(row[207].replace(",", "")))
                     break
+    f.close()
 
     male_list.append(total_male)
     female_list.append(total_female)
