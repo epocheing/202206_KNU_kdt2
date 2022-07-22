@@ -1,7 +1,6 @@
 import re
+from cgitb import reset
 from collections import defaultdict
-from email.policy import default
-from urllib.error import HTTPError
 from urllib.request import urlopen
 
 import pandas as pd
@@ -9,44 +8,54 @@ from bs4 import BeautifulSoup
 
 df_datas = defaultdict(list)
 
+flag = True
 a = 1
-while True:
-    html = (
-        "https://www.hollys.co.kr/store/korea/korStore2.do?pageNo="
-        + str(a)
-        + "&sido=&gugun=&store="
-    )
+
+while flag:
+    html = "https://www.hollys.co.kr/store/korea/korStore2.do?pageNo=" + str(a) + "&sido=&gugun=&store="
 
     hollys_url = urlopen(html)
     hollys = BeautifulSoup(hollys_url, "html.parser")
-    hollys_table = hollys.select_one("tbody")
 
-    p_name = re.compile(r"(^\w+[점]$|.+[페]$)")
-    p_region = re.compile(r"^\w{2}\s\w*\s?\w*$")
-    p_locate = re.compile(r"\D+\s\w*\s\w+\s.*")
-    p_number = re.compile(r"(^\d{2,4}[-]\d{3,4}[-]\d*$|^[.]$|^[없][음]$|^[x]$)")
+    p_name = re.compile(r"\w+([점]|[페])(?=[<]/a)")
+    p_region = re.compile(r"\w{2}\s\w+\s?\w?(?=[<]/td)")
+    p_locate = re.compile(r"(?<=[>])\w+\s\w+\s.*(?=[<]/a)")
+    p_number = re.compile(r"((?<=[>]).*\d{2,4}[-]?\s?\d{4}\s?(?=[<]/td))|(t\"></td>$)|(?<=[>])[.](?=[<])|(?<=[>])[없][음](?=[<])|(?<=[>])[xX](?=[<])")
 
-    compile_list = [p_name, p_region, p_locate, p_number]
-    columns_list = ["매장이름", "위치(시,구)", "주소", "전화번호"]
+    p_list = [p_name, p_region, p_locate, p_number]
+    columns = ["매장이름", "위치(시,구)", "주소", "전화번호"]
 
-    for p in compile_list:
-        index = compile_list.index(p)
-        data_list = hollys_table.find_all(text=p)
-        column = columns_list[index]
+    hollys_table = hollys.find("tbody").find_all("td", {"class": "center_t"})
+    hollys_region = hollys.find("tbody").find_all("td", {"class": "noline"})
 
-        for i in data_list:
-            df_datas[column].append(i)
+    for p in p_list:
+        colum = columns[p_list.index(p)]
 
-    if df_datas["매장이름"][-1] == "등록된 지점이 없습니다.":
-        df_datas["매장이름"].remove("등록된 지점이 없습니다.")
-        break
-
-    if a == 54:
-        break
-
+        if p == p_region:
+            for i in hollys_region:
+                i = str(i)
+                m = p.search(i)
+                if m is not None:
+                    if m.group() == 't"></td>':
+                        df_datas[colum].append(".")
+                    else:
+                        df_datas[colum].append(m.group())
+                else:
+                    flag = False
+        else:
+            for i in hollys_table:
+                i = str(i)
+                m = p.search(i)
+                if m is not None:
+                    df_datas[colum].append(m.group())
     a += 1
 
-print(len(df_datas["매장이름"]))
-print(len(df_datas["위치(시,구)"]))
-print(len(df_datas["주소"]))
-print(len(df_datas["전화번호"]))
+
+result = pd.DataFrame(df_datas)
+result.to_csv("../Data/2일차_송인욱.csv")
+
+# for row in range(result.shape[0]):
+#     result.iloc[row]
+
+
+#     print(f'[{0:3d}]: 매장이름: {1}, 지역: {2}, 주소: {3}, 전화번호: {4}'.format(row+1, ))
