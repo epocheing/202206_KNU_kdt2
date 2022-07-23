@@ -75,7 +75,9 @@ def final_do(a=1):
         p_name = re.compile(r"\w+([점]|[페])(?=[<]/a)")
         p_region = re.compile(r"\w{2}\s\w+\s?\w?(?=[<]/td)")
         p_locate = re.compile(r"(?<=[>])\w+\s\w+\s.*(?=[<]/a)")
-        p_number = re.compile(r"((?<=[>]).*\d{2,4}[-]?\s?\d{4}\s?(?=[<]))|(t\"></td>$)|(?<=[>])[.](?=[<])|(?<=[>])[없][음](?=[<])|(?<=[>])[xX](?=[<])")
+        p_number = re.compile(
+            r"(\d{0,4}[-]?[)]?\s?\d{2,4}[-]?\s?\d{4}\s?(?=[<]))|(t\"></td>)|(?<=[>])[.](?=[<])|(?<=[>])[없][음](?=[<])|(?<=[>])[xX](?=[<])"
+        )
 
         p_list = [p_name, p_region, p_locate, p_number]
         columns = ["매장이름", "위치(시,구)", "주소", "전화번호"]
