@@ -1,5 +1,3 @@
-import datetime
-import random
 import re
 from urllib.request import urlopen
 
