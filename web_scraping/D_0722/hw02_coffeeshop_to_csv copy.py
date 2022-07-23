@@ -1,4 +1,4 @@
-mport re
+import re
 from collections import defaultdict
 from urllib.request import urlopen
 
