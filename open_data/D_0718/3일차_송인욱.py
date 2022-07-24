@@ -15,9 +15,7 @@ def draw_mult_pie(gu_list, male_list, female_list):
     subplot_list = [241, 242, 243, 244, 245, 246, 247, 248]
     for i in range(8):
         plt.subplot(subplot_list[i])
-        plt.pie(
-            [male_list[i], female_list[i]], labels=["남성", "여성"], autopct="%.1f%%", startangle=90
-        )
+        plt.pie([male_list[i], female_list[i]], labels=["남성", "여성"], autopct="%.1f%%", startangle=90)
         plt.title(f"대구광역시 {gu_list[i]}")
     plt.show()
 

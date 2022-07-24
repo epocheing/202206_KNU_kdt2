@@ -1,10 +1,7 @@
 import re
 
-p = re.compile(r"\w+")
-pp = re.compile(r"(.*\w+)\s*[(].*$")
+p = re.compile(r"^0?8.?\s?(\d|1\d|2\d|30|31)\w?$")
 
-r = p.search("대구광역시 동구 신암동(2312312312321)")
-rr = pp.match("대구광역시 동구 신암동  (2312312312321)")
+m = "08.12일"
 
-print(r)
-print(rr.group(1))
+print(p.match(m))

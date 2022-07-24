@@ -72,7 +72,7 @@ def final_do(a=1):
         hollys = BeautifulSoup(hollys_url, "html.parser")
 
         # 정규식 패턴 생성
-        p_name = re.compile(r"\w+([점]|[페])(?=[<]/a)")
+        p_name = re.compile(r"\w+[,]?\w+([점]|[페])(?=[<]/a)")
         p_region = re.compile(r"\w{2}\s\w+\s?\w?(?=[<]/td)")
         p_locate = re.compile(r"(?<=[>])\w+\s\w+\s.*(?=[<]/a)")
         p_number = re.compile(
