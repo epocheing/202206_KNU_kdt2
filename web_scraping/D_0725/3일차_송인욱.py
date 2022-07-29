@@ -68,7 +68,9 @@ def clawer(findTag, valuetag, dict_data):
     return data
 
 
-def run_program(data: Dict):
+def run_program(dict_data):
+
+    data = clawer("dl.blind", "dd", dict_data)
     while True:
         print("-" * 30)
         print("[네이버 코스피 상위10대 기업 목록]")
@@ -96,7 +98,15 @@ def run_program(data: Dict):
         print(": ".join(result[7].split()))
         print(": ".join(result[9].split()))
 
-        input("계속하려면 아무키나 누르세요(-1: 종료): ")
+        cont = input("계속하려면 아무키나 누르세요(-1: 종료): ")
+        try:
+            if int(cont) == -1:
+                break
+        except Exception:
+            pass
+
+        data = clawer("dl.blind", "dd", dict_data)
+        print("데이터가 갱신되었습니다.")
 
 
 naver_fin = Website("https://finance.naver.com", "/sise/sise_market_sum.naver?&page=", "1")
@@ -104,5 +114,4 @@ naver_fin = Website("https://finance.naver.com", "/sise/sise_market_sum.naver?&p
 naver_high = Table(naver_fin.get_html(), naver_fin.url, naver_fin.menue + naver_fin.option, "table.type_2", "a.tltle")
 naver_high_ten = naver_high.make_data(10, absolut=False)
 
-result = clawer("dl.blind", "dd", naver_high_ten)
-run_program(result)
+run_program(naver_high_ten)
