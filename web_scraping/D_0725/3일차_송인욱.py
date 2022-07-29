@@ -1,5 +1,4 @@
 from collections import defaultdict
-from typing import Dict
 
 import requests
 from bs4 import BeautifulSoup
@@ -68,9 +67,13 @@ def clawer(findTag, valuetag, dict_data):
     return data
 
 
-def run_program(dict_data):
+def run_program():
 
-    data = clawer("dl.blind", "dd", dict_data)
+    naver_fin = Website("https://finance.naver.com", "/sise/sise_market_sum.naver?&page=", "1")
+    naver_high = Table(naver_fin.get_html(), naver_fin.url, naver_fin.menue + naver_fin.option, "table.type_2", "a.tltle")
+    naver_high_ten = naver_high.make_data(10, absolut=False)
+    data = clawer("dl.blind", "dd", naver_high_ten)
+
     while True:
         print("-" * 30)
         print("[네이버 코스피 상위10대 기업 목록]")
@@ -105,13 +108,11 @@ def run_program(dict_data):
         except Exception:
             pass
 
-        data = clawer("dl.blind", "dd", dict_data)
+        naver_fin = Website("https://finance.naver.com", "/sise/sise_market_sum.naver?&page=", "1")
+        naver_high = Table(naver_fin.get_html(), naver_fin.url, naver_fin.menue + naver_fin.option, "table.type_2", "a.tltle")
+        naver_high_ten = naver_high.make_data(10, absolut=False)
+        data = clawer("dl.blind", "dd", naver_high_ten)
         print("데이터가 갱신되었습니다.")
 
 
-naver_fin = Website("https://finance.naver.com", "/sise/sise_market_sum.naver?&page=", "1")
-
-naver_high = Table(naver_fin.get_html(), naver_fin.url, naver_fin.menue + naver_fin.option, "table.type_2", "a.tltle")
-naver_high_ten = naver_high.make_data(10, absolut=False)
-
-run_program(naver_high_ten)
+run_program()
