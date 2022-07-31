@@ -5,10 +5,12 @@ import matplotlib.pyplot as plt
 
 
 def draw_mult_pie(gu_list, male_list, female_list):
-    if platform.system() == "Windows":
-        plt.rc("font", family="Malgun Gothic")
+    if platform.system() == 'Windows':
+        path = r'c:\Windows\Fonts\malgun.ttf'
+    elif platform.system() == 'Darwin': # Mac OS
+        path = r'/System/Library/Fonts/AppleGothic'
     else:
-        plt.rc("font", family="AppleGothic")
+        path = r'/usr/share/fonts/truetype/name/NanumMyeongjo.ttf'
 
     fig, axes = plt.subplots(2, 4, figsize=(15, 8), dpi=100)
     fig.suptitle("대구광역시 구별 남녀 인구 비율", fontsize=15)

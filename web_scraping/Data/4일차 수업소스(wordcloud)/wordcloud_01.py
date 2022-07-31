@@ -2,11 +2,13 @@
 Word Cloud 사용하기
 - https://knowable.tistory.com/5
 '''
-from wordcloud import WordCloud
-from konlpy.tag import Okt
-from collections import Counter
-import matplotlib.pyplot as plt
 import platform
+from collections import Counter
+
+import matplotlib.pyplot as plt
+from konlpy.tag import Okt
+from wordcloud import WordCloud
+
 # open으로 txt파일을 열고 read()를 이용하여 읽는다.
 text = open('test.txt', encoding='utf-8').read()
 okt = Okt() # Open Korean Text 객체 생성
@@ -41,7 +43,7 @@ wc = WordCloud(font_path=path, background_color="white", max_font_size=60)
 cloud = wc.generate_from_frequencies(dict(tags))
 
 # 생성된 WordCloud를 test.jpg로 보낸다.
-#cloud.to_file('test.jpg')
+cloud.to_file('test.jpg')
 
 plt.figure(figsize=(10, 8))
 plt.axis('off')
