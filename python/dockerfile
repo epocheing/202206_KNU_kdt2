@@ -1,0 +1,63 @@
+# set base image
+FROM python
+
+
+# maintainer: SsongIU
+MAINTAINER SsongIU
+
+
+# switch OS environment to Korea locale
+ENV DEBIAN_FRONTEND noninteractive \
+    && LANG ko_KR.UTF-8 \
+    && LANGUAGE ko_KR.UTF-8 \
+    && LC_ALL ko_KR.UTF-8
+
+
+# install dependencies program
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    apt-utils \
+    python3-tk \
+    locales \
+    wget \
+    unzip \
+    gcc \
+    git \
+    curl \
+    g++ \
+    default-jdk \
+    && rm -rf /var/lib/apt/lists/*
+
+
+# install chrome and chrome-driver
+WORKDIR /usr/src
+RUN apt-get -y update \
+    && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && apt-get -y install ./google-chrome-stable_current_amd64.deb \
+    && wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/` curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip \
+    && mkdir chrome \
+    && unzip /tmp/chromedriver.zip chromedriver -d /usr/src/chrome \
+    && rm -rf ./google-chrome-stable_current_amd64.deb
+
+
+# hangul fonts setting
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    fontconfig \
+    fonts-nanum \
+    && fc-cache -fv \
+    && rm -rf /var/lib/apt/lists/*
+
+
+# make bind mount dir and WORKDIR
+RUN mkdir /workspace
+WORKDIR /workspace
+
+
+# copy the dependencies file to the working directory
+COPY requirements.txt .
+COPY selenium.txt .
+
+
+# install dependencies
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
+

@@ -1,0 +1,30 @@
+version: '3.6'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 1111
+    volumes:
+      - type: bind
+        source: ../mysql/database
+        target: /var/lib/mysql
+        read_only: false
+  
+  python:
+    container_name: python-data
+    build:
+      context: ../python/
+      dockerfile: dockerfile
+    stdin_open: true
+    tty: true
+    restart: always
+    volumes:
+      - type: bind
+        source: /home/siu/workspace
+        target: /workspace
+        read_only: false
