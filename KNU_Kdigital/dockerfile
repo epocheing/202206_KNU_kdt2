@@ -1,16 +1,13 @@
 # set base image
-FROM python
+FROM python:buster
 
 
 # maintainer: SsongIU
 MAINTAINER SsongIU
 
 
-# switch OS environment to Korea locale
-ENV DEBIAN_FRONTEND noninteractive \
-    && LANG ko_KR.UTF-8 \
-    && LANGUAGE ko_KR.UTF-8 \
-    && LC_ALL ko_KR.UTF-8
+# frontend setting
+ENV DEBIAN_FRONTEND noninteractive
 
 
 # install dependencies program
@@ -26,6 +23,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     g++ \
     default-jdk \
     && rm -rf /var/lib/apt/lists/*
+
+
+# locale setting
+RUN localedef -f UTF-8 -i ko_KR ko_KR.UTF-8
+ENV LC_ALL ko_KR.UTF-8 \
+    && PYTHONIOENCODING=utf-8
 
 
 # install chrome and chrome-driver

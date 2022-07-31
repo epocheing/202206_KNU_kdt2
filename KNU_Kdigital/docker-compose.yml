@@ -1,4 +1,12 @@
-version: '3.6'
+version: '3.9'
+
+volumes:
+  r_libs:
+    name: r_libs
+  rstudio:
+    name: rstudio
+  mysqldb:
+    name: mysqldb
 
 services:
   mysql:
@@ -6,25 +14,45 @@ services:
     image: mysql
     restart: always
     ports:
-      - 3306:3306
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 1111
     volumes:
-      - type: bind
-        source: ../mysql/database
+      - type: volume
+        source: mysqldb
         target: /var/lib/mysql
-        read_only: false
   
   python:
     container_name: python-data
-    build:
-      context: ../python/
-      dockerfile: dockerfile
+    build: .
+    image: python-data:siu
     stdin_open: true
     tty: true
     restart: always
     volumes:
       - type: bind
-        source: /home/siu/workspace
+        source: ../python
         target: /workspace
         read_only: false
+
+  rstudio:
+    container_name: rstudio
+    image: rocker/rstudio
+    environment:
+      - PASSWORD=1111
+    ports:
+      - "8787:8787"
+    tty: true
+    stdin_open: true
+    volumes:
+      - type: bind
+        source: ../R/projects
+        target: /home/rstudio/projects
+      - type: volume
+        source: rstudio
+        target: /home/rstudio
+      - type: volume
+        source: r_libs
+        target: /usr/local/lib/R
+
+
