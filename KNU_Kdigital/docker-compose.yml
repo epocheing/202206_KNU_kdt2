@@ -16,7 +16,8 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: 1111
+      - TZ=Asia/Seoul    
+      - MYSQL_ROOT_PASSWORD=1111
     volumes:
       - type: volume
         source: mysqldb
@@ -24,8 +25,12 @@ services:
   
   python:
     container_name: python-data
-    build: .
+    build:
+      context: .
+      dockerfile: dockerfile-py
     image: python-data:siu
+    environment:
+      - TZ=Asia/Seoul
     stdin_open: true
     tty: true
     restart: always
@@ -37,9 +42,13 @@ services:
 
   rstudio:
     container_name: rstudio
-    image: rocker/rstudio
+    build:
+      context: .
+      dockerfile: dockerfile-R
+    image: rocker/rstudio-kr:siu
     environment:
       - PASSWORD=1111
+      - TZ=Asia/Seoul
     ports:
       - "8787:8787"
     tty: true

@@ -1,11 +1,5 @@
-# bigdata-training-docker
+# KNU-Kdigital-docker 
 ### 빅데이터분석가 양성과정에 필요한 도커입니다.</br>
-
-리눅스 베이스로 설정, 윈도우-맥은 compose.yml파일 바꿔서 사용</br>
-같은 네트워크에 있는 컨테이너는 컨테이너명을 domain으로 사용함 ex) mysql </br>
-
-~~rstudio 추가 예정~~</br>
-rstudio 추가 완료
 
 
 gui 환경 동기화 세팅 예정</br>
@@ -21,3 +15,14 @@ rstudio-container: ../R/projects -> /home/rstudio/projects</br>
 rstudio-container: r_libs -> /usr/local/lib/R</br>
 rstudio-container: rstudio -> /home/rstudio</br>
 mysql-container: mysqldb -> /var/lib/mysql</br>
+### VERSION
+
+**ver1.0** : init
+
+**ver1.1**
+- rstudio 추가
+- 디렉토리 구조 변경 (상대경로)
+
+**ver1.2**
+- timezone 서울로 변경
+- rstudio 이미지 locale 및 한글 설정
