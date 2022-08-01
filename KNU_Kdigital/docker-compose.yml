@@ -22,6 +22,9 @@ services:
       - type: volume
         source: mysqldb
         target: /var/lib/mysql
+      - type: bind
+        source: ../sql
+        target: /workspace
   
   python:
     container_name: python-data

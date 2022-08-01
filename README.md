@@ -10,6 +10,7 @@ selenium은 headless chrome 사용 (사용법 /local 저장)</br>
 **bind mount**</br>
 python-data-container: ../python -> /workspace</br>
 rstudio-container: ../R/projects -> /home/rstudio/projects</br>
+mysql-container: ../sql -> /workspace</br>
 
 **volume**</br>
 rstudio-container: r_libs -> /usr/local/lib/R</br>
