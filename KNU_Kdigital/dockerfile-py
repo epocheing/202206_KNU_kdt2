@@ -52,9 +52,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 
-# make bind mount dir and WORKDIR
+# make bind mount dir and copy dir
 RUN mkdir /workspace
-WORKDIR /workspace
+RUN mkdir /copy
+WORKDIR /copy
 
 
 # copy the dependencies file to the working directory
@@ -65,3 +66,4 @@ COPY selenium.txt .
 # install dependencies
 RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
+
