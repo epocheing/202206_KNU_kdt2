@@ -44,7 +44,6 @@ services:
       - type: bind
         source: ../python
         target: /workspace
-        read_only: false
 
   rstudio:
     container_name: rstudio
