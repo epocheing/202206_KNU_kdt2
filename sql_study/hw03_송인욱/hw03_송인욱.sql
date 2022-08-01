@@ -7,28 +7,41 @@ create database shoppingmall;
 use shoppingmall;
 
 
-# 테이블 만든거 확인
-SELECT * FROM user_table ut ;
+# user_table 테이블 생성
+create table user_table (
+	userID CHAR(8),
+	userName  VARCHAR(10) not null,
+	birthYear INT not null,
+	addr CHAR(2) not null,
+	mobile1 CHAR(3),
+	mobile2 CHAR(8),
+	height SMALLINT,
+	mDate DATE,
+	CONSTRAINT pk_user_table PRIMARY KEY (userID)
+	);
 
-# 컬럼 타입 변경
-alter table user_table modify userID CHAR(8);
-alter table user_table modify userName VARCHAR(10) not null;
-alter table user_table modify birthYear INT not null;
-alter table user_table modify addr CHAR(2) not null;
-alter table user_table modify mobile1 CHAR(3);
-alter table user_table modify mobile2 CHAR(8);
-alter table user_table modify height SMALLINT;
-alter table user_table modify mDate DATE;
-alter table user_table add primary key (userID);
-
-# 변경 확인
+# 데이터 확인
 desc user_table;
-select * from user_table;
+SELECT * from user_table ut ;
 
 
-# 테이블 확인
-SELECT * FROM buy_table;
-alter table buy_table  add primary key (num);
+# make buy_table
+create table buy_table (
+	num int,
+	userID char(8) not null,
+	prodName char(6) not null,
+	groupName char(4),
+	price int not null,
+	amount smallint not null,
+	constraint pk_buy_table primary key (num, userID),
+	constraint fk_user_table foreign key (userID)
+	references user_table(userID)
+);
 
+set foreign_key_checks=0;
+alter table buy_table modify num int unsigned auto_increment;
+set foreign_key_checks=1;
+
+# 데이터 확인
 desc buy_table;
-SELECT * FROM buy_table;
+SELECT * from buy_table;
