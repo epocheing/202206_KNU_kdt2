@@ -13,11 +13,13 @@ services:
     container_name: mysql
     image: mysql
     restart: always
-    ports:
-      - "3306:3306"
     environment:
       - TZ=Asia/Seoul    
       - MYSQL_ROOT_PASSWORD=1111
+    ports:
+      - "3306:3306"
+    stdin_open: true
+    tty: true
     volumes:
       - type: volume
         source: mysqldb
@@ -32,11 +34,11 @@ services:
       context: .
       dockerfile: dockerfile-py
     image: python-data:siu
+    restart: always
     environment:
       - TZ=Asia/Seoul
     stdin_open: true
     tty: true
-    restart: always
     volumes:
       - type: bind
         source: ../python
@@ -54,8 +56,8 @@ services:
       - TZ=Asia/Seoul
     ports:
       - "8787:8787"
-    tty: true
     stdin_open: true
+    tty: true
     volumes:
       - type: bind
         source: ../R/projects
