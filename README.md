@@ -26,4 +26,8 @@ mysql-container: mysqldb -> /var/lib/mysql</br>
 
 **ver1.2**
 - timezone 서울로 변경
-- rstudio 이미지 locale 및 한글 설정
+- rstudio locale 및 한글 설정
+
+**ver1.2.1**
+- 모든 이미지 locale 재설정
+- mysql utf8m4 변경 추가

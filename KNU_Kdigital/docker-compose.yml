@@ -18,8 +18,6 @@ services:
       - MYSQL_ROOT_PASSWORD=1111
     ports:
       - "3306:3306"
-    stdin_open: true
-    tty: true
     volumes:
       - type: volume
         source: mysqldb
@@ -27,6 +25,9 @@ services:
       - type: bind
         source: ../sql
         target: /workspace
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
   
   python:
     container_name: python-data
