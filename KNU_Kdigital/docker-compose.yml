@@ -23,7 +23,7 @@ services:
         source: mysqldb
         target: /var/lib/mysql
       - type: bind
-        source: ../sql
+        source: ../mysql
         target: /workspace
     command:
       - --character-set-server=utf8mb4
