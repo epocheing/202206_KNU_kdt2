@@ -3,10 +3,13 @@ version: '3.9'
 volumes:
   r_libs:
     name: r_libs
+    external: true
   rstudio:
     name: rstudio
+    external: true
   mysqldb:
     name: mysqldb
+    external: true
 
 services:
   mysql:
@@ -23,7 +26,7 @@ services:
         source: mysqldb
         target: /var/lib/mysql
       - type: bind
-        source: ../mysql
+        source: ../workspace
         target: /workspace
     command:
       - --character-set-server=utf8mb4
@@ -42,7 +45,7 @@ services:
     tty: true
     volumes:
       - type: bind
-        source: ../python
+        source: ../workspace
         target: /workspace
 
   rstudio:
@@ -60,7 +63,7 @@ services:
     tty: true
     volumes:
       - type: bind
-        source: ../R/projects
+        source: ../workspace
         target: /home/rstudio/projects
       - type: volume
         source: rstudio

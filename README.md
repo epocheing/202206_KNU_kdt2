@@ -8,9 +8,9 @@ selenium은 headless chrome 사용 (사용법 /local 저장)</br>
 
 
 **bind mount**</br>
-python-data-container: ../python -> /workspace</br>
-rstudio-container: ../R/projects -> /home/rstudio/projects</br>
-mysql-container: ../mysql -> /workspace</br>
+python-data-container: ../workspace -> /workspace</br>
+rstudio-container: ../workspace -> /home/rstudio/projects</br>
+mysql-container: ../workspace -> /workspace</br>
 
 **volume**</br>
 rstudio-container: r_libs -> /usr/local/lib/R</br>
@@ -32,3 +32,4 @@ mysql-container: mysqldb -> /var/lib/mysql</br>
 **ver1.3**
 - python: locale error 수정 (데비안)
 - mysql: utf8mb4 기본값 설정
+- volume 디렉토리 최적화
