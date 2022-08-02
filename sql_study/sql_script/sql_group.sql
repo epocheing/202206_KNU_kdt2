@@ -29,7 +29,7 @@ from film_actor as fa
 group by fa.actor_id, f.rating with ROLLUP 
 order by 1, 2;
 
-
+# 가나다라
 select customer_id, count(*), sum(amount)
 from payment 
 group by customer_id;

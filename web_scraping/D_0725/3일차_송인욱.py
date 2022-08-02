@@ -8,7 +8,9 @@ class Website:
     def __init__(self, url, menue="", option="", name=""):
         self.name = name  # 웹 사이트 이름: 네이버 금융
         self.url = url  # 웹 사이트 주소: https://finance.naver.com
-        self.menue = menue  # 웹 사이트 매뉴: /sise/sise_market_sum.naver?&page=, https://finance.naver.com/item/main.naver?code=
+        self.menue = (
+            menue  # 웹 사이트 매뉴: /sise/sise_market_sum.naver?&page=, https://finance.naver.com/item/main.naver?code=
+        )
         self.option = option  # 옵션: 페이지 or 코드 등등
         self.fullUrl = url + menue + str(option)  # 최종 주소
 
@@ -70,7 +72,9 @@ def clawer(findTag, valuetag, dict_data):
 def run_program():
 
     naver_fin = Website("https://finance.naver.com", "/sise/sise_market_sum.naver?&page=", "1")
-    naver_high = Table(naver_fin.get_html(), naver_fin.url, naver_fin.menue + naver_fin.option, "table.type_2", "a.tltle")
+    naver_high = Table(
+        naver_fin.get_html(), naver_fin.url, naver_fin.menue + naver_fin.option, "table.type_2", "a.tltle"
+    )
     naver_high_ten = naver_high.make_data(10, absolut=False)
     data = clawer("dl.blind", "dd", naver_high_ten)
 
@@ -109,7 +113,9 @@ def run_program():
             pass
 
         naver_fin = Website("https://finance.naver.com", "/sise/sise_market_sum.naver?&page=", "1")
-        naver_high = Table(naver_fin.get_html(), naver_fin.url, naver_fin.menue + naver_fin.option, "table.type_2", "a.tltle")
+        naver_high = Table(
+            naver_fin.get_html(), naver_fin.url, naver_fin.menue + naver_fin.option, "table.type_2", "a.tltle"
+        )
         naver_high_ten = naver_high.make_data(10, absolut=False)
         data = clawer("dl.blind", "dd", naver_high_ten)
         print("데이터가 갱신되었습니다.")
