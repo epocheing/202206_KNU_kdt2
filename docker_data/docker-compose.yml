@@ -3,13 +3,10 @@ version: '3.9'
 volumes:
   r_libs:
     name: r_libs
-    external: true
   rstudio:
     name: rstudio
-    external: true
   mysqldb:
     name: mysqldb
-    external: true
 
 services:
   mysql:
