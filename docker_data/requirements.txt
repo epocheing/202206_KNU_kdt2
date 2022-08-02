@@ -14,3 +14,4 @@ jpype1
 konlpy
 openpyxl
 pymysql
+nltk
