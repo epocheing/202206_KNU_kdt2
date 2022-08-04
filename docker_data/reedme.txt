@@ -1,3 +1,10 @@
+# docker-rootless setting
+
+
+# r-studio addr
+https://localhost:8787
+
+
 # headless browser setting
 options = webdriver.ChromeOptions()
 options.add_argument('headless')
