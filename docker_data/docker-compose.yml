@@ -1,18 +1,11 @@
 version: '3.9'
 
-volumes:
-  r_libs:
-    name: r_libs
-  rstudio:
-    name: rstudio
-  mysqldb:
-    name: mysqldb
 
 services:
   mysql:
     container_name: mysql
     image: mysql
-    restart: always
+    #restart: on-failure
     environment:
       - TZ=Asia/Seoul    
       - MYSQL_ROOT_PASSWORD=1111
@@ -35,7 +28,7 @@ services:
       context: .
       dockerfile: dockerfile-py
     image: python-data:siu
-    restart: always
+    #restart: on-failure
     environment:
       - TZ=Asia/Seoul
     stdin_open: true
@@ -51,6 +44,7 @@ services:
       context: .
       dockerfile: dockerfile-R
     image: rocker/rstudio-kr:siu
+    #restart: on-failure
     environment:
       - PASSWORD=1111
       - TZ=Asia/Seoul
@@ -69,4 +63,12 @@ services:
         source: r_libs
         target: /usr/local/lib/R
 
+
+volumes:
+  r_libs:
+    name: r_libs
+  rstudio:
+    name: rstudio
+  mysqldb:
+    name: mysqldb
 

@@ -1,4 +1,7 @@
 # docker-rootless setting
+install docker-rootless
+sudo systemctl disable --now docker.service docker.socket
+sudo systemctl enable --now docker.service
 
 
 # r-studio addr
