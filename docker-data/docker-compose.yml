@@ -19,8 +19,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - type: bind
-        source: ./mysql_data
+      - type: volume
+        source: mysqldb
         target: /var/lib/mysql
       - type: bind
         source: ../workspace
