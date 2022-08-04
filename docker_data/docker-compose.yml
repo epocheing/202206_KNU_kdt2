@@ -5,7 +5,7 @@ services:
   mysql:
     container_name: mysql
     image: mysql
-    #restart: on-failure
+    restart: on-failure
     environment:
       - TZ=Asia/Seoul    
       - MYSQL_ROOT_PASSWORD=1111
@@ -26,9 +26,9 @@ services:
     container_name: python-data
     build:
       context: .
-      dockerfile: dockerfile-py
+      dockerfile: Dockerfile-py
     image: python-data:siu
-    #restart: on-failure
+    restart: on-failure
     environment:
       - TZ=Asia/Seoul
     stdin_open: true
@@ -42,9 +42,9 @@ services:
     container_name: rstudio
     build:
       context: .
-      dockerfile: dockerfile-R
+      dockerfile: Dockerfile-R
     image: rocker/rstudio-kr:siu
-    #restart: on-failure
+    restart: on-failure
     environment:
       - PASSWORD=1111
       - TZ=Asia/Seoul

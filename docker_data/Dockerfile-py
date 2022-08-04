@@ -1,5 +1,5 @@
 # set base image
-FROM python:buster
+FROM python:slim-bullseye
 
 
 # maintainer: SsongIU
@@ -10,18 +10,17 @@ MAINTAINER SsongIU
 ENV DEBIAN_FRONTEND noninteractive
 
 
+# install apt-utils
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+
 # install dependencies program
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    apt-utils \
+    locales wget curl git unzip \
     python3-tk \
-    locales \
-    wget \
-    unzip \
-    gcc \
-    git \
-    curl \
-    g++ \
-    default-jdk \
+    gcc g++ \
+    openjdk-11-jdk-headless \
     && rm -rf /var/lib/apt/lists/*
 
 
@@ -53,14 +52,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 
 # make bind mount dir and copy dir
-RUN mkdir /workspace
-RUN mkdir /copy
+RUN mkdir /workspace \
+    $$ mkdir /copy
 WORKDIR /copy
 
 
 # copy the dependencies file to the working directory
 COPY requirements.txt .
-COPY selenium.txt .
+
 
 
 # install dependencies
