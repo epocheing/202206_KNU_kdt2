@@ -1,0 +1,13 @@
+# docker-rootless setting
+install docker-rootless
+sudo systemctl disable --now docker.service docker.socket
+sudo systemctl enable --now docker.service
+
+
+# jupyter addr
+localhost:8888
+
+
+# jupyter config
+jupyter lab --generate-config
+/home/jovyan/.jupyter/

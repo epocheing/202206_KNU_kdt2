@@ -1,0 +1,56 @@
+version: '3.9'
+
+
+volumes:
+  mysqldb:
+    name: mysqldb
+  #jupyter:
+    #name: jupyter
+
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql
+    restart: on-failure
+    environment:
+      - TZ=Asia/Seoul
+      - MYSQL_ROOT_PASSWORD=1111
+    ports:
+      - "3306:3306"
+    volumes:
+      - type: bind
+        source: ./mysql_data
+        target: /var/lib/mysql
+      - type: bind
+        source: ../workspace
+        target: /workspace
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+  
+  jupyter:
+    container_name: jupyter-kr
+    build:
+      context: .
+      dockerfile: Dockerfile-ipynb
+    image: jupyter/datascience-kr
+    restart: on-failure
+    environment:
+      - TZ=Asia/Seoul
+      - JUPYTER_ENABLE_LABS=yes
+      - JUPYTER_TOKEN=1111
+    ports:
+      - "8888:8888"
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: ../workspace
+        target: /home/jovyan/workspace
+      #- type: volume
+        #source: jupyter
+        #target: /home/jovyan/.jupyter
+      - type: bind
+        source: ./jupyter_lab_setting
+        target: /home/jovyan/.jupyter

@@ -1,0 +1,15 @@
+wheel
+requests
+selenium
+wordcloud
+jpype1
+konlpy
+openpyxl
+pymysql
+jupyterlab-code-formatter
+isort
+black
+jupyterlab_flake8
+flake8
+lckr-jupyterlab-variableinspector
+radian

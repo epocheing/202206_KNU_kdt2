@@ -1,24 +1,27 @@
 # KNU-Kdigital-docker 
-### 빅데이터분석가 양성과정에 필요한 도커입니다.</br>
+## 빅데이터분석가 양성과정에 필요한 도커입니다.</br>
+</br>
+
+### **Version 2 update**
+### jupyter lab + mysql
+
+</br>
+
+1) jupyter:datascience-notebook 이미지 사용
+
+2) jupyter lab 기본 환경 구성 (python, R, Julia)
+3) vscode 사용에 필요한 R packages 설치
+
+</br>
+
+ - _docker rootless 환경 권장_
 
 
-gui 환경 동기화 세팅 예정</br>
-matplotlib은 jupyter 또는 image로 저장</br>
-selenium은 headless chrome 사용 (사용법 /local 저장)</br>
+</br></br>
 
+***********
 
-**bind mount**</br>
-python-data-container: ../workspace -> /workspace</br>
-rstudio-container: ../workspace -> /home/rstudio/projects</br>
-mysql-container: ../workspace -> /workspace</br>
-
-**volume**</br>
-rstudio-container: r_libs -> /usr/local/lib/R</br>
-rstudio-container: rstudio -> /home/rstudio</br>
-mysql-container: mysqldb -> /var/lib/mysql</br>
-
-### VERSION
-
+</br></br>
 **ver1.0** : init
 
 **ver1.1**
