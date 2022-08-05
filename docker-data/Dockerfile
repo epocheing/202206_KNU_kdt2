@@ -27,18 +27,21 @@ ENV LANG=ko_KR.UTF-8 \
 
 
 # install requirments
-RUN mkdir /copy
-WORKDIR /copy
+USER ${NB_UID}
+WORKDIR "${HOME}"
 COPY requirements.txt .
 RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
+    && pip install --no-cache-dir -r requirements.txt \
+    && rm -rf requirements.txt
 
 
 USER ${NB_UID}
 RUN mamba install --quiet --yes \
     'r-languageserver' \
-    'r-httpgd' && \
+    'r-httpgd' \
+    'r-vim' && \
     conda install -c nclibz r-vscdebugger && \
+    conda install -c conda-forge radian && \
     mamba clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
