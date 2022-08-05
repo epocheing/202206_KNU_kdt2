@@ -14,7 +14,7 @@ v <- c(85, 77, 96)
 v
 
 names(v)
-names(v) <- c('Kor', 'Eng', 'Math')
+names(v) <- c("Kor", "Eng", "Math")
 names(v)
 v
 
@@ -50,3 +50,4 @@ head(st)
 
 rownames(st)
 
+plot(iris)
