@@ -1,4 +1,4 @@
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+.vscode
+*/.vscode/*
