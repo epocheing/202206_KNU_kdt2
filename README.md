@@ -8,12 +8,9 @@
 </br>
 
 1) jupyter:datascience-notebook 이미지 사용
-
-2) jupyter lab 기본 환경 구성 (python, R, Julia)
-3) vscode 사용에 필요한 R packages 설치
-
-</br>
-
+2) locale 설정 및 nanum, D2Coding 폰트 설치
+3) jupyter lab 기본 환경 구성 (python, R, Julia)
+4) vscode 사용에 필요한 R packages 설치 (languageserver, radian, httpgd)
 
 
 </br></br>
@@ -21,6 +18,8 @@
 ***********
 
 </br></br>
+
+
 **ver1.0** : init
 
 **ver1.1**
