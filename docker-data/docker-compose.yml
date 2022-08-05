@@ -40,6 +40,7 @@ services:
       - TZ=Asia/Seoul
       - JUPYTER_ENABLE_LABS=yes
       - JUPYTER_TOKEN=1111
+      - CHOWN_HOME=yes
     ports:
       - "8888:8888"
     stdin_open: true
