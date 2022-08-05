@@ -14,7 +14,6 @@
 
 </br>
 
- - _docker rootless 환경 권장_
 
 
 </br></br>
