@@ -1,0 +1,51 @@
+---
+title: "Rmd review"
+autor: "Siu"
+date: "2022-08-08"
+---
+
+## Rmarkdown 사용법 연습
+
+```{r}
+x <- c(45, NA, 87, 63, 55, NA, 72)
+is.na(x)
+x[is.na(x)]
+```
+
+### airquality 연습
+```{r}
+df <- airquality
+df[complete.cases(df), ]
+```
+
+
+### 결측치의 개수와 비율
+```{r}
+sum(is.na(df$Ozone))
+sum(is.na(df$Solar.R))
+sum(is.na(df$Solar.R) & is.na(df$Ozone))
+sum(!complete.cases(df))
+mean(!complete.cases(df))
+```
+
+### VIM 패키지 활용
+```{r}
+library(VIM)
+?aggr
+aggr(airquality, prop = F, numbers = T, sortVar = T)
+
+df <- na.omit(airquality)
+str(df)
+```
+
+### barplot() 함수: 데이터셋에 이상치가 존재하는지 시각화
+```{r}
+df <- data.frame(state.x77)
+boxplot(df$Income, pch = 19, col = "orange", border = "brown")
+```
+
+이상치가 통계량을 왜곡할때는 분석에서 제외
+```{r}
+outlier <- boxplot.stats(df$Income)
+df[df$Income == outlier$out, ]
+```

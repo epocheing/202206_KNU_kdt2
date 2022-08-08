@@ -1,0 +1,22 @@
+# 타이타닉 캐글 데이터 실습
+
+
+## csv 데이터 가져오기
+```{r}
+getwd()
+df <- read.csv("/home/jovyan/workspace/R_study/week_1/Data/titanic/train.csv", header = T)
+str(df)
+```
+
+```{r}
+table(df$Embarked)
+barplot(table(df$Embarked), col = 2:4)
+```
+
+
+## 결측치 분포는 어떠할까요??
+```{r}
+library(VIM)
+aggr(df, numbers = T, prop = F)
+dim(df)
+```
