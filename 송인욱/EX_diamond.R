@@ -18,7 +18,6 @@ df$color <- f.color
 df$clarity <- f.clarity
 str(df)
 
-
 summary(df)
 
 df$x[df$x == 0]
@@ -27,5 +26,14 @@ df$z[df$z == 0]
 df <- df[df$z != 0, ]
 
 summary(df)
+which(df$price == max(df$price))
 
-boxplot(df$x, df$y, df$z)
+df[which(df$price == max(df$price)), ]
+
+boxplot.stats(df$x, df$y, df$z)
+boxplot(df$carat)
+boxplot(df$price)
+
+
+barplot(tapply(df$price, df$cut, mean))
+plot(df$price, df$carat)
