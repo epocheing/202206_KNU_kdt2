@@ -114,7 +114,7 @@ boxplot(df$count~df$Hour,col=hcl.colors(24),
 
 
 #### <b>· <span style='color:tomato'>이상치  </span></b>
-#### <b>· <span style='color:tomato'>출근시간대  </span></b>
+#### <b>· <span style='color:tomato'>출퇴근시간대  </span></b>
 
 
 
@@ -136,7 +136,7 @@ par(mfrow=c(1,1))
 
 
 
-#### <b>· 주중:<span style='color:tomato'> 출근시간대  </span></b>
+#### <b>· 주중:<span style='color:tomato'> 출퇴근시간대  </span></b>
 
 #### <b>· 주말:<span style='color:tomato'> 낮시간대  </span></b>
 
@@ -267,7 +267,7 @@ ggplot(hourdf2,aes(x=Hour,y=x,col=Workingday))+
 ```
 
 
-#### <b>· 회원:<span style='color:tomato'> 출근시간대  </span></b>
+#### <b>· 회원:<span style='color:tomato'> 출퇴근시간대  </span></b>
 #### - 대부분 그 시간에 이용하려고 등록한 듯 보임
 
 
