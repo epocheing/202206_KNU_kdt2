@@ -10,6 +10,7 @@ f.cut <- factor(df$cut, levels = c("Fair", "Good", "Very Good", "Premium", "Idea
 f.color <- factor(df$color, levels = rev(levels(factor(df$color))))
 f.clarity <- factor(df$clarity, levels = c("I1", "SI2", "SI1", "VS2", "VS1", "VVS2", "VVS1", "IF"))
 
+levels(factor(df$clarity))
 levels(f.clarity)
 levels(f.color)
 levels(f.cut)
@@ -37,3 +38,5 @@ boxplot(df$price)
 boxplot(df$depth)
 
 boxplot()
+
+barplot(tapply(df$price, df$clarity, mean))
