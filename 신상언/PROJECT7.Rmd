@@ -1,0 +1,120 @@
+---
+title: "Project7"
+author: "ss"
+date: "2022-08-08"
+output: html_document
+---
+## DIABETES
+```{r}
+df <- read.csv("./diabetes/diabetes.csv", header = T)
+df[,2:8][df[,2:8] == 0 ] <- NA  # 2:8 컬럼 0 -> NA 변경
+library(VIM)
+aggr(df, prop = F) # 결측치 확인
+df <- na.omit(df) # 결측치 제거
+View(df)
+# 이상치 제거
+outInsulin <- boxplot.stats(df$Insulin)$out
+df <- df[!df$Insulin %in% outInsulin,]
+comment('
+outPregnancies <- boxplot.stats(df$Pregnancies)$out
+df <- df[!df$Pregnancies %in% outPregnancies,] 
+boxplot.stats(df$Glucose) # 0
+outBloodPressure <- boxplot.stats(df$BloodPressure)$out
+df <- df[!df$BloodPressure %in% outBloodPressure,]
+outSkinThickness <- boxplot.stats(df$SkinThickness)$out
+df <- df[!df$SkinThickness %in% outSkinThickness,]
+outBMI <- boxplot.stats(df$BMI)$out
+df <- df[!df$BMI %in% outBMI,]
+outDiabetesPedigreeFunction <- boxplot.stats(df$DiabetesPedigreeFunction)$out
+df <- df[!df$DiabetesPedigreeFunction %in% outDiabetesPedigreeFunction,]
+outAge <- boxplot.stats(df$Age)$out
+df <- df[!df$Age %in% outAge,]')
+
+df1 <- with(df, df[Outcome == 1,]) # 당뇨 있는 사람
+df0 <- with(df, df[Outcome == 0,]) # 당뇨 없는 사람
+library(corrplot)
+corrplot(cor(df[,-9]), method='number')
+# 당뇨 유무 상관 계수 차이
+View(cor(df1[,-9], method = "pearson")) 
+View(cor(df0[,-9], method = "pearson"))
+cor1 <- cor(df1[,-9], method = "pearson")
+cor2 <- cor(df0[,-9], method = "pearson")
+abs(cor1 - cor2)
+```
+## 변수값과 당뇨 관계
+```{r}
+df$Outcome <- factor(df$Outcome)
+par(mfrow = c(2,2))
+barplot(tapply(df$Pregnancies, df$Outcome, mean), col = 2:3, main = 'Pregnancies') 
+barplot(tapply(df$Glucose, df$Outcome, mean), col = 2:3, main = 'Glucose')
+barplot(tapply(df$BloodPressure, df$Outcome, mean), col = 2:3, main = 'BloodPressure')
+barplot(tapply(df$SkinThickness, df$Outcome, mean), col = 2:3, main = 'SkinThickness')
+
+par(mfrow = c(2,2))
+barplot(tapply(df$Insulin, df$Outcome, mean), col = 2:3, main = 'Insulin')
+barplot(tapply(df$BMI, df$Outcome, mean), col = 2:3, main = 'BMI')
+barplot(tapply(df$DiabetesPedigreeFunction, df$Outcome, mean), col = 2:3, main = 'DiabetesPedigreeFunction')
+barplot(tapply(df$Age, df$Outcome, mean), col = 2:3, main = 'Age')
+par(mfrow = c(1,1))
+```
+## 각 변수간 상관 관계
+```{r}
+df$Outcome <- as.numeric(as.character(df$Outcome)) 
+cor.test(df$Pregnancies, df$Outcome)
+cor.test(df$Glucose, df$Outcome)
+cor.test(df$BloodPressure, df$Outcome)
+cor.test(df$SkinThickness, df$Outcome)
+cor.test(df$Insulin, df$Outcome)
+cor.test(df$BMI, df$Outcome)
+cor.test(df$DiabetesPedigreeFunction, df$Outcome)
+cor.test(df$Age, df$Outcome)
+```
+# 신체가 포도당을 처리하는 능력 & 당뇨 상관 관계
+```{r}
+mycolor <- ifelse(df$Outcome == 0, 'red', 'green')
+plot(df$Glucose, col = mycolor, pch = 19, cex = 1)
+```
+## 인슐린 & 글루코즈 상관 관계
+```{r}
+plot(df$Insulin, df$Glucose, col = mycolor, pch = 19, cex = 1)
+```
+## 
+```{r}
+plot(df$Age, df$Insulin, col = mycolor, pch = 19, cex = 1)
+```
+##
+```{r}
+plot(df$SkinThickness, df$Insulin, col = mycolor, pch = 19, cex = 1)
+```
+
+
+## 피하지방, 나이 상관 관계(1) 
+```{r}
+cor(df1$SkinThickness, df1$Age)
+cor(df0$SkinThickness, df0$Age)
+View(df)
+par(mfrow = c(1,2))
+plot(df1$SkinThickness, df1$Age, col = 'red', cex = 0.5, pch = 19)
+plot(df0$SkinThickness, df0$Age, col = 'green', cex = 0.5, pch = 19)
+par(mfrow = c(1,1))
+```
+## 인슐린, 당뇨내력가중치 상관 관계(2)
+```{r}
+cor(df1$Insulin, df1$DiabetesPedigreeFunction)
+cor(df0$Insulin, df0$DiabetesPedigreeFunction)
+
+par(mfrow = c(1,2))
+plot(df1$Insulin, df1$DiabetesPedigreeFunction, col = 'red', cex = 0.5 , pch = 19)
+plot(df0$Insulin, df0$DiabetesPedigreeFunction, col = 'green', cex = 0.5, pch = 19)
+par(mfrow = c(1,1))
+```
+## 비만도, 인슐린 상관 관계(3) 
+```{r}
+cor(df1$Insulin, df1$BMI)
+cor(df0$Insulin, df0$BMI)
+
+par(mfrow = c(1,2))
+plot(df1$BMI, df1$Insulin, col = 'red', cex = 0.5, pch = 19)
+plot(df0$BMI, df0$Insulin, col = 'green', cex = 0.5, pch = 19)
+par(mfrow = c(1,1))
+```
