@@ -17,6 +17,12 @@ output: html_document
 - aisles_df : 제품 상세 카테고리
 - departments_df : 제품 카테고리
 
+```{r include=FALSE}
+knitr::opts_chunk$set(warning = F)
+knitr::opts_chunk$set(message = F)
+```
+
+
 ```{r}
 # 사용할 library 호출
 library(RColorBrewer)
@@ -33,6 +39,7 @@ library(treemap)
 library(xgboost)
 library(caret)
 library(knitr)
+library(ggplot2)
 
 ```
 
@@ -40,30 +47,23 @@ library(knitr)
 
 ```{r}
 # 데이터 읽어오기
-products <- read.csv('./week7_team5_R/강혜리/instacart-market-basket-analysis/products.csv')
-aisles <- read.csv('./week7_team5_R/강혜리/instacart-market-basket-analysis/aisles.csv')
-departments <- read.csv('./week7_team5_R/강혜리/instacart-market-basket-analysis/departments.csv')
-orders <- read.csv('./week7_team5_R/강혜리/instacart-market-basket-analysis/orders.csv')
-order_products_train <- read.csv('./instacart-market-basket-analysis/order_products__train.csv')
-order_products_prior <- read.csv('./instacart-market-basket-analysis/order_products__prior.csv')
-
-
-# 구매 연관관계를 알아보기 위한 데이터 전처리
-orders_products <- merge(products, orders, all.x = T, by = 'product_id')
-head(orders_products)
-
-# 결측치 처리
-aggr(orders_products, numbers=T, prop = F)
-dim(orders_products)
-orders_products <- na.omit(orders_products)
+products <- read.csv('products.csv')
+aisles <- read.csv('aisles.csv')
+departments <- read.csv('departments.csv')
+orders <- read.csv('orders.csv')
+order_products_train <- read.csv('order_products__train.csv')
+order_products_prior <- read.csv('order_products__prior.csv')
 ```
+
+
+
 #### 2. 데이터 탐색
 
 1) 구매자의 구매형태 분석
 
 ```{r}
 table(orders$eval_set)
-barplot(table(orders$eval_set), col = 2:5)
+barplot(table(orders$eval_set), col = c('orange','skyblue','darkgreen'))
 ```
 2) 고객당 구매횟수
 - 고객 1명당 최소 4번의 구매가 이루어졌음
@@ -75,42 +75,50 @@ min(order_count$n_orders)
 ```
 ```{r}
 ggplot(order_count, aes(x = n_orders)) + 
-  geom_histogram(stat = "count", fill = "Sky Blue 3") +
-  scale_y_continuous(labels = comma)
+  geom_histogram(stat = "count", fill = "Sky Blue") +
+  scale_y_continuous(labels = comma)+
+  labs(title='구매 횟수', x='주문자', y='횟수')
 ```
 
-
-3) 인기 구매 품목군 도출
+3) best seller 도출
+- banana, organic banana가 1,2위
+- 상위 15위 과일, 야채
 
 ```{r}
-#ord <- table(orders_products$aisle_id)
-#top15 <- tail(ord[order(ord)], n=15)
-#category <- aisles$aisle
-#category <- category[as.numeric(names(top15))]
-#barplot(top15, names.arg = category, col = terrain.colors(15), main = '인기 구매 품목 ')
+total_ord <- rbind(order_products_train, order_products_prior)
+options(scipen = 9999)
+
+Bestseller <- total_ord %>% dplyr::group_by(product_id) %>% 
+  dplyr::summarise(Freq = n()) %>% 
+  dplyr::arrange(., desc(Freq))
+Bestseller <- dplyr::left_join(x = Bestseller, y = products, by = c('product_id' = 'product_id'))
+Bestseller <- dplyr::left_join(x = Bestseller, y = aisles, by = c('aisle_id' = 'aisle_id'))
+Bestseller <- dplyr::left_join(x = Bestseller, y = departments, by = c('department_id' = 'department_id'))
+Bestseller <- Bestseller[,c('product_name', 'aisle', 'department', 'Freq')]
+
+ggplot(Bestseller[1:15,], aes(x = reorder(product_name, -Freq), y = Freq))+
+  geom_bar(stat = "identity", fill = "Sky Blue") +
+  geom_text(aes(label = Freq), position = position_stack(0.5), size = 2.5)+
+  scale_y_continuous(labels = comma)+
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))+
+  labs(title='베스트셀러', x='제품명', y='구매횟수')
 
 
-ggplot(data=orders_products, aes(x=aisle_id))+geom_bar()+
-  geom_histogram(stat = "count", fill = "Sky Blue 3")+
-  scale_x_continuous(breaks = seq(0, 150, 10)) +
-  scale_y_continuous(breaks = seq(0, 150000, by=30000), labels = comma) +
-  labs(title='인기 구매 품목군', x='품목', y='구매횟수')
 ```
 
 4) 요일, 시간대별 구매 횟수 분석
-
 
 ```{r}
 day = list('일','월','화','수','목','금','토')
 
 g1 <- ggplot(orders, aes(x = order_dow)) + 
-  geom_histogram(stat = "count", fill = "Sky Blue 3") +
+  geom_histogram(stat = "count", fill = "Sky Blue") +
   scale_x_continuous(breaks = seq(0, 7, 1)) +
   scale_y_continuous(breaks = seq(0, 700000, by=100000), labels = comma) +
   labs(title='요일별 구매횟수', x='요일', y='구매횟수')
 
 g2 <- ggplot(orders, aes(x = order_hour_of_day)) + 
-  geom_histogram(stat = "count", fill = "Sky Blue 3") +
+  geom_histogram(stat = "count", fill = "Sky Blue") +
   scale_x_continuous(breaks = seq(0, 25, 1)) +
   scale_y_continuous(breaks = seq(0, 400000, by=50000), labels = comma) +
   labs(title='시간대별 구매횟수', x='시간', y='구매횟수')
@@ -119,10 +127,28 @@ multiplot(g1, g2, layout = matrix(c(1,2), 2, 1, byrow = T))
 
 ```
 
-5) 품목별 재구매율
-
-
+5) 재구매 기간
+- 구매 후 7일, 30일 주기로 재주문하는 고객들이 많다.
+- 그러나 달기준 구매기간이여서 30일을 넘겨 구매하는 고객에 대해서 파악 어려웠다.
 
 ```{r}
+ggplot(orders, aes(x = days_since_prior_order)) + 
+  geom_histogram(stat = "count", fill = "Sky Blue") +
+  scale_x_continuous(breaks = seq(0, 40, 5)) +
+  scale_y_continuous(breaks = seq(0, 400000, by=50000), labels = comma)+
+  labs(title='재구매기간', x='기간', y='횟수')
+```
+
+
+6) 재구매비율
+- 전체 구매자중 59%는 재구매를 했다
+
+```{r}
+ggplot(total_ord, aes(x = as.factor(reordered)))+
+  geom_bar(aes(fill = as.factor(reordered)),stat = "count")+
+  geom_text(aes(label = ..count..), stat = "count",
+            position = position_stack(0.5))+
+  scale_y_continuous(labels = comma)+
+  labs(title='재구매 비율', x='재구매여부', y='수')
 
 ```
