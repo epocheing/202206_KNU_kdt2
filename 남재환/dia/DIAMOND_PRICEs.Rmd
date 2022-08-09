@@ -5,7 +5,7 @@ date: "2022-08-08"
 output: html_document
 ---
 
-## 데이터 가져오기
+## 다이아몬드 데이터 가져오기
 ```{r}
 DIA1 <- read.csv("../dia/Diamonds_Prices2022.csv", header = T)
 str(DIA1)
@@ -29,90 +29,88 @@ f.clarity = factor(DIA1$clarity, levels = c('IF','VVS1','VVS2','VS1','VS2','SI1'
 DIA1$clarity=f.clarity
 str(DIA1)
 ```
-```{r}
-tapply(DIA1$cut,DIA1$price,mean)
-```
 
+## 다이아몬드 캐럿별 갯수 파악
 
-
-
-
-
-
-## 다이아몬드 크기와 갯수
 
 ```{r}
-
-hist(DIA1$carat,col = 'tomato',main = '캐럿의 크기와 갯수',xlab = '캐럿크기', ylab = '캐럿갯수')
+# 다이아캐럿별 갯수 그래프화.
+# 큰 캐럿일수록 수가 급격하게 줄어든다.
+hist(DIA1$carat,col = 'tomato',main = '캐럿의 크기 및 갯수',xlab = '캐럿크기', ylab = '캐럿갯수')
 mean(DIA1$carat) # 평균
 sd(DIA1$carat) # 표준편차
 var(DIA1$carat)
 ```
+## 다이아몬드의 크기 평균
 
-## 그래프
 ```{r}
-library(ggplot2)
-smaller <- DIA1
+#0~1캐럿이 많아 평균적인 크기는 얼마인지 파악
+#x,y,z는 다이아의 3차원 크기를 파악하는 수치입니다.
+# 0~1캐럿이 많아 평균적으로 작은 크기를 가지고 있음.
 
-str(DIA1)
-levels(factor(DIA1$cut))
-f.cut = factor(DIA1$cut, levels = c('Fair','Good','Very Good','Premium','Ideal'))
+#x값 이상치 제거
+outlier <- boxplot.stats(DIA1$x)$out #이상치값 확인
+DIA1[DIA1$x %in% outlier, ] <- NA # 이상치 NA로 변경
+DIA1.no.outlier <- na.omit(DIA1) # NA값 제거
+#boxplot(DIA1.no.outlier$x)
 
-DIA1$cut=f.cut
+#y값 이상치 제거
+outlier <- boxplot.stats(DIA1$y)$out
+DIA1[DIA1$y %in% outlier, ] <- NA
+DIA1.no.outlier <- na.omit(DIA1)
+#boxplot(DIA1.no.outlier$y)
 
-ggplot(data = smaller, mapping = aes(x = carat, colour = cut)) +geom_freqpoly(binwidth = 0.1)
+#z값 이상치 제거
+outlier <- boxplot.stats(DIA1$z)$out
+DIA1[DIA1$z %in% outlier, ] <- NA
+DIA1.no.outlier <- na.omit(DIA1)
+#boxplot(DIA1.no.outlier$z)
 
+
+boxplot(DIA1.no.outlier$z,DIA1.no.outlier$y,DIA1.no.outlier$y,main = '다이아몬드의 크기 평균치', names = c('X값','Y값','Z값'), col = hcl.colors(3))
 ```
 
 
 
 
-## 컷(컷팅가치) 갯수 파악
+
+## 다이아(table)과 다이아(depth)깊이 관계 그래프
 
 ```{r}
-library(ggplot2)
-head(DIA1)
+# 테이블은 다이아몬드 머리, 평평한 부분의 직경을 말하며,
+# 뎁쓰는 다이아의 머리부터 뾰족한부분의 높이를 말함.
+# 둘의 관계를 보았을때 캐럿의 크기가 제한적이며,
+# 테이블 50~70, 뎁쓰 55~70 크기를 유지하는 것으로 보인다.
+plot(DIA1$depth, DIA1$table, col = 'red', pch = 19, xlab = 'Depth', ylab = 'Table', cex=0.8)
 
-str(DIA1)
-levels(factor(DIA1$cut))
-f.cut = factor(DIA1$cut, levels = c('Fair','Good','Very Good','Premium','Ideal'))
-
-DIA1$cut=f.cut
-
-
-ggplot(data = DIA1) + geom_bar(aes(x = cut))
-```
-
-## 컷팅가치의 갯수 중 투명도등급 분포
-
-```{r}
-library(ggplot2)
-ggplot(DIA1) + geom_bar(aes(x = cut, fill = clarity))
-ggplot(DIA1) + geom_bar(aes(x = cut, fill = color))
-
-```
-
-## 다이아의 가격과 깊이 관계 그래프
-
-```{r}
-plot(DIA1$depth, DIA1$price, col = 'red', pch = 19, xlab = 'Depth', ylab = 'Price')
 ```
 
 ## 다이아의 가격과 캐럿 관계 그래프
 
 ```{r}
-plot(DIA1$carat, DIA1$price, col = 'tomato', pch = 19, xlab = 'Carat', ylab = 'Price')
+#캐럿이 크면 무조건 비싼가? YES..
+#하지만 그래프를 보면 높은 캐럿이라도 낮은 캐럿보다
+# 가격이 비슷하거나 낮은 것을 볼 수 있음.
+# 결국 캐럿만으로 다이아의 가치를 완전히 판단할 수 없음.
+plot(DIA1$carat, DIA1$price, col = 'tomato', pch = 19, xlab = 'Carat', ylab = 'Price', cex=0.6)
 ```
 
-##
+
+## 범주별 가격 평균 그래프(cut(세공),clarity(투명도),color(색상))
 
 ```{r}
-cor(DIA1[,c(2,6,7,8,9,10,11)])
-plot(DIA1$price,DIA1$carat, col = 'tomato', pch=3)
-str(DIA1)
-#DIA1$X
-library('gplots')
-heatmap.2((DIA1$price,DIA1$carat), scale = 'none', col = bluered(100),
-          trace = 'none',density.info = 'none')
+#다이아의 등급, 세공, 투명도, 색상 3가지가 존재하며 등급측정에 적용됨.
+# 하지만 그래프시각화를 해보았을땐 캐럿의 가치만큼의 기대값까지는 나오지 않는 것으로 판단됨.
+
+
+barplot(tapply(DIA1$price,DIA1$cut ,mean),col = cm.colors(5))
+barplot(tapply(DIA1$price,DIA1$clarity,mean), col = 'tomato')
+barplot(tapply(DIA1$price,DIA1$color,mean), col = 'skyblue')
+
 ```
+
+
+## 결국 캐럿만으로 가치를 결정내릴 순 없으며,
+## 캐럿, 세공, 투명도, 색상 등 다양한 기준이 충족이 되어야(빛의 반사능력)
+## 제 가치를 받을 수 있다는 것을 알았음.
 
