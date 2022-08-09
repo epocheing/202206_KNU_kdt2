@@ -4,9 +4,20 @@ author: "ss"
 date: "2022-08-08"
 output: html_document
 ---
+```{r include=FALSE}
+knitr::opts_chunk$set(warning = F)
+knitr::opts_chunk$set(message =  F)
+```
+
+
+
+
 ## DIABETES
-```{r}
+```{r message=FALSE}
 df <- read.csv("./diabetes/diabetes.csv", header = T)
+# 인슐린 0 = 370개 but 당뇨유무 0
+str(df)
+summary(df)
 df[,2:8][df[,2:8] == 0 ] <- NA  # 2:8 컬럼 0 -> NA 변경
 library(VIM)
 aggr(df, prop = F) # 결측치 확인
@@ -29,20 +40,12 @@ outDiabetesPedigreeFunction <- boxplot.stats(df$DiabetesPedigreeFunction)$out
 df <- df[!df$DiabetesPedigreeFunction %in% outDiabetesPedigreeFunction,]
 outAge <- boxplot.stats(df$Age)$out
 df <- df[!df$Age %in% outAge,]')
-
-df1 <- with(df, df[Outcome == 1,]) # 당뇨 있는 사람
-df0 <- with(df, df[Outcome == 0,]) # 당뇨 없는 사람
-library(corrplot)
-corrplot(cor(df[,-9]), method='number')
-# 당뇨 유무 상관 계수 차이
-View(cor(df1[,-9], method = "pearson")) 
-View(cor(df0[,-9], method = "pearson"))
-cor1 <- cor(df1[,-9], method = "pearson")
-cor2 <- cor(df0[,-9], method = "pearson")
-abs(cor1 - cor2)
 ```
+
 ## 변수값과 당뇨 관계
+
 ```{r}
+# tapply 통해 특정요소인 factor를 기준으로 수행함수 쓰기 위해 outcome 범주형 수치로
 df$Outcome <- factor(df$Outcome)
 par(mfrow = c(2,2))
 barplot(tapply(df$Pregnancies, df$Outcome, mean), col = 2:3, main = 'Pregnancies') 
@@ -57,34 +60,18 @@ barplot(tapply(df$DiabetesPedigreeFunction, df$Outcome, mean), col = 2:3, main =
 barplot(tapply(df$Age, df$Outcome, mean), col = 2:3, main = 'Age')
 par(mfrow = c(1,1))
 ```
-## 각 변수간 상관 관계
+
+## 당뇨 유무 상관 계수 차이
+
 ```{r}
-df$Outcome <- as.numeric(as.character(df$Outcome)) 
-cor.test(df$Pregnancies, df$Outcome)
-cor.test(df$Glucose, df$Outcome)
-cor.test(df$BloodPressure, df$Outcome)
-cor.test(df$SkinThickness, df$Outcome)
-cor.test(df$Insulin, df$Outcome)
-cor.test(df$BMI, df$Outcome)
-cor.test(df$DiabetesPedigreeFunction, df$Outcome)
-cor.test(df$Age, df$Outcome)
-```
-# 신체가 포도당을 처리하는 능력 & 당뇨 상관 관계
-```{r}
-mycolor <- ifelse(df$Outcome == 0, 'red', 'green')
-plot(df$Glucose, col = mycolor, pch = 19, cex = 1)
-```
-## 인슐린 & 글루코즈 상관 관계
-```{r}
-plot(df$Insulin, df$Glucose, col = mycolor, pch = 19, cex = 1)
-```
-## 
-```{r}
-plot(df$Age, df$Insulin, col = mycolor, pch = 19, cex = 1)
-```
-##
-```{r}
-plot(df$SkinThickness, df$Insulin, col = mycolor, pch = 19, cex = 1)
+df1 <- with(df, df[Outcome == 1,]) # 당뇨 있는 사람
+df0 <- with(df, df[Outcome == 0,]) # 당뇨 없는 사람
+
+View(cor(df1[,-9], method = "pearson")) 
+View(cor(df0[,-9], method = "pearson"))
+cor1 <- cor(df1[,-9], method = "pearson")
+cor2 <- cor(df0[,-9], method = "pearson")
+abs(cor1 - cor2)
 ```
 
 
@@ -108,13 +95,41 @@ plot(df1$Insulin, df1$DiabetesPedigreeFunction, col = 'red', cex = 0.5 , pch = 1
 plot(df0$Insulin, df0$DiabetesPedigreeFunction, col = 'green', cex = 0.5, pch = 19)
 par(mfrow = c(1,1))
 ```
-## 비만도, 인슐린 상관 관계(3) 
+
+## 비만도, 나이 상관 관계(3) 
 ```{r}
-cor(df1$Insulin, df1$BMI)
-cor(df0$Insulin, df0$BMI)
+cor(df1$Age, df1$BMI)
+cor(df0$Age, df0$BMI)
 
 par(mfrow = c(1,2))
 plot(df1$BMI, df1$Insulin, col = 'red', cex = 0.5, pch = 19)
 plot(df0$BMI, df0$Insulin, col = 'green', cex = 0.5, pch = 19)
 par(mfrow = c(1,1))
+```
+
+## 각 변수간 상관 관계
+
+```{r}
+df$Outcome <- as.numeric(as.character(df$Outcome)) 
+cor.test(df$Pregnancies, df$Outcome)
+cor.test(df$Glucose, df$Outcome) 
+cor.test(df$BloodPressure, df$Outcome)
+cor.test(df$SkinThickness, df$Outcome)
+cor.test(df$Insulin, df$Outcome)
+cor.test(df$BMI, df$Outcome)
+cor.test(df$DiabetesPedigreeFunction, df$Outcome)
+cor.test(df$Age, df$Outcome)
+```
+
+## 글루코즈 & 당뇨 상관 관계
+
+```{r}
+mycolor <- ifelse(df$Outcome == 0, 'red', 'green')
+plot(df$Glucose, col = mycolor, pch = 19, cex = 1) # 신체가 포도당을 처리하는 능력을 점수로 
+```
+
+## 인슐린 & 글루코즈 
+
+```{r}
+plot(df$Insulin, df$Glucose, col = mycolor, pch = 19, cex = 1)
 ```
