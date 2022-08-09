@@ -1,0 +1,128 @@
+---
+title: "Instacart Market Basket Analysis"
+author: "hyelee"
+date: "2022-08-08"
+output: html_document
+---
+
+## Instacart 데이터를 통한 소비자 분석
+- instacart : 실리콘벨리 스타트업
+- 신선 식품 구매대행서비스 제공 업체
+
+### [데이터파일]
+- order_products_train_df : 현재 구매자군의 제품주문내역
+- order_products_prior_df : 과거 구매자군의 제품주문내역
+- oders_df : 주문 정보
+- products_df : 제품 정보
+- aisles_df : 제품 상세 카테고리
+- departments_df : 제품 카테고리
+
+```{r}
+# 사용할 library 호출
+library(RColorBrewer)
+library(ggplot2)
+library(VIM)
+library(lattice)
+library(arules)
+library(arulesViz)
+library(tidyverse)
+library(data.table)
+library(scales)
+library(Rmisc)
+library(treemap)
+library(xgboost)
+library(caret)
+library(knitr)
+
+```
+
+### 1. 데이터 가져오기
+
+```{r}
+# 데이터 읽어오기
+products <- read.csv('./week7_team5_R/강혜리/instacart-market-basket-analysis/products.csv')
+aisles <- read.csv('./week7_team5_R/강혜리/instacart-market-basket-analysis/aisles.csv')
+departments <- read.csv('./week7_team5_R/강혜리/instacart-market-basket-analysis/departments.csv')
+orders <- read.csv('./week7_team5_R/강혜리/instacart-market-basket-analysis/orders.csv')
+order_products_train <- read.csv('./instacart-market-basket-analysis/order_products__train.csv')
+order_products_prior <- read.csv('./instacart-market-basket-analysis/order_products__prior.csv')
+
+
+# 구매 연관관계를 알아보기 위한 데이터 전처리
+orders_products <- merge(products, orders, all.x = T, by = 'product_id')
+head(orders_products)
+
+# 결측치 처리
+aggr(orders_products, numbers=T, prop = F)
+dim(orders_products)
+orders_products <- na.omit(orders_products)
+```
+#### 2. 데이터 탐색
+
+1) 구매자의 구매형태 분석
+
+```{r}
+table(orders$eval_set)
+barplot(table(orders$eval_set), col = 2:5)
+```
+2) 고객당 구매횟수
+- 고객 1명당 최소 4번의 구매가 이루어졌음
+
+```{r}
+order_count <- orders %>% dplyr::group_by(user_id) %>%
+  dplyr::summarise(n_orders = last(order_number))
+min(order_count$n_orders)
+```
+```{r}
+ggplot(order_count, aes(x = n_orders)) + 
+  geom_histogram(stat = "count", fill = "Sky Blue 3") +
+  scale_y_continuous(labels = comma)
+```
+
+
+3) 인기 구매 품목군 도출
+
+```{r}
+#ord <- table(orders_products$aisle_id)
+#top15 <- tail(ord[order(ord)], n=15)
+#category <- aisles$aisle
+#category <- category[as.numeric(names(top15))]
+#barplot(top15, names.arg = category, col = terrain.colors(15), main = '인기 구매 품목 ')
+
+
+ggplot(data=orders_products, aes(x=aisle_id))+geom_bar()+
+  geom_histogram(stat = "count", fill = "Sky Blue 3")+
+  scale_x_continuous(breaks = seq(0, 150, 10)) +
+  scale_y_continuous(breaks = seq(0, 150000, by=30000), labels = comma) +
+  labs(title='인기 구매 품목군', x='품목', y='구매횟수')
+```
+
+4) 요일, 시간대별 구매 횟수 분석
+
+
+```{r}
+day = list('일','월','화','수','목','금','토')
+
+g1 <- ggplot(orders, aes(x = order_dow)) + 
+  geom_histogram(stat = "count", fill = "Sky Blue 3") +
+  scale_x_continuous(breaks = seq(0, 7, 1)) +
+  scale_y_continuous(breaks = seq(0, 700000, by=100000), labels = comma) +
+  labs(title='요일별 구매횟수', x='요일', y='구매횟수')
+
+g2 <- ggplot(orders, aes(x = order_hour_of_day)) + 
+  geom_histogram(stat = "count", fill = "Sky Blue 3") +
+  scale_x_continuous(breaks = seq(0, 25, 1)) +
+  scale_y_continuous(breaks = seq(0, 400000, by=50000), labels = comma) +
+  labs(title='시간대별 구매횟수', x='시간', y='구매횟수')
+
+multiplot(g1, g2, layout = matrix(c(1,2), 2, 1, byrow = T))
+
+```
+
+5) 품목별 재구매율
+
+
+
+```{r}
+
+```
