@@ -149,6 +149,6 @@ ggplot(total_ord, aes(x = as.factor(reordered)))+
   geom_text(aes(label = ..count..), stat = "count",
             position = position_stack(0.5))+
   scale_y_continuous(labels = comma)+
-  labs(title='재구매 비율', x='재구매여부', y='수')
+  labs(title='재구매', x='재구매여부', y='수')
 
 ```
