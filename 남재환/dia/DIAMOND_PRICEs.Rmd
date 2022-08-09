@@ -1,0 +1,118 @@
+---
+title: "DIAMOND"
+author: "NJH"
+date: "2022-08-08"
+output: html_document
+---
+
+## 데이터 가져오기
+```{r}
+DIA1 <- read.csv("../dia/Diamonds_Prices2022.csv", header = T)
+str(DIA1)
+```
+
+## cut, color, clarity를 범주형(factor) 변경
+```{r}
+
+str(DIA1)
+levels(factor(DIA1$cut))
+f.cut = factor(DIA1$cut, levels = c('Fair','Good','Very Good','Premium','Ideal'))
+DIA1$cut=f.cut
+
+levels(factor(DIA1$color))
+f.color = factor(DIA1$color, levels = c('J','I','H','G','F','E','D'))
+DIA1$color=f.color
+str(DIA1)
+
+levels(factor(DIA1$clarity))
+f.clarity = factor(DIA1$clarity, levels = c('IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1'))
+DIA1$clarity=f.clarity
+str(DIA1)
+```
+```{r}
+tapply(DIA1$cut,DIA1$price,mean)
+```
+
+
+
+
+
+
+
+## 다이아몬드 크기와 갯수
+
+```{r}
+
+hist(DIA1$carat,col = 'tomato',main = '캐럿의 크기와 갯수',xlab = '캐럿크기', ylab = '캐럿갯수')
+mean(DIA1$carat) # 평균
+sd(DIA1$carat) # 표준편차
+var(DIA1$carat)
+```
+
+## 그래프
+```{r}
+library(ggplot2)
+smaller <- DIA1
+
+str(DIA1)
+levels(factor(DIA1$cut))
+f.cut = factor(DIA1$cut, levels = c('Fair','Good','Very Good','Premium','Ideal'))
+
+DIA1$cut=f.cut
+
+ggplot(data = smaller, mapping = aes(x = carat, colour = cut)) +geom_freqpoly(binwidth = 0.1)
+
+```
+
+
+
+
+## 컷(컷팅가치) 갯수 파악
+
+```{r}
+library(ggplot2)
+head(DIA1)
+
+str(DIA1)
+levels(factor(DIA1$cut))
+f.cut = factor(DIA1$cut, levels = c('Fair','Good','Very Good','Premium','Ideal'))
+
+DIA1$cut=f.cut
+
+
+ggplot(data = DIA1) + geom_bar(aes(x = cut))
+```
+
+## 컷팅가치의 갯수 중 투명도등급 분포
+
+```{r}
+library(ggplot2)
+ggplot(DIA1) + geom_bar(aes(x = cut, fill = clarity))
+ggplot(DIA1) + geom_bar(aes(x = cut, fill = color))
+
+```
+
+## 다이아의 가격과 깊이 관계 그래프
+
+```{r}
+plot(DIA1$depth, DIA1$price, col = 'red', pch = 19, xlab = 'Depth', ylab = 'Price')
+```
+
+## 다이아의 가격과 캐럿 관계 그래프
+
+```{r}
+plot(DIA1$carat, DIA1$price, col = 'tomato', pch = 19, xlab = 'Carat', ylab = 'Price')
+```
+
+##
+
+```{r}
+cor(DIA1[,c(2,6,7,8,9,10,11)])
+plot(DIA1$price,DIA1$carat, col = 'tomato', pch=3)
+str(DIA1)
+#DIA1$X
+library('gplots')
+heatmap.2((DIA1$price,DIA1$carat), scale = 'none', col = bluered(100),
+          trace = 'none',density.info = 'none')
+```
+
