@@ -25,15 +25,15 @@ df$y[df$y == 0]
 df$z[df$z == 0]
 df <- df[df$z != 0, ]
 
-summary(df)
-which(df$price == max(df$price))
 
+summary(df)
+max(df$price)
+which(df$price == max(df$price))
 df[which(df$price == max(df$price)), ]
 
-boxplot.stats(df$x, df$y, df$z)
+boxplot(df$x, df$y, df$z)
 boxplot(df$carat)
 boxplot(df$price)
+boxplot(df$depth)
 
-
-barplot(tapply(df$price, df$cut, mean))
-plot(df$price, df$carat)
+boxplot()

@@ -1,6 +1,10 @@
 df <- read.csv("diabetes.csv", header = T)
 str(df)
+summary(df)
+boxplot.stats(df$B)
 df <- df[df$Insulin != 0, ]
+
+
 
 df$Outcome <- factor(df$Outcome)
 barplot(tapply(df$Age, df$Outcome, mean))
@@ -22,7 +26,7 @@ cor.test(df$Glucose, df$Outcome)
 cor.test(df$BloodPressure, df$Outcome)
 summary(df$Glucose)
 
-plot(lm(df$Outcome ~ df$Glucose))
+# plot(lm(df$Outcome ~ df$Glucose))
 
 mycolor <- ifelse(df$Outcome == 0, "red", "green")
 plot(df$Insulin, df$Glucose, col = mycolor, pch = 19, cex = 0.8)
