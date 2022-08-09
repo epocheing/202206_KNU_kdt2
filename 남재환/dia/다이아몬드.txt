@@ -1,0 +1,40 @@
+
+price
+
+가격 ($326–$18,823)
+
+carat
+
+무게 (0.2–5.01)
+
+cut
+
+컷팅의 가치 (Fair, Good, Very Good, Premium, Ideal)
+
+colour
+
+다이아몬스 색상(J(가장 나쁜)에서 D(가장 좋은)까지)
+
+clarity
+
+깨끗함 (I1 (가장 나쁜), SI1, SI2, VS1, VS2, VVS1, VVS2, IF (가장 좋은))
+
+x
+
+길이 (0–10.74mm)
+
+y
+
+너비 (0–58.9mm)
+
+z
+
+깊이 (0–31.8mm)
+
+depth
+
+깊이 비율 = z / mean(x, y)
+
+table
+
+가장 넓은 부분의 너비 대비 다이아몬드 꼭대기의 너비(43–95) <- 비율(%)로 추정됨
