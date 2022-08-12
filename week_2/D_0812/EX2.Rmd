@@ -1,0 +1,82 @@
+---
+title: '이번주 마지막 두번째'
+date: '2022-08-12'
+autor: "Song Inuk"
+---
+
+# 회귀모델의 설명력
+
+## mtcars 데이터셋
+```{r}
+df <- mtcars
+str(df)
+df <- mtcars[, 1:6]
+str(df)
+```
+
+### 상관관계 확인
+
+```{r}
+plot(df, col = "seagreen")
+cor(df)
+library(corrgram)
+corrgram(df)
+```
+
+### 다중 회귀분석 실행
+```{r}
+model <- lm(mpg ~ ., data = df)
+summary(model)
+
+model <- lm(mpg ~ hp + wt, data = df)
+summary(model)
+```
+
+### AIC 지표
+```{r}
+model <- lm(mpg ~ ., data = df)
+mod.select <- step(model, direction = "backward")
+summary(mod.select)
+```
+
+### 연습문제
+    - Kaggle House Price 데이터셋에서
+    - 다중 선형 회귀의 변수 선택을 통해
+    - 최적의 독립 변수 조합을 찾아보세요.
+    - 1. 전진선택법으로 찾은 조합, R2, ad R2
+    - 2. 후진선택법으로 찾은 조합, R2, ad R2
+
+```{r}
+df1 <- read.csv("test.csv", header = TRUE)
+df <- read.csv("train.csv", header = TRUE)
+is.num <- c()
+for (i in 1:80) {
+    is.num[i] <- is.numeric(df[, i])
+}
+df <- df[, is.num]
+df <- df[, -1]
+dim(df)
+str(df)
+
+df <- na.omit(df)
+
+model <- lm(SalePrice ~ ., data = df)
+mod.select <- step(model, direction = "backward")
+mod.select
+summary(mod.select)
+```
+
+## 더미변수
+```{r}
+df <- InsectSprays
+lm(count ~ spray, data = df)
+model <- lm(count ~ spray, data = df)
+summary(model)
+contrasts(df$spray)
+```
+```{r}
+df <- mtcars[, 1:6]
+str(df)
+df$cyl <- factor(df$cyl)
+lm(mpg ~ ., data = df)
+```
