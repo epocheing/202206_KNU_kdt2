@@ -1,13 +1,10 @@
 ---
 title: "younghyo"
-format: markdown
-editor: visual
 ---
 
-\## 1. 데이터
+## 1. 데이터
 
-\- 와인데이터(레드 와인)
+-   어몽어스 승패 예측
+-   출처: <https://www.naver.com>
 
-\- 출처: \<https://www.naver.com\>
-
-\## 2. 분석방법
+## 2. 분석방법

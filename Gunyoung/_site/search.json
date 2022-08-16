@@ -7,6 +7,34 @@
     "text": "About this site"
   },
   {
+    "objectID": "chaebeom.html",
+    "href": "chaebeom.html",
+    "title": "chaebeom",
+    "section": "",
+    "text": "나라별 데이터 직무 연봉\n출처: https://www.naver.com"
+  },
+  {
+    "objectID": "chaebeom.html#분석방법",
+    "href": "chaebeom.html#분석방법",
+    "title": "chaebeom",
+    "section": "2. 분석방법",
+    "text": "2. 분석방법"
+  },
+  {
+    "objectID": "doyoung.html",
+    "href": "doyoung.html",
+    "title": "doyoung",
+    "section": "",
+    "text": "심혈관\n출처: https://www.naver.com"
+  },
+  {
+    "objectID": "doyoung.html#분석방법",
+    "href": "doyoung.html#분석방법",
+    "title": "doyoung",
+    "section": "2. 분석방법",
+    "text": "2. 분석방법"
+  },
+  {
     "objectID": "index.html#팀장-조건영",
     "href": "index.html#팀장-조건영",
     "title": "team2_orange",
@@ -19,5 +47,61 @@
     "title": "team2_orange",
     "section": "어려운점",
     "text": "어려운점\n\n팀장도 잘 모름"
+  },
+  {
+    "objectID": "inuk.html",
+    "href": "inuk.html",
+    "title": "inuk",
+    "section": "",
+    "text": "뇌졸증 데이터\n출처: https://www.naver.com"
+  },
+  {
+    "objectID": "inuk.html#분석방법",
+    "href": "inuk.html#분석방법",
+    "title": "inuk",
+    "section": "2. 분석방법",
+    "text": "2. 분석방법"
+  },
+  {
+    "objectID": "naryoung.html",
+    "href": "naryoung.html",
+    "title": "naryoung",
+    "section": "",
+    "text": "와인데이터(레드 와인)\n출처: https://www.naver.com"
+  },
+  {
+    "objectID": "naryoung.html#분석방법",
+    "href": "naryoung.html#분석방법",
+    "title": "naryoung",
+    "section": "2. 분석방법",
+    "text": "2. 분석방법"
+  },
+  {
+    "objectID": "yeongchan.html",
+    "href": "yeongchan.html",
+    "title": "yeongchan",
+    "section": "",
+    "text": "성격검사 설문조사\n출처: https://www.naver.com"
+  },
+  {
+    "objectID": "yeongchan.html#분석방법",
+    "href": "yeongchan.html#분석방법",
+    "title": "yeongchan",
+    "section": "2. 분석방법",
+    "text": "2. 분석방법"
+  },
+  {
+    "objectID": "younghyo.html",
+    "href": "younghyo.html",
+    "title": "younghyo",
+    "section": "",
+    "text": "어몽어스 승패 예측\n출처: https://www.naver.com"
+  },
+  {
+    "objectID": "younghyo.html#분석방법",
+    "href": "younghyo.html#분석방법",
+    "title": "younghyo",
+    "section": "2. 분석방법",
+    "text": "2. 분석방법"
   }
 ]
