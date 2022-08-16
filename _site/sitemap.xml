@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://9c9b70b1-a5c9-4aff-b3a3-77a464f179e3.netlify.app/about.html</loc>
-    <lastmod>2022-08-16T07:18:29.338Z</lastmod>
+    <loc>https://503c3100-17ce-47c1-a877-9033866aafd8.netlify.app/about.html</loc>
+    <lastmod>2022-08-16T16:21:49.575Z</lastmod>
   </url>
   <url>
-    <loc>https://9c9b70b1-a5c9-4aff-b3a3-77a464f179e3.netlify.app/index.html</loc>
-    <lastmod>2022-08-16T07:18:29.878Z</lastmod>
+    <loc>https://503c3100-17ce-47c1-a877-9033866aafd8.netlify.app/Gunyoung/about.html</loc>
+    <lastmod>2022-08-16T16:21:50.422Z</lastmod>
+  </url>
+  <url>
+    <loc>https://503c3100-17ce-47c1-a877-9033866aafd8.netlify.app/Gunyoung/index.html</loc>
+    <lastmod>2022-08-16T16:21:51.971Z</lastmod>
+  </url>
+  <url>
+    <loc>https://503c3100-17ce-47c1-a877-9033866aafd8.netlify.app/index.html</loc>
+    <lastmod>2022-08-16T16:21:54.177Z</lastmod>
+  </url>
+  <url>
+    <loc>https://503c3100-17ce-47c1-a877-9033866aafd8.netlify.app/InukSong/inuk.html</loc>
+    <lastmod>2022-08-16T16:21:57.238Z</lastmod>
+  </url>
+  <url>
+    <loc>https://503c3100-17ce-47c1-a877-9033866aafd8.netlify.app/younghyo/amongus.html</loc>
+    <lastmod>2022-08-16T16:21:59.984Z</lastmod>
   </url>
 </urlset>
