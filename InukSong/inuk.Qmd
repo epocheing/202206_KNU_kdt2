@@ -1,0 +1,17 @@
+---
+title: "Inuk Song's Brain Stroke Predict"
+author: "Inuk Song"
+date: "2022-08-17"
+---
+
+# EDA
+
+```{r}
+stroke <- read.csv("brain_stroke.csv", header = TRUE)
+str(stroke)
+```
+
+
+```{r}
+
+```
