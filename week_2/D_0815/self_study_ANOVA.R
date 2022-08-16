@@ -6,12 +6,14 @@ tapply(InsectSprays$count, InsectSprays$spray, mean)
 tapply(InsectSprays$count, InsectSprays$spray, sd)
 
 library(gplots)
-windows(width=12, height=8)
-plotmeans(count ~ spray, data = InsectSprays,
-          barcol = "tomato", barwidth = 3,
-          col = "cornflowerblue", lwd = 2,
-          xlab = "Type of Sprays", ylab = "Insect Count",
-          main = "Performance of Insect Sprays")
+windows(width = 12, height = 8)
+plotmeans(count ~ spray,
+    data = InsectSprays,
+    barcol = "tomato", barwidth = 3,
+    col = "cornflowerblue", lwd = 2,
+    xlab = "Type of Sprays", ylab = "Insect Count",
+    main = "Performance of Insect Sprays"
+)
 
 boxplot(count ~ spray, data = InsectSprays, col = "tomato")
 
@@ -24,4 +26,4 @@ model.tables(spray.aov, type = "effects")
 sprays.compare <- TukeyHSD(sprays.aov)
 sprays.compare
 str(sprays.compare)
-sprays.compare$spray['D-C',]
+sprays.compare$spray["D-C", ]
