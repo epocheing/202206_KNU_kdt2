@@ -7,9 +7,8 @@ website:
     left:
       - href: index.qmd
         text: Team2
-      - about.qmd
       - naryoung.qmd
-      - chaebeam.qmd
+      - chaebeom.qmd
       - yeongchan.qmd
       - younghyo.qmd
       - inuk.qmd
