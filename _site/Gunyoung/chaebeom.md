@@ -8,7 +8,7 @@ website:
     - href: ../index.qmd
       text: Home
     - ../about.qmd
-  site-url: "https://503c3100-17ce-47c1-a877-9033866aafd8.netlify.app/"
+  site-url: "https://c4c754f6-3acd-40d4-8784-92322ad3e924.netlify.app/"
   title: team2_orange
 ---
 
