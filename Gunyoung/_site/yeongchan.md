@@ -14,7 +14,7 @@ website:
     - younghyo.qmd
     - inuk.qmd
     - doyoung.qmd
-  site-url: "https://quartopub.com/sites/gyc/team2_orange"
+  site-url: "https://15814afa-3ee0-42a8-8716-d9de6a1071ba.netlify.app/"
   title: team2_orange
 ---
 
