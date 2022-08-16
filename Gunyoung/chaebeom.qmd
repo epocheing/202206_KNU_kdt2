@@ -1,7 +1,5 @@
 ---
 title: "chaebeom"
-format: markdown
-editor: visual
 ---
 
 ## 1. 데이터

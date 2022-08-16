@@ -7,21 +7,25 @@ website:
     left:
     - href: index.qmd
       text: Team2
-    - about.qmd
-    - naryoung.qmd
-    - chaebeam.qmd
-    - yeongchan.qmd
-    - younghyo.qmd
-    - inuk.qmd
-    - doyoung.qmd
-  site-url: "https://15814afa-3ee0-42a8-8716-d9de6a1071ba.netlify.app/"
+    - href: naryoung.qmd
+      text: naryoung
+    - href: chaebeom.qmd
+      text: chaebeom
+    - href: yeongchan.qmd
+      text: yeongchan
+    - href: younghyo.qmd
+      text: younghyo
+    - href: inuk.qmd
+      text: inuk
+    - href: doyoung.qmd
+      text: doyoung
+  site-url: "https://6df1b1fc-9684-4a82-8ae4-26841e065aa0.netlify.app/"
   title: team2_orange
 ---
 
-\## 1. 데이터
+## 1. 데이터
 
-\- 와인데이터(레드 와인)
+-   뇌졸증 데이터
+-   출처: <https://www.naver.com>
 
-\- 출처: \<https://www.naver.com\>
-
-\## 2. 분석방법
+## 2. 분석방법

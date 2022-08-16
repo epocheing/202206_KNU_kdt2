@@ -7,14 +7,15 @@ website:
     left:
     - href: index.qmd
       text: Team2
-    - about.qmd
-    - naryoung.qmd
-    - chaebeam.qmd
+    - index.qmd
+    - href: naryoung.qmd
+      text: naryoung
+    - chaebeom.qmd
     - yeongchan.qmd
     - younghyo.qmd
     - inuk.qmd
     - doyoung.qmd
-  site-url: "https://15814afa-3ee0-42a8-8716-d9de6a1071ba.netlify.app/"
+  site-url: "https://32878e24-fb1e-40e3-8690-c929625bcde2.netlify.app/"
   title: team2_orange
 ---
 
