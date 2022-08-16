@@ -1,7 +1,0 @@
----
-title: "TEAM Introduce"
----
-
-팀이름:
-
-팀주제:
