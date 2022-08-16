@@ -1,5 +1,7 @@
 ---
-title: "About"
+title: "TEAM Introduce"
 ---
 
-About this site
+팀이름:
+
+팀주제:
