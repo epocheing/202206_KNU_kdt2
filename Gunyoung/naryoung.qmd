@@ -1,13 +1,164 @@
 ---
-title: "naryoung"
+title: "project8"
+author: "신나령"
+format: html
+editor: visual
 ---
 
-## 1. 데이터
+#### 팀: 2조
 
-- 와인데이터(레드 와인)
-- 출처: <https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009>
+#### 주제: 화학 성분에 따른 레드 와인 품질 예측 분석
 
-## 2. 분석
+#### 방식: 이항로지스틱회귀분석
 
-- 이항로지스틱 분석으로 와인 품질의 예측
-- 와인의 밀도가 높을수록 품질이 떨어지는 것을 확인함
+##### 출처: https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE)
+```
+
+### 데이터 불러오기
+
+```{r}
+df <- read.csv('./winequality-red.csv')
+str(df)
+```
+
+### 결측치 확인
+
+```{r}
+sum(is.na(df))
+```
+
+### 데이터 이상치 확인
+
+```{r}
+# 처리 전
+nrow(df)
+
+boxplot(df)
+outlier <- boxplot.stats(df$total.sulfur.dioxide)$out
+df[df$total.sulfur.dioxide %in% outlier,] <- NA 
+df <- na.omit(df) # 결측치 삭제
+
+# 처리한 후
+nrow(df)
+```
+
+## 1. 품질별 레드와인 수
+
+```{r}
+barplot(table(df$quality),col='#880000',
+        main='Number of red wines by quality',ylab='count',xlab='quality')
+```
+
+##### · 중간 등급이 많고, 품질이 나쁘거나 좋은 건 소수
+
+## 2. 컬럼별 상관관계
+
+```{r}
+# 파랑-양, 빨강-음, 색이 진할수록 강함
+library(corrgram)
+corrgram(df,order=TRUE,lower.panel = panel.shade,upper.panel = panel.cor,
+         text.panel = panel.txt, main="reds wine corrgram")
+```
+
+##### · 품질과 상관관계가 있는 건 알콜(0.47)과 휘발성 산(-0.39)
+
+```{r}
+par(mfrow=c(1,2))
+boxplot(df$alcohol~df$quality,col=terrain.colors(6),
+        main = 'Alcohol of red wines by quality',
+        xlab = 'quality', ylab = 'alcohol')
+boxplot(df$volatile.acidity~df$quality,col=terrain.colors(6),
+        main = 'Volatile acidity of red wines by quality',
+        xlab = 'quality', ylab = 'volatile acidity')
+par(mfrow=c(1,1))
+```
+
+##### · 알콜은 양의 상관, 휘발성 산은 음의 상관
+
+```{r}
+cor.test(df$quality,df$alcohol)
+cor.test(df$quality,df$volatile.acidity)
+```
+
+##### · cor.test 결과 두 변수 다 유의확률이 0.05 미만
+
+## 3. 이항로지스틱회귀분석
+
+```{r}
+# 결과변수는 이분형 범주여야 해서 품질을 7이상이면 yes, 미만이면 no로 2개의 등급을 따로 만들어 줌
+df$is.quality <- factor(ifelse(df$quality>=7,'Yes','No'))
+barplot(table(df$is.quality),col='#880000')
+```
+
+##### · 품질이 좋은 게 상대적으로 적음
+
+```{r}
+df <- df[,-12] # 원래 있던 quality 변수 삭제
+model <- glm(is.quality ~ .,data=df,family = binomial(link='logit'))
+summary(model)
+```
+
+##### · volatile.acidity, residual.sugar, chlorides, total.sulfur.dioxide, sulphates, alcohol (휘발성 산, 잔여당, 염화율, 전체 이산화황, 황산염, 알콜) 변수들의 유의확률이 0.05보다 작음
+
+##### · 휘발성 산, 염화율, 전체 이산화황 변수들은 낮아질수록 품질이 좋아지고, 잔여당, 황산염, 알콜변수들은 증가할수록 품질이 좋아짐
+
+```{r}
+odds <- exp(cbind(OR=coef(model),confint(model)))
+odds
+```
+
+##### · 오즈비는 황산염, 알콜이 가장 큼
+
+##### · 황산염 값이 1 증가하면 품질이 높아질 확률이 약 98배 증가하고, 알콜은 1증가하면 품질이 높아질 확률이 약 2.25배 증가
+
+## 3. 원래 분류 모델 ROC 그래프
+
+```{r}
+library(pROC)
+# 독립변수 다 포함
+roc(is.quality~ model$fitted.values,data=df,plot=TRUE,
+    main='ROC CURVE',col='tomato')
+```
+
+##### · 모든 독립변수 다 넣었을 때 AUC 값이 0.8827
+
+## 4-(1). 새로운 분류 모델 ROC 그래프
+
+```{r}
+# 유의한 변수들만 넣어서 다시 모델 만듦
+re.model <- glm(is.quality ~ volatile.acidity+residual.sugar+chlorides +total.sulfur.dioxide+sulphates+alcohol,data=df,family = binomial(link='logit'))
+roc(is.quality~ re.model$fitted.values,data=df,plot=TRUE,
+    main='ROC CURVE',col='tomato')
+```
+
+##### · 위에서 확인한 유의확률이 높은 독립변수들(휘발성 산, 잔여당, 염화율, 전체 이산화황, 황산염, 알콜)만 넣었을 때 AUC 값이 0.8775
+
+## 4-(2). 혼동행렬
+
+```{r}
+# 결과변수는 일정 기준값인 0.5보다 크면 사건이 발생한 것으로 간주
+df$pred <- factor(ifelse(re.model$fitted.values > 0.5,'Yes','No'))
+tab <- table(df$is.quality,df$pred)
+tab
+mosaicplot(~pred+is.quality,data=df,color = TRUE,main = 'Confusion matrix',ylab='실제',xlab='예측')
+```
+
+```{r}
+# 분류모델의 성능평가지표
+# 정확도 계산
+TP <- tab[2,2]
+TN <- tab[1,1]
+FP <- tab[1,2]
+FN <- tab[2,1]
+accurancy <- (TP+TN)/(TP+TN+FP+FN)
+accurancy
+```
+
+##### · 정확도(참과 거짓을 정확히 맞힌 비율) 높음
+
+##### **\[결론\]** 새로운 분류 모델의 AUC 값이 원래 분류 모델의 AUC 값과 별다른 차이가 없고, 정확도가 0.88 정도로 높은 것으로 보아 회귀모델이 적합하다고 볼 수 있음
+
