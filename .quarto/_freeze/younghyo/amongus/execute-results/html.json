@@ -1,0 +1,16 @@
+{
+  "hash": "bd9035658c64007e25fec5722c6387ef",
+  "result": {
+    "markdown": "---\ntitle: \"Among Us\"\nformat: html\neditor: visual\n---\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nprop.table(table(df$Team)) \n```\n\n::: {.cell-output .cell-output-stdout}\n```\n\n Crewmate  Imposter \n0.7907499 0.2092501 \n```\n:::\n\n```{.r .cell-code}\nplot(prop.table(table(df$Team)))\n```\n\n::: {.cell-output-display}\n![](amongus_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlevels(crew$Outcome)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"Loss\" \"Win\" \n```\n:::\n\n```{.r .cell-code}\ntable(crew$Outcome)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n\nLoss  Win \n 780  981 \n```\n:::\n\n```{.r .cell-code}\nprop.table(table(crew$Outcome))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n\n     Loss       Win \n0.4429302 0.5570698 \n```\n:::\n\n```{.r .cell-code}\nprop.table(table(imposter$Outcome))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n\n     Loss       Win \n0.4399142 0.5600858 \n```\n:::\n\n```{.r .cell-code}\nwl.logit <- glm(Outcome ~ Game_Length, data = df,\n                family = binomial(link = 'logit'))\nsummary(wl.logit)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n\nCall:\nglm(formula = Outcome ~ Game_Length, family = binomial(link = \"logit\"), \n    data = df)\n\nDeviance Residuals: \n   Min      1Q  Median      3Q     Max  \n-1.297  -1.276   1.072   1.082   1.093  \n\nCoefficients:\n             Estimate Std. Error z value Pr(>|z|)  \n(Intercept) 2.019e-01  9.357e-02   2.158   0.0309 *\nGame_Length 4.746e-05  1.323e-04   0.359   0.7197  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 3057.6  on 2226  degrees of freedom\nResidual deviance: 3057.4  on 2225  degrees of freedom\nAIC: 3061.4\n\nNumber of Fisher Scoring iterations: 3\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\ntable(df$Team)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n\nCrewmate Imposter \n    1761      466 \n```\n:::\n\n```{.r .cell-code}\nstr(df)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n'data.frame':\t2227 obs. of  10 variables:\n $ Team                      : Factor w/ 2 levels \"Crewmate\",\"Imposter\": 1 1 1 2 1 1 1 1 1 1 ...\n $ Outcome                   : Factor w/ 2 levels \"Loss\",\"Win\": 2 1 2 2 1 1 1 2 2 1 ...\n $ Task_Completed            : int  3 7 3 NA 4 7 8 8 7 7 ...\n $ All_Tasks_Completed       : Factor w/ 3 levels \"\",\"No\",\"Yes\": 2 3 2 1 2 3 3 3 3 3 ...\n $ Murdered                  : Factor w/ 3 levels \"\",\"No\",\"Yes\": 3 2 2 1 2 3 3 2 3 3 ...\n $ Imposter_Kills            : int  NA NA NA 2 NA NA NA NA NA NA ...\n $ Game_Length               : int  424 981 693 485 310 982 1301 1123 795 763 ...\n $ Ejected                   : Factor w/ 2 levels \"No\",\"Yes\": 1 1 1 1 1 1 1 2 1 1 ...\n $ Sabotages_Fixed           : num  2 1 0 NA 0 0 1 0 0 0 ...\n $ Time_to_complete_all_tasks: chr  \"\" \"09m 48s\" \"\" \"\" ...\n```\n:::\n:::\n",
+    "supporting": [
+      "amongus_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

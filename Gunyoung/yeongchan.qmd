@@ -1,0 +1,10 @@
+---
+title: "yeongchan"
+---
+
+## 1. 데이터
+
+-   성격검사 설문조사
+-   출처: <https://www.naver.com>
+
+## 2. 분석방법

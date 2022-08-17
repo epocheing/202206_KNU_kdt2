@@ -1,0 +1,14 @@
+{
+  "hash": "9d73f876da5d77763e18ac8bb984985f",
+  "result": {
+    "markdown": "---\ntitle: \"Inuk Song's Brain Stroke Predict\"\nauthor: \"Inuk Song\"\ndate: \"2022-08-17\"\n---\n\n\n# EDA\n\n\n::: {.cell}\n\n```{.r .cell-code}\nstroke <- read.csv(\"brain_stroke.csv\", header = TRUE)\nstr(stroke)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n'data.frame':\t4981 obs. of  11 variables:\n $ gender           : chr  \"Male\" \"Male\" \"Female\" \"Female\" ...\n $ age              : num  67 80 49 79 81 74 69 78 81 61 ...\n $ hypertension     : int  0 0 0 1 0 1 0 0 1 0 ...\n $ heart_disease    : int  1 1 0 0 0 1 0 0 0 1 ...\n $ ever_married     : chr  \"Yes\" \"Yes\" \"Yes\" \"Yes\" ...\n $ work_type        : chr  \"Private\" \"Private\" \"Private\" \"Self-employed\" ...\n $ Residence_type   : chr  \"Urban\" \"Rural\" \"Urban\" \"Rural\" ...\n $ avg_glucose_level: num  229 106 171 174 186 ...\n $ bmi              : num  36.6 32.5 34.4 24 29 27.4 22.8 24.2 29.7 36.8 ...\n $ smoking_status   : chr  \"formerly smoked\" \"never smoked\" \"smokes\" \"never smoked\" ...\n $ stroke           : int  1 1 1 1 1 1 1 1 1 1 ...\n```\n:::\n:::\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
