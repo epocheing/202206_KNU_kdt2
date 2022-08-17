@@ -259,7 +259,7 @@ stargazer(lm(form_2, data = bfiDF_e_sum), type='text')
 
 ```{r}
 library(car)
-scatterplotMatrix(bfiDF_omit[29:35], pch = 19, col = "steelblue", cex = 1.2,
+scatterplotMatrix(bfiDF_omit[29:36], pch = 19, col = "steelblue", cex = 1.2,
 regLine = list(method = lm, lwd = 2, col = "tomato"), smooth = list(smoother = loessLine, spread = FALSE,
                                   lwd.smooth = 2, col.smooth = "orange"))
 ```
