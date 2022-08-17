@@ -11,28 +11,28 @@
     "href": "chaebeom.html",
     "title": "chaebeom",
     "section": "",
-    "text": "나라별 데이터 직무 연봉\n출처: https://www.naver.com"
+    "text": "나라별 데이터 직무 자료\n출처: https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries"
   },
   {
-    "objectID": "chaebeom.html#분석방법",
-    "href": "chaebeom.html#분석방법",
+    "objectID": "chaebeom.html#분석",
+    "href": "chaebeom.html#분석",
     "title": "chaebeom",
-    "section": "2. 분석방법",
-    "text": "2. 분석방법"
+    "section": "2. 분석",
+    "text": "2. 분석\n\n회사규모/원격업무 비중을 활용한 이원분산분석\n등분산성과 정규성에 따르지 않아 분석을 할 수 있을까???"
   },
   {
     "objectID": "doyoung.html",
     "href": "doyoung.html",
     "title": "doyoung",
     "section": "",
-    "text": "심혈관\n출처: https://www.naver.com"
+    "text": "심혈관\n출처: https://www.kaggle.com/datasets/yassinehamdaoui1/cardiovascular-disease?datasetId=552987&sortBy=voteCount"
   },
   {
     "objectID": "doyoung.html#분석방법",
     "href": "doyoung.html#분석방법",
     "title": "doyoung",
     "section": "2. 분석방법",
-    "text": "2. 분석방법"
+    "text": "2. 분석방법\n\n카이제곱/이항로지스틱분석으로 인한 심혈관 진단 예측\n임계치 찾기 어려움"
   },
   {
     "objectID": "index.html#팀장-조건영",
@@ -53,55 +53,69 @@
     "href": "inuk.html",
     "title": "inuk",
     "section": "",
-    "text": "뇌졸증 데이터\n출처: https://www.naver.com"
+    "text": "뇌졸증 데이터\n출처: https://www.kaggle.com/datasets/zzettrkalpakbal/full-filled-brain-stroke-dataset/code?datasetId=2343381&sortBy=voteCount"
   },
   {
     "objectID": "inuk.html#분석방법",
     "href": "inuk.html#분석방법",
     "title": "inuk",
     "section": "2. 분석방법",
-    "text": "2. 분석방법"
+    "text": "2. 분석방법\n\n혈액포도당/나이/비만도의 바탕으로 뇌졸증을 예측\n임계치의 잘못된 설정으로 인한 민감도와 특이도의 불균형\n분석방법의 한계계"
   },
   {
     "objectID": "naryoung.html",
     "href": "naryoung.html",
     "title": "naryoung",
     "section": "",
-    "text": "와인데이터(레드 와인)\n출처: https://www.naver.com"
+    "text": "와인데이터(레드 와인)\n출처: https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009"
   },
   {
-    "objectID": "naryoung.html#분석방법",
-    "href": "naryoung.html#분석방법",
+    "objectID": "naryoung.html#분석",
+    "href": "naryoung.html#분석",
     "title": "naryoung",
-    "section": "2. 분석방법",
-    "text": "2. 분석방법"
+    "section": "2. 분석",
+    "text": "2. 분석\n\n이항로지스틱 분석으로 와인 품질의 예측\n와인의 밀도가 높을수록 품질이 떨어지는 것을 확인함"
   },
   {
     "objectID": "yeongchan.html",
     "href": "yeongchan.html",
     "title": "yeongchan",
     "section": "",
-    "text": "성격검사 설문조사\n출처: https://www.naver.com"
+    "text": "성격검사 설문조사\n출처: library(psychTools)의 bfi데이터셋"
   },
   {
     "objectID": "yeongchan.html#분석방법",
     "href": "yeongchan.html#분석방법",
     "title": "yeongchan",
     "section": "2. 분석방법",
-    "text": "2. 분석방법"
+    "text": "2. 분석방법\n\n교차분석/분산분석/다항회귀분석을 활용한 여러 결론\n설문지에서 종속변수를 찾기"
   },
   {
     "objectID": "younghyo.html",
     "href": "younghyo.html",
     "title": "younghyo",
     "section": "",
-    "text": "어몽어스 승패 예측\n출처: https://www.naver.com"
+    "text": "어몽어스 승패 예측\n출처: https://www.kaggle.com/datasets/ruchi798/among-us-dataset"
   },
   {
     "objectID": "younghyo.html#분석방법",
     "href": "younghyo.html#분석방법",
     "title": "younghyo",
     "section": "2. 분석방법",
-    "text": "2. 분석방법"
+    "text": "2. 분석방법\n\n로지스틱에서 범주형 데이터가 문제\n교차분석/로지스틱분석을 통한 결과로 어몽어스 시작!!"
+  },
+  {
+    "objectID": "index.html#느낀점",
+    "href": "index.html#느낀점",
+    "title": "team2_orange",
+    "section": "느낀점",
+    "text": "느낀점\n\n팀장이라는 직책을 2주 연속으로 하다보니 책임감이 너무 필요해 몇주간은 휴식이 필요해 보임\n부족한 팀장을 믿고 따라와 준 팀원 분들에게 감사"
+  },
+  {
+    "objectID": "index.html#팀원",
+    "href": "index.html#팀원",
+    "title": "team2_orange",
+    "section": "팀원",
+    "text": "팀원\n\n1. 신나령\n\n1) 데이터\n\n와인데이터(레드 와인)\n출처: https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009\n\n\n\n2) 분석\n\n이항로지스틱 분석으로 와인 품질의 예측\n와인의 밀도가 높을수록 품질이 떨어지는 것을 확인함\n\n\n\n\n2. 허채범\n\n1) 데이터\n\n나라별 데이터 직무 자료\n출처: https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries\n\n\n\n2) 분석\n\n회사규모/원격업무 비중을 활용한 이원분산분석\n등분산성과 정규성에 따르지 않아 분석을 할 수 있을까???\n\n\n\n\n3. 방영찬\n\n1) 데이터\n\n성격검사 설문조사\n출처: library(psychTools)의 bfi데이터셋\n\n\n\n2) 분석방법\n\n교차분석/분산분석/다항회귀분석을 활용한 여러 결론\n설문지에서 종속변수를 찾기\n\n\n\n\n4. 곽영효\n\n1) 데이터\n\n어몽어스 승패 예측\n출처: https://www.kaggle.com/datasets/ruchi798/among-us-dataset\n\n\n\n2) 분석방법\n\n로지스틱에서 범주형 데이터가 문제\n교차분석/로지스틱분석을 통한 결과로 어몽어스 시작!!\n\n\n\n\n5. 송인욱\n\n1) 데이터\n\n뇌졸증 데이터\n출처: https://www.kaggle.com/datasets/zzettrkalpakbal/full-filled-brain-stroke-dataset/code?datasetId=2343381&sortBy=voteCount\n\n\n\n2) 분석방법\n\n혈액포도당/나이/비만도의 바탕으로 뇌졸증을 예측\n임계치의 잘못된 설정으로 인한 민감도와 특이도의 불균형\n분석방법의 한계\n\n\n\n\n6. 김도영\n\n1) 데이터\n\n심혈관\n출처: https://www.kaggle.com/datasets/yassinehamdaoui1/cardiovascular-disease?datasetId=552987&sortBy=voteCount\n\n\n\n2) 분석방법\n\n카이제곱/이항로지스틱분석으로 인한 심혈관 진단 예측\n임계치 찾기 어려움"
   }
 ]

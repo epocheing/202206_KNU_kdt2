@@ -4,7 +4,10 @@ title: "doyoung"
 
 ## 1. 데이터
 
--   심혈관
--   출처: <https://www.naver.com>
+- 심혈관
+- 출처: <https://www.kaggle.com/datasets/yassinehamdaoui1/cardiovascular-disease?datasetId=552987&sortBy=voteCount>
 
 ## 2. 분석방법
+
+- 카이제곱/이항로지스틱분석으로 인한 심혈관 진단 예측
+- 임계치 찾기 어려움

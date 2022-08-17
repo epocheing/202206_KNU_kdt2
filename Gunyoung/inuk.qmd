@@ -4,7 +4,11 @@ title: "inuk"
 
 ## 1. 데이터
 
--   뇌졸증 데이터
--   출처: <https://www.naver.com>
+- 뇌졸증 데이터
+- 출처: <https://www.kaggle.com/datasets/zzettrkalpakbal/full-filled-brain-stroke-dataset/code?datasetId=2343381&sortBy=voteCount>
 
 ## 2. 분석방법
+
+- 혈액포도당/나이/비만도의 바탕으로 뇌졸증을 예측
+- 임계치의 잘못된 설정으로 인한 민감도와 특이도의 불균형
+- 분석방법의 한계계
