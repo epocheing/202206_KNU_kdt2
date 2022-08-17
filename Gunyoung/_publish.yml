@@ -1,6 +1,4 @@
 - source: project
   quarto-pub:
-    - id: 026d6b2a-c71c-4f17-bdb1-3f0d54ab426c
-      url: 'https://quartopub.com/sites/gyc/team2_orange'
-    - id: cbf25994-883f-4527-b67d-72fe86d12bd9
+    - id: 9f05af89-bc7e-4ca6-afa5-a7b98f1b8664
       url: 'https://quartopub.com/sites/gyc/httpsgycquartopubteam2_orange'

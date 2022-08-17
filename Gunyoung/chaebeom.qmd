@@ -4,7 +4,10 @@ title: "chaebeom"
 
 ## 1. 데이터
 
--   나라별 데이터 직무 연봉
--   출처: <https://www.naver.com>
+- 나라별 데이터 직무 자료
+- 출처: <https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries>
 
-## 2. 분석방법
+## 2. 분석
+
+- 회사규모/원격업무 비중을 활용한 이원분산분석
+- 등분산성과 정규성에 따르지 않아 분석을 할 수 있을까???
