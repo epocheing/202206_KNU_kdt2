@@ -357,27 +357,31 @@ X-squared = 388.74, df = 32, p-value &lt; 2.2e-16</code></pre>
  - attr(*, "na.action")= 'omit' Named int [1:564] 1 2 3 4 5 7 9 10 12 13 ...
   ..- attr(*, "names")= chr [1:564] "61617" "61618" "61620" "61621" ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corr.test</span>(bfiDF_omit[,<span class="fu">c</span>(<span class="dv">27</span>,<span class="dv">32</span><span class="sc">:</span><span class="dv">36</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corr.test</span>(bfiDF_omit[,<span class="fu">c</span>(<span class="dv">26</span><span class="sc">:</span><span class="dv">28</span>,<span class="dv">32</span><span class="sc">:</span><span class="dv">36</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Call:corr.test(x = bfiDF_omit[, c(27, 32:36)])
+<pre><code>Call:corr.test(x = bfiDF_omit[, c(26:28, 32:36)])
 Correlation matrix 
-          education sum_A sum_C sum_E sum_N sum_O
-education      1.00 -0.05  0.06  0.01 -0.04  0.00
-sum_A         -0.05  1.00  0.05  0.30 -0.13  0.18
-sum_C          0.06  0.05  1.00  0.18  0.25  0.23
-sum_E          0.01  0.30  0.18  1.00  0.03  0.25
-sum_N         -0.04 -0.13  0.25  0.03  1.00  0.17
-sum_O          0.00  0.18  0.23  0.25  0.17  1.00
+          gender education   age sum_A sum_C sum_E sum_N sum_O
+gender      1.00      0.01  0.05  0.15 -0.04 -0.01  0.12 -0.04
+education   0.01      1.00  0.25 -0.05  0.06  0.01 -0.04  0.00
+age         0.05      0.25  1.00  0.07 -0.04 -0.05 -0.11 -0.04
+sum_A       0.15     -0.05  0.07  1.00  0.05  0.30 -0.13  0.18
+sum_C      -0.04      0.06 -0.04  0.05  1.00  0.18  0.25  0.23
+sum_E      -0.01      0.01 -0.05  0.30  0.18  1.00  0.03  0.25
+sum_N       0.12     -0.04 -0.11 -0.13  0.25  0.03  1.00  0.17
+sum_O      -0.04      0.00 -0.04  0.18  0.23  0.25  0.17  1.00
 Sample Size 
 [1] 2236
 Probability values (Entries above the diagonal are adjusted for multiple tests.) 
-          education sum_A sum_C sum_E sum_N sum_O
-education      0.00  0.13  0.04  1.00  0.21     1
-sum_A          0.03  0.00  0.07  0.00  0.00     0
-sum_C          0.01  0.01  0.00  0.00  0.00     0
-sum_E          0.63  0.00  0.00  0.00  0.43     0
-sum_N          0.05  0.00  0.00  0.14  0.00     0
-sum_O          0.85  0.00  0.00  0.00  0.00     0
+          gender education  age sum_A sum_C sum_E sum_N sum_O
+gender      0.00      1.00 0.31  0.00  0.50  1.00  0.00  0.48
+education   0.79      0.00 0.00  0.31  0.09  1.00  0.48  1.00
+age         0.03      0.00 0.00  0.01  0.47  0.14  0.00  0.54
+sum_A       0.00      0.03 0.00  0.00  0.15  0.00  0.00  0.00
+sum_C       0.07      0.01 0.05  0.01  0.00  0.00  0.00  0.00
+sum_E       0.57      0.63 0.01  0.00  0.00  0.00  0.72  0.00
+sum_N       0.00      0.05 0.00  0.00  0.00  0.14  0.00  0.00
+sum_O       0.05      0.85 0.09  0.00  0.00  0.00  0.00  0.00
 
  To see confidence intervals of the correlations, print with the short=FALSE option</code></pre>
 </div>
@@ -386,17 +390,28 @@ sum_O          0.85  0.00  0.00  0.00  0.00     0
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># education-sum_C =&gt; 0.01</span></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # C성실성</span></span>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># corrplot(bfiDF_omit[c(,27,31:35)])</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>corData <span class="ot">&lt;-</span> bfiDF_omit[,<span class="fu">c</span>(<span class="dv">27</span>,<span class="dv">32</span><span class="sc">:</span><span class="dv">36</span>)]</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>corData <span class="ot">&lt;-</span> bfiDF_omit[,<span class="fu">c</span>(<span class="dv">26</span><span class="sc">:</span><span class="dv">28</span>,<span class="dv">32</span><span class="sc">:</span><span class="dv">36</span>)]</span>
 <span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>corMatrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(corData)</span>
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>corMatrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>            education       sum_A      sum_C      sum_E       sum_N       sum_O
-education  1.00000000 -0.04712627 0.05776667 0.01014624 -0.04081495 -0.00394203
-sum_A     -0.04712627  1.00000000 0.05346300 0.30039252 -0.12711922  0.17705902
-sum_C      0.05776667  0.05346300 1.00000000 0.18170833  0.25206114  0.23152325
-sum_E      0.01014624  0.30039252 0.18170833 1.00000000  0.03085249  0.24605280
-sum_N     -0.04081495 -0.12711922 0.25206114 0.03085249  1.00000000  0.16735843
-sum_O     -0.00394203  0.17705902 0.23152325 0.24605280  0.16735843  1.00000000</code></pre>
+<pre><code>                gender    education         age       sum_A       sum_C
+gender     1.000000000  0.005729646  0.04697530  0.14713996 -0.03816819
+education  0.005729646  1.000000000  0.24911368 -0.04712627  0.05776667
+age        0.046975299  0.249113684  1.00000000  0.07203687 -0.04206447
+sum_A      0.147139960 -0.047126267  0.07203687  1.00000000  0.05346300
+sum_C     -0.038168193  0.057766674 -0.04206447  0.05346300  1.00000000
+sum_E     -0.012037519  0.010146235 -0.05448275  0.30039252  0.18170833
+sum_N      0.116491021 -0.040814950 -0.10563180 -0.12711922  0.25206114
+sum_O     -0.040612688 -0.003942030 -0.03588258  0.17705902  0.23152325
+                sum_E       sum_N       sum_O
+gender    -0.01203752  0.11649102 -0.04061269
+education  0.01014624 -0.04081495 -0.00394203
+age       -0.05448275 -0.10563180 -0.03588258
+sum_A      0.30039252 -0.12711922  0.17705902
+sum_C      0.18170833  0.25206114  0.23152325
+sum_E      1.00000000  0.03085249  0.24605280
+sum_N      0.03085249  1.00000000  0.16735843
+sum_O      0.24605280  0.16735843  1.00000000</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(corMatrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -883,7 +898,7 @@ Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <h1>설문항목 A, C, N이 교육수준과 회귀계수가 높음을 확인 했으나 설문항목과 교육수준의 상관관계가 약하므로 높은 회귀계수는 의미가 없음을 확인</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scatterplotMatrix</span>(bfiDF_omit[<span class="dv">29</span><span class="sc">:</span><span class="dv">35</span>], <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">cex =</span> <span class="fl">1.2</span>,</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scatterplotMatrix</span>(bfiDF_omit[<span class="dv">29</span><span class="sc">:</span><span class="dv">36</span>], <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">cex =</span> <span class="fl">1.2</span>,</span>
 <span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="at">regLine =</span> <span class="fu">list</span>(<span class="at">method =</span> lm, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"tomato"</span>), <span class="at">smooth =</span> <span class="fu">list</span>(<span class="at">smoother =</span> loessLine, <span class="at">spread =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">lwd.smooth =</span> <span class="dv">2</span>, <span class="at">col.smooth =</span> <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
