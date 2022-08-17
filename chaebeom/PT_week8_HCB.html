@@ -137,17 +137,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="eda" class="level5">
 <h5 class="anchored" data-anchor-id="eda">1. EDA</h5>
 </section>
-<section id="종속변수와-독립변수의-결정" class="level5">
-<h5 class="anchored" data-anchor-id="종속변수와-독립변수의-결정">2. 종속변수와 독립변수의 결정</h5>
+<section id="종속변수와-독립변수의-결정---히스토그램-q-q-플롯-샤피로-윌크-검정-anderson-darling-검정" class="level5">
+<h5 class="anchored" data-anchor-id="종속변수와-독립변수의-결정---히스토그램-q-q-플롯-샤피로-윌크-검정-anderson-darling-검정">2. 종속변수와 독립변수의 결정 - <span style="color: #008000">히스토그램, Q-Q 플롯, 샤피로-윌크 검정, Anderson-Darling 검정</span></h5>
 </section>
-<section id="정규성과-등분산성-검정" class="level5">
-<h5 class="anchored" data-anchor-id="정규성과-등분산성-검정">3. 정규성과 등분산성 검정</h5>
+<section id="정규성과-등분산성-검정---bartlett-검정-levene-검정" class="level5">
+<h5 class="anchored" data-anchor-id="정규성과-등분산성-검정---bartlett-검정-levene-검정">3. 정규성과 등분산성 검정 - <span style="color: #008000">bartlett 검정, levene 검정</span></h5>
 </section>
-<section id="이원-분산분석-집단의-영향-유무" class="level5">
-<h5 class="anchored" data-anchor-id="이원-분산분석-집단의-영향-유무">4. <span style="background-color: #fff5b1">이원 분산분석 (집단의 영향 유무)</span></h5>
+<section id="이원-분산분석-집단의-영향-유무---aov함수-상자도표boxplot-조건부도표coplot" class="level5">
+<h5 class="anchored" data-anchor-id="이원-분산분석-집단의-영향-유무---aov함수-상자도표boxplot-조건부도표coplot">4. <span style="background-color: #fff5b1">이원 분산분석 (집단의 영향 유무)</span> - <span style="color: #008000">aov함수, 상자도표(boxplot), 조건부도표(coplot)</span></h5>
 </section>
-<section id="사후검정-집단-간-영향관계" class="level5">
-<h5 class="anchored" data-anchor-id="사후검정-집단-간-영향관계">5. 사후검정 (집단 간 영향관계)</h5>
+<section id="사후검정-집단-간-영향관계---tukeyhsd" class="level5">
+<h5 class="anchored" data-anchor-id="사후검정-집단-간-영향관계---tukeyhsd">5. 사후검정 (집단 간 영향관계) - <span style="color: #008000">TukeyHSD</span></h5>
 </section>
 <section id="느낀점" class="level5">
 <h5 class="anchored" data-anchor-id="느낀점">6. 느낀점</h5>
@@ -363,8 +363,8 @@ Attaching package: 'VIM'</code></pre>
 <h3 class="anchored" data-anchor-id="section-6">———————————————————————————–</h3>
 </section>
 </section>
-<section id="종속변수와-독립변수의-결정-1" class="level2">
-<h2 class="anchored" data-anchor-id="종속변수와-독립변수의-결정-1"><span style="color: #0000FF">2. 종속변수와 독립변수의 결정</span></h2>
+<section id="종속변수와-독립변수의-결정" class="level2">
+<h2 class="anchored" data-anchor-id="종속변수와-독립변수의-결정"><span style="color: #0000FF">2. 종속변수와 독립변수의 결정</span></h2>
 <section id="처음-국가별-지급되는-급여의-차이---각국의-해당-업계-발전-수준이나-규모를-비교" class="level4">
 <h4 class="anchored" data-anchor-id="처음-국가별-지급되는-급여의-차이---각국의-해당-업계-발전-수준이나-규모를-비교">처음 : 국가별 지급되는 급여의 차이 -&gt; 각국의 해당 업계 발전 수준이나 규모를 비교</h4>
 </section>
@@ -384,8 +384,8 @@ Attaching package: 'VIM'</code></pre>
 <h3 class="anchored" data-anchor-id="section-7">———————————————————————————–</h3>
 </section>
 </section>
-<section id="정규성과-등분산성-검정-1" class="level2">
-<h2 class="anchored" data-anchor-id="정규성과-등분산성-검정-1"><span style="color: #0000FF">3. 정규성과 등분산성 검정</span></h2>
+<section id="정규성과-등분산성-검정" class="level2">
+<h2 class="anchored" data-anchor-id="정규성과-등분산성-검정"><span style="color: #0000FF">3. 정규성과 등분산성 검정</span></h2>
 </section>
 <section id="정규성-검정" class="level2">
 <h2 class="anchored" data-anchor-id="정규성-검정"><span style="color: #0000FF">1) 정규성 검정</span></h2>
@@ -484,7 +484,7 @@ W = 0.98793, p-value = 6.63e-05</code></pre>
     Shapiro-Wilk normality test
 
 data:  sal$salary_in_usd[sample(1:607, size = 500)]
-W = 0.89153, p-value &lt; 2.2e-16</code></pre>
+W = 0.88551, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>

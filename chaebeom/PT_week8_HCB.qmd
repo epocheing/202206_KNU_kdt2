@@ -14,10 +14,10 @@ editor: visual
   
 ##### [ 전체적 흐름 ]
 ##### 1. EDA
-##### 2. 종속변수와 독립변수의 결정
-##### 3. 정규성과 등분산성 검정
-##### 4. <span style='background-color: #fff5b1'>이원 분산분석 (집단의 영향 유무)</span>
-##### 5. 사후검정 (집단 간 영향관계)
+##### 2. 종속변수와 독립변수의 결정 - <span style="color: #008000">히스토그램, Q-Q 플롯, 샤피로-윌크 검정, Anderson-Darling 검정</span>
+##### 3. 정규성과 등분산성 검정 - <span style="color: #008000">bartlett 검정, levene 검정</span>
+##### 4. <span style='background-color: #fff5b1'>이원 분산분석 (집단의 영향 유무)</span> - <span style="color: #008000">aov함수, 상자도표(boxplot), 조건부도표(coplot)</span>
+##### 5. 사후검정 (집단 간 영향관계) - <span style="color: #008000">TukeyHSD</span>
 ##### 6. 느낀점  
 
 ### -----------------------------------------------------------------------------------
