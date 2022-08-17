@@ -1,0 +1,56 @@
+---
+title: "Among Us"
+format: html
+editor: visual
+---
+
+
+
+
+```{r include = F}
+df <- read.csv(file = './AmongUsData/amongus.csv',
+                header = T)
+str(df)
+df$Team <- as.factor(df$Team)
+df$Outcome <- as.factor(df$Outcome)
+df$All_Tasks_Completed <- as.factor(df$All_Tasks_Completed)
+df$Murdered <- as.factor(df$Murdered)
+df$Ejected <- as.factor(df$Ejected)
+str(df)
+
+crew <- df[df$Team == 'Crewmate',]
+imposter <- df[df$Team == 'Imposter', ]
+```
+
+
+
+```{r}
+prop.table(table(df$Team)) 
+
+plot(prop.table(table(df$Team)))
+```
+
+
+
+```{r}
+levels(crew$Outcome)
+table(crew$Outcome)
+prop.table(table(crew$Outcome))
+prop.table(table(imposter$Outcome))
+
+wl.logit <- glm(Outcome ~ Game_Length, data = df,
+                family = binomial(link = 'logit'))
+summary(wl.logit)
+
+```
+
+
+```{r}
+table(df$Team)
+str(df)
+
+
+```
+
+
+
