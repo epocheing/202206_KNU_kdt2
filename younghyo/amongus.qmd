@@ -8,7 +8,7 @@ editor: visual
 df <- read.csv(file = './AmongUsData/amongus.csv',
                 header = T)
 library(gmodels)
-library(ggplot2)
+library(pROC)
 ```
 
 ```{r include = F}
@@ -138,8 +138,6 @@ corrgram(df, upper.panel = panel.conf)
 
 
 
-
-
 ## 분석
 
 임무 완료수와 게임 시간은 강한 양의 상관관계
@@ -240,42 +238,59 @@ CrossTable(crew$All_Tasks_Completed, crew$Outcome, chisq = T)
 내가 전체 임무를 완료했다고 해서 승률이 드라마틱하게 오르지는 않는다.
 
 ```{r}
-
-hist(crew$Game_Length)
-hist(imposter$Game_Length)
+hist(df$Game_Length, breaks = 40)
 ```
 
-
-
-
-```{r include = F}
-head(df$Outcome)
-str(df)
-```
 
 
 ```{r}
 crew.logit <- glm(Outcome ~ Task_Completed +
                   Game_Length + Sabotages_Fixed +
-                  Ejected + Murdered,
+                  Ejected + Murdered + All_Tasks_Completed,
                 data = crew,
                 family = binomial(link = 'logit'))
 summary(crew.logit)
 exp(coef(crew.logit))
 ```
 
+## 패배와 관련된 로지스틱 회귀분석(크루원)
+
+
+방출됨 O, 살해당함 O => 승률 ↓
+
+전체 임무 완료 O, 게임 시간 ↑ => 승률 ↑
 
 
 
-## 로지스틱(크루원)
+```{r}
+crew$pred <- factor(ifelse(crew.logit$fitted.values <= 0.5,
+                         'Yes', 'No'))
+table(crew$Outcome, crew$pred)
+```
 
+```{r}
+tab1 <- table(crew$Outcome, crew$pred)
 
-방출됨 O, 살해당함 O => 승률 ↑
+TP <- tab1[1,2]
+TN <- tab1[2,1]
+FP <- tab1[1,1]
+FN <- tab1[2,2]
 
-게임 시간 ↑ => 승률 ↓
+accuracy_crew <- (TP + TN) / (TP + TN + FP + FN)
+accuracy_crew
+```
 
+정확도: 63%
 
+```{r}
+roc(Outcome ~ crew.logit$fitted.values, data = crew,
+    plot = TRUE, main = 'ROC CURVE', col='tomato')
+```
 
+## 분석
+
+ROC 그래프의 AUC가 0.663으로써
+0.7 이하이므로 가치가 높지 않다.
 
 
 ```{r}
@@ -288,17 +303,43 @@ exp(coef(imposter.logit))
 ```
 
 
+## 패배와 관련된 로지스틱 회귀분석(임포스터)
 
 
-## 로지스틱(임포스터)
+방출됨 O, 게임시간 ↑ => 승률 ↓
 
-
-방출됨 O, 게임시간 ↑ => 승률 ↑
-
-크루원 킬수 ↑ => 승률 ↓
-
+크루원 킬수 ↑ => 승률 ↑
 
 
 
+```{r}
+imposter$pred <- factor(ifelse(imposter.logit$fitted.values <= 0.5,'Yes', 'No'))
+table(imposter$Outcome, imposter$pred)
+```
+
+```{r}
+tab2 <- table(imposter$Outcome, imposter$pred)
+
+TP <- tab2[1,2]
+TN <- tab2[2,1]
+FP <- tab2[1,1]
+FN <- tab2[2,2]
+
+accuracy_imposter <- (TP + TN) / (TP + TN + FP + FN)
+accuracy_imposter
+```
+
+정확도 76.6%
 
 
+```{r}
+roc(Outcome ~ imposter.logit$fitted.values, data = imposter,
+    plot = TRUE, main = 'ROC CURVE', col='tomato')
+```
+
+
+
+## 분석
+
+ROC 그래프의 AUC가 0.8328로써
+어느정도 가치가 있다.
