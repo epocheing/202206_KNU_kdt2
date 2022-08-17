@@ -1,13 +1,375 @@
 ---
 title: "yeongchan"
+author: "yc"
+editor: visual
 ---
 
-## 1. 데이터
+# 목표 : 응답결과에 따른 연령, 교육수준, 나이 관련성
 
-- 성격검사 설문조사
-- 출처: library(psychTools)의 bfi데이터셋
+# 25항까지는 설문항목, 26\~28항까지는 연령, 교육수준, 나이
 
-## 2. 분석방법
+```{r}
+library(psychTools) 
+library(psych)
+library(corrplot)
+bfiDF_2nd <- bfi
+bfiDF_omit <- na.omit(bfiDF_2nd)
+```
 
-- 교차분석/분산분석/다항회귀분석을 활용한 여러 결론
-- 설문지에서 종속변수를 찾기
+# O개방성
+
+# C성실성
+
+# E외향성
+
+# A우호성
+
+# N신경증
+
+# 성별, 교육, 나이 범주화----
+
+```{r}
+bfiDF_omit$f_gender <- factor(bfiDF_omit$gender, levels = c(1, 2), labels = c('Males', 'Females'))
+bfiDF_omit$f_education <- factor(bfiDF_omit$education, levels = c(1, 2, 3, 4, 5),
+                                 labels = c('HS', 'finished HS',
+                                            'some college', 'college graduate',
+                                            'graduate degree'))
+bfiDF_omit$f_age <- cut(bfiDF_omit$age, breaks = c(0,10,20,30,40,50,60,70,80,90),
+    labels = c('under 10', '10s', '20s','30s', '40s', '50s', '60s', '70s',
+               '80s'))
+```
+
+# barplot ----
+
+```{r}
+# par(mfrow=c(4,4))
+# 성별, 교육, 나이 그래프
+barplot(table(bfiDF_omit$f_gender), main='gender')
+# 성별 응답자 중 여성이 많음
+barplot(table(bfiDF_omit$f_education), main='education')
+# 교육수준별 응답자 중 대재가 가장 많음
+barplot(table(bfiDF_omit$age), main='age')
+# 연령별 응답자 중 20살이 가장 많음
+# par(mfrow=c(1,1))
+```
+
+# 각 설문항목의 합----
+
+```{r}
+bfiDF_omit$sum_A <- bfiDF_omit[,1]+bfiDF_omit[,2]+bfiDF_omit[,3]+bfiDF_omit[,4]+bfiDF_omit[,5]
+bfiDF_omit$sum_C <- bfiDF_omit[,6]+bfiDF_omit[,7]+bfiDF_omit[,8]+bfiDF_omit[,9]+bfiDF_omit[,10]
+bfiDF_omit$sum_E <- bfiDF_omit[,11]+bfiDF_omit[,12]+bfiDF_omit[,13]+bfiDF_omit[,14]+bfiDF_omit[,15]
+bfiDF_omit$sum_N <- bfiDF_omit[,16]+bfiDF_omit[,17]+bfiDF_omit[,18]+bfiDF_omit[,19]+bfiDF_omit[,20]
+bfiDF_omit$sum_O <- bfiDF_omit[,21]+bfiDF_omit[,22]+bfiDF_omit[,23]+bfiDF_omit[,24]+bfiDF_omit[,25]
+
+```
+
+```{r}
+#?barplot()
+barplot(table(bfiDF_omit$sum_A), xlim = c(0,32),
+        ylim = c(0,300), main='Sum of Agreeableness') #22
+barplot(table(bfiDF_omit$sum_C), xlim = c(0,32),
+        ylim = c(0,320), main='Sum of Conscientiousness') #20
+barplot(table(bfiDF_omit$sum_E), xlim = c(0,32),
+        ylim = c(0,320), main='Sum of Extraversion') #19
+barplot(table(bfiDF_omit$sum_N), xlim = c(0,32),
+        ylim = c(0,120), main='Sum of Neuroticism') #14
+barplot(table(bfiDF_omit$sum_O), xlim = c(0,32),
+        ylim = c(0,420), main='Sum of Openness') #20
+```
+
+# N(신경증) 항목은 다른 항목에 비해 부정적인 면이 강해서 수치가 고루 분포 된것으로 확인되었습니다.
+
+# 카이제곱 검정 시작----
+
+# 카이제곱 검정(성별, 교육수준)
+
+```{r}
+table(bfiDF_omit$f_gender, bfiDF_omit$f_education)
+
+chisq.test(table(bfiDF_omit$f_gender, bfiDF_omit$f_education))
+
+```
+
+# 응답자의 성별과 교육수준은 통계적 유의성이 있다.
+
+# 카이제곱 검정(성별, 연령)
+
+```{r}
+table(bfiDF_omit$f_gender, bfiDF_omit$f_age)
+
+chisq.test(table(bfiDF_omit$f_gender, bfiDF_omit$f_age))
+
+```
+
+# p-value가 0.05보다 작으므로 응답자의 성별과 나이는 통계적 유의성이 있다.
+
+# 카이제곱 검정(교육수준, 연령)
+
+```{r}
+table(bfiDF_omit$f_education, bfiDF_omit$f_age)
+  
+chisq.test(table(bfiDF_omit$f_education, bfiDF_omit$f_age))
+
+```
+
+# 상관관계
+
+```{r}
+str(bfiDF_omit)
+corr.test(bfiDF_omit[,c(27,32:36)])
+# p-value=>education-sum_A 0.03,
+# # A우호성
+# education-sum_C => 0.01
+# # C성실성
+# corrplot(bfiDF_omit[c(,27,31:35)])
+corData <- bfiDF_omit[,c(27,32:36)]
+corMatrix <- cor(corData)
+corMatrix
+corrplot(corMatrix)
+```
+
+# 다항 선형회귀
+
+```{r}
+library(car)
+
+form_multi_age_A <- sum_A~age+I(age^2)
+lm(form_multi_age_A, data=bfiDF_omit)
+model_multi_age_A <- lm(form_multi_age_A, data=bfiDF_omit)
+plot(sum_A~age, data=bfiDF_omit, pch=19,
+     col='steelblue')
+library(dplyr)
+with(bfiDF_omit,
+     lines(arrange(data.frame(age, fitted(model_multi_age_A)), age),
+           lty=1, lwd=3, col='tomato'))
+summary(model_multi_age_A)
+anova(model_multi_age_A)
+
+# form_age_sA <- age~sum_A
+# model_age_sA <- lm(formula=form_age_sA, data=bfiDF_omit)
+# abline(model_age_sA, lwd=2, col='tomato')
+# summary(model_age_sA)
+# anova(model_age_sA)
+```
+
+# 분석: 나이가 많아질수록 우호성(A)이 좋아지다가 낮아진다
+
+```{r}
+summary(aov(sum_A~f_age, data=bfiDF_omit))
+str(bfiDF_omit$f_age)
+
+```
+
+# 다항선형회귀(나이와 항목C)
+
+```{r}
+
+form_multi_age_C <- sum_C~age+I(age^2)
+lm(form_multi_age_C, data=bfiDF_omit)
+model_multi_age_C <- lm(form_multi_age_C, data=bfiDF_omit)
+plot(sum_C~age, data=bfiDF_omit, pch=19,
+     col='steelblue')
+library(dplyr)
+with(bfiDF_omit,
+     lines(arrange(data.frame(age, fitted(model_multi_age_C)), age),
+           lty=1, lwd=3, col='tomato'))
+summary(model_multi_age_C)
+anova(model_multi_age_C)
+```
+
+# 분석: 성실성(C)은 나이가 많아질 수록 낮아짐을 확인할 수 있었습니다.
+
+# 다항선형회귀(나이와 항목E)
+
+```{r}
+form_multi_age_E <- sum_E~age+I(age^2)
+lm(form_multi_age_E, data=bfiDF_omit)
+model_multi_age_E <- lm(form_multi_age_E, data=bfiDF_omit)
+plot(sum_E~age, data=bfiDF_omit, pch=19,
+     col='steelblue')
+library(dplyr)
+with(bfiDF_omit,
+     lines(arrange(data.frame(age, fitted(model_multi_age_E)), age),
+           lty=1, lwd=3, col='tomato'))
+summary(model_multi_age_E)
+anova(model_multi_age_E)
+```
+
+# 분석: 나이가 많아질수록 외향성(E)이 낮아진다.
+
+# 다항선형회귀(나이와 항목N)
+
+```{r}
+
+form_multi_age_N <- sum_N~age+I(age^2)
+lm(form_multi_age_N, data=bfiDF_omit)
+model_multi_age_N <- lm(form_multi_age_N, data=bfiDF_omit)
+plot(sum_N~age, data=bfiDF_omit, pch=19,
+     col='steelblue')
+library(dplyr)
+with(bfiDF_omit,
+     lines(arrange(data.frame(age, fitted(model_multi_age_N)), age),
+           lty=1, lwd=3, col='tomato'))
+summary(model_multi_age_N)
+anova(model_multi_age_N)
+```
+
+# 분석: 신경증(N)은 20세 근처에서 최대였다가 나이가 많아질수록 감소함.
+
+# 다항선형회귀(나이와 항목O)
+
+```{r}
+
+form_multi_age_O <- sum_O~age+I(age^2)
+lm(form_multi_age_O, data=bfiDF_omit)
+model_multi_age_O <- lm(form_multi_age_O, data=bfiDF_omit)
+plot(sum_O~age, data=bfiDF_omit, pch=19,
+     col='steelblue')
+library(dplyr)
+with(bfiDF_omit,
+     lines(arrange(data.frame(age, fitted(model_multi_age_N)), age),
+           lty=1, lwd=3, col='tomato'))
+summary(model_multi_age_O)
+anova(model_multi_age_O)
+```
+
+# 분석: 개방성(O) 또한 20세 근처에서 최대였다가 나이가 많아질수록 감소함.
+
+# 다중 선형 회귀(교육과 각 설문항목)
+
+```{r}
+# education~sum_A+sum_C+sum_E+sum_N+sum_O
+bfiDF_e_sum <- subset(bfiDF_omit,
+                      select=c(27, 32:36))
+cor(bfiDF_e_sum)
+plot(bfiDF_e_sum, pch=19, col='steelblue')
+form_2 = education ~ sum_A+sum_C+sum_E+sum_N+sum_O
+lm(form_2, data = bfiDF_e_sum)
+summary(lm(form_2, data = bfiDF_e_sum))
+```
+
+# stargazer
+
+```{r}
+library(stargazer)
+stargazer(lm(form_2, data = bfiDF_e_sum), type='text')
+```
+
+# 설문항목 A, C, N이 교육수준과 회귀계수가 높음을 확인 했으나 설문항목과 교육수준의 상관관계가 약하므로 높은 회귀계수는 의미가 없음을 확인
+
+```{r}
+library(car)
+scatterplotMatrix(bfiDF_omit[29:35], pch = 19, col = "steelblue", cex = 1.2,
+regLine = list(method = lm, lwd = 2, col = "tomato"), smooth = list(smoother = loessLine, spread = FALSE,
+                                  lwd.smooth = 2, col.smooth = "orange"))
+```
+
+# 항목 합들을 구간을 나누기(3구간)
+
+```{r}
+str(bfiDF_omit)
+# A----
+bfiDF_omit$sum_A_3 <- cut(bfiDF_omit$sum_A, breaks = c(0,10,20,30),
+    labels = c(10, 20, 30))
+table(bfiDF_omit$sum_A_3)
+  # 0~10 10~20 20~30 
+  #  19   807  1410 
+# C----
+bfiDF_omit$sum_C_3 <- cut(bfiDF_omit$sum_C, breaks = c(0,10,20,30),
+    labels = c(10, 20, 30))
+table(bfiDF_omit$sum_C_3)
+ # 0~10 10~20 20~30 
+ #    8  1600   628 
+# E----
+bfiDF_omit$sum_E_3 <- cut(bfiDF_omit$sum_E, breaks = c(0,10,20,30),
+    labels = c(10, 20, 30))
+table(bfiDF_omit$sum_E_3)
+ # 0~10 10~20 20~30 
+ #    4  1681   551 
+# N----
+bfiDF_omit$sum_N_3 <- cut(bfiDF_omit$sum_N, breaks = c(0,10,20,30),
+    labels = c(10, 20, 30))
+table(bfiDF_omit$sum_N_3)
+ # 0~10 10~20 20~30 
+ #  491  1235   510 
+# O----
+bfiDF_omit$sum_O_3 <- cut(bfiDF_omit$sum_O, breaks = c(0,10,20,30),
+    labels = c(10, 20, 30))
+table(bfiDF_omit$sum_O_3)
+ # 0~10 10~20 20~30 
+ #    5  1573   658 
+```
+
+# 구간 나눈 항목들 그래프
+
+```{r}
+par(mfrow=c(3,2))
+barplot(table(bfiDF_omit$sum_A_3), main='Agreeableness_3') # 20~30점 이 가장 많음
+barplot(table(bfiDF_omit$sum_C_3), main='Conscientiousness_3') # 10~20점 이 가장 많음
+barplot(table(bfiDF_omit$sum_E_3), main='Exraversion_3') # 10~20점 이 가장 많음
+barplot(table(bfiDF_omit$sum_N_3), main='Neuroticism_3') # 10~20점 이 가장 많음
+barplot(table(bfiDF_omit$sum_O_3), main='Openness_3') # 10~20점 이 가장 많음
+```
+
+```{r}
+
+table(bfiDF_omit$sum_A_3)
+table(bfiDF_omit$sum_C_3)
+table(bfiDF_omit$sum_E_3)
+table(bfiDF_omit$sum_N_3)
+table(bfiDF_omit$sum_O_3)
+```
+
+# 단순선형회귀(나이와 항목A)
+
+# `{r} # # 종속변수 :  age # # 독립변수 :  항목? # form_age_sA3 <- age~sum_A_3 # model_age_sA3 <- lm(formula=form_age_sA3, data=bfiDF_omit) # abline(model_age_sA3, lwd=2, col='tomato') # summary(model_age_sA3) # anova(model_age_sA3) # 0.007314 ** #`
+
+# 박스플롯(age\~각 항목 3구간)
+
+```{r}
+plot(age~sum_A_3, data=bfiDF_omit, pch=19,
+
+col='steelblue')
+
+plot(age~sum_C_3, data=bfiDF_omit, pch=19,
+
+col='steelblue')
+
+plot(age~sum_E_3, data=bfiDF_omit, pch=19,
+
+col='steelblue')
+
+plot(age~sum_N_3, data=bfiDF_omit, pch=19,
+
+col='steelblue')
+
+plot(age~sum_O_3, data=bfiDF_omit, pch=19,
+
+col='steelblue')
+
+```
+
+```{r}
+form_A_3 <- age~sum_A_3
+form_C_3 <- age~sum_C_3
+form_E_3 <- age~sum_E_3
+form_N_3 <- age~sum_N_3
+form_O_3 <- age~sum_O_3
+model_A_3 <- lm(formula=form_A_3, data=bfiDF_omit)
+model_C_3 <- lm(formula=form_C_3, data=bfiDF_omit)
+model_E_3 <- lm(formula=form_E_3, data=bfiDF_omit)
+model_N_3 <- lm(formula=form_N_3, data=bfiDF_omit)
+model_O_3 <- lm(formula=form_O_3, data=bfiDF_omit)
+# abline(model_A_3, lwd=2, col='tomato')
+summary(model_A_3)
+summary(model_C_3)
+summary(model_E_3)
+summary(model_N_3)
+summary(model_O_3)
+anova(model_A_3) # 0.007314 **
+anova(model_C_3) # 0.001918 **
+anova(model_E_3) # 0.09644
+anova(model_N_3) # 1.451e-08 ***
+anova(model_O_3) # 0.04753 *
+```

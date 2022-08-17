@@ -21,7 +21,7 @@ knitr::opts_chunk$set(warning = FALSE)
 ### 데이터 불러오기
 
 ```{r}
-df <- read.csv('./winequality-red.csv')
+df <- read.csv('../naryoung/winequality-red.csv')
 str(df)
 ```
 
@@ -161,4 +161,3 @@ accurancy
 ##### · 정확도(참과 거짓을 정확히 맞힌 비율) 높음
 
 ##### **\[결론\]** 새로운 분류 모델의 AUC 값이 원래 분류 모델의 AUC 값과 별다른 차이가 없고, 정확도가 0.88 정도로 높은 것으로 보아 회귀모델이 적합하다고 볼 수 있음
-
