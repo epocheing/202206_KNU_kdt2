@@ -116,13 +116,13 @@ chisq.test(table(bfiDF_omit$f_education, bfiDF_omit$f_age))
 
 ```{r}
 str(bfiDF_omit)
-corr.test(bfiDF_omit[,c(27,32:36)])
+corr.test(bfiDF_omit[,c(26:28,32:36)])
 # p-value=>education-sum_A 0.03,
 # # A우호성
 # education-sum_C => 0.01
 # # C성실성
 # corrplot(bfiDF_omit[c(,27,31:35)])
-corData <- bfiDF_omit[,c(27,32:36)]
+corData <- bfiDF_omit[,c(26:28,32:36)]
 corMatrix <- cor(corData)
 corMatrix
 corrplot(corMatrix)
