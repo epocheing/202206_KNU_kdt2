@@ -2,6 +2,10 @@
 title: "team2_orange"
 ---
 
-This is a Quarto website.
+## 팀명 : R2(결정계수)
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## 팀장 : 조건영
+
+## 어려운점
+
+- 팀장도 잘 모름
