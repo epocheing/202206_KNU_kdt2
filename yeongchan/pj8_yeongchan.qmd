@@ -249,6 +249,7 @@ lm(form_2, data = bfiDF_e_sum)
 summary(lm(form_2, data = bfiDF_e_sum))
 ```
 
+# stargazer
 ```{r}
 library(stargazer)
 stargazer(lm(form_2, data = bfiDF_e_sum), type='text')
