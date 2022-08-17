@@ -4,7 +4,10 @@ title: "younghyo"
 
 ## 1. 데이터
 
--   어몽어스 승패 예측
--   출처: <https://www.naver.com>
+- 어몽어스 승패 예측
+- 출처: <https://www.kaggle.com/datasets/ruchi798/among-us-dataset>
 
 ## 2. 분석방법
+
+- 로지스틱에서 범주형 데이터가 문제
+- 교차분석/로지스틱분석을 통한 결과로 어몽어스 시작!!

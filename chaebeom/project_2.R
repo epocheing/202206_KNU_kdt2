@@ -77,9 +77,6 @@ boxplot(sal$salary_in_usd)
 # 지출하는 급여의 이상치는 '연봉'과 같은 것으로,
 # 소득의 상한은 두지 않고, 그대로 유지해서 쓰는 것으로 결정
 
-# + 직업별 소득
-aggregate(sal$salary_in_usd, by=list(JOB=sal$job_title), FUN=sum)
-
 #-------------------------------------------------------------------------------
 2. 종속변수와 독립변수의 결정
 
@@ -205,7 +202,6 @@ boxplot(salary_in_usd ~ company_size * remote_ratio, data=sal,
 * 회사 규모가 작을수록, 원격 업무가 20%미만 or 80%이상으로 명확한 컨셉을 가졌음
 
 6) 조건부도표(coplot)
-coplot(company_size)
 library(gplots)
 plotmeans(salary_in_usd ~ interaction(company_size, remote_ratio, sep=''), data=sal,
           connect=list(c(1,4,7), c(2,5,8), c(3,6,9)),
@@ -235,12 +231,11 @@ TukeyHSD(sal.aov, which=c('company_size','remote_ratio'))
 * 등분산성 검사, 한가지만 충족된 상황 최종 언급!!
   결과에 영향을 미쳤을 수도 있음. 그런 한계가 있음을 확실히 명시
 
-
-
 #-------------------------------------------------------------------------------
 6. 느낀점
 1) 아쉬운점 : 이원 분산분석을 할 때, 상호작용효과까지 발생하고 있는 상태였다면 좀더 풍부한
 분석을 할 수 있었을 것인데, 아쉬움
 2) 어려웠던 점 : 정규성과 등분산성을 충족시키기 위한 조절
-  
-팩터로 바꾸고 이거 두가지 확인
+3) 좋았던 점 : 분산분석에 대한 전반적인 분석 흐름은 알게된 것 같아 좋았음. 다른 분들 분석을 참고하면서
+직접 하나씩 하는 시간을 가져야 겠음
+
