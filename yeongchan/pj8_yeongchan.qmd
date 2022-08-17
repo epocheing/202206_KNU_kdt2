@@ -67,15 +67,15 @@ bfiDF_omit$sum_O <- bfiDF_omit[,21]+bfiDF_omit[,22]+bfiDF_omit[,23]+bfiDF_omit[,
 ```{r}
 #?barplot()
 barplot(table(bfiDF_omit$sum_A), xlim = c(0,32),
-        ylim = c(0,300), main='Agreeableness') #22
+        ylim = c(0,300), main='Sum of Agreeableness') #22
 barplot(table(bfiDF_omit$sum_C), xlim = c(0,32),
-        ylim = c(0,320), main='Conscientiousness') #20
+        ylim = c(0,320), main='Sum of Conscientiousness') #20
 barplot(table(bfiDF_omit$sum_E), xlim = c(0,32),
-        ylim = c(0,320), main='Exraversion') #19
+        ylim = c(0,320), main='Sum of Extraversion') #19
 barplot(table(bfiDF_omit$sum_N), xlim = c(0,32),
-        ylim = c(0,120), main='Neuroticism') #14
+        ylim = c(0,120), main='Sum of Neuroticism') #14
 barplot(table(bfiDF_omit$sum_O), xlim = c(0,32),
-        ylim = c(0,420), main='Openness') #20
+        ylim = c(0,420), main='Sum of Openness') #20
 ```
 
 # 카이제곱 검정 시작----
