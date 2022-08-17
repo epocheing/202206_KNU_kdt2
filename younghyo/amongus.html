@@ -604,70 +604,121 @@ Chi^2 =  11.90745     d.f. =  1     p =  0.0005590976
 <p>’크루원 전원’이 전체 임무를 완료해야하기 때문에</p>
 <p>내가 전체 임무를 완료했다고 해서 승률이 드라마틱하게 오르지는 않는다.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(crew<span class="sc">$</span>Game_Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>Game_Length, <span class="at">breaks =</span> <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="amongus_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(imposter<span class="sc">$</span>Game_Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="amongus_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid" width="672"></p>
-</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>crew.logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(Outcome <span class="sc">~</span> Task_Completed <span class="sc">+</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                  Game_Length <span class="sc">+</span> Sabotages_Fixed <span class="sc">+</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                  Ejected <span class="sc">+</span> Murdered,</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> crew,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">'logit'</span>))</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(crew.logit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>crew.logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(Outcome <span class="sc">~</span> Task_Completed <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                  Game_Length <span class="sc">+</span> Sabotages_Fixed <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                  Ejected <span class="sc">+</span> Murdered <span class="sc">+</span> All_Tasks_Completed,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> crew,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">'logit'</span>))</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(crew.logit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
 glm(formula = Outcome ~ Task_Completed + Game_Length + Sabotages_Fixed + 
-    Ejected + Murdered, family = binomial(link = "logit"), data = crew)
+    Ejected + Murdered + All_Tasks_Completed, family = binomial(link = "logit"), 
+    data = crew)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.7685  -0.9925  -0.7795   1.1165   1.8030  
+-1.7139  -1.0118  -0.7564   1.1362   1.8017  
 
 Coefficients:
-                  Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)     -0.4136189  0.1308047  -3.162 0.001566 ** 
-Task_Completed   0.0096601  0.0263692   0.366 0.714110    
-Game_Length     -0.0007916  0.0002053  -3.856 0.000115 ***
-Sabotages_Fixed  0.1164252  0.0684893   1.700 0.089149 .  
-EjectedYes       1.6647343  0.3083110   5.400 6.68e-08 ***
-MurderedYes      1.0532182  0.1045730  10.072  &lt; 2e-16 ***
+                         Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)            -0.6425254  0.1457911  -4.407 1.05e-05 ***
+Task_Completed          0.0911016  0.0344938   2.641 0.008264 ** 
+Game_Length            -0.0007214  0.0002067  -3.489 0.000484 ***
+Sabotages_Fixed         0.1146374  0.0688562   1.665 0.095936 .  
+EjectedYes              1.6887708  0.3092335   5.461 4.73e-08 ***
+MurderedYes             1.0765991  0.1053419  10.220  &lt; 2e-16 ***
+All_Tasks_CompletedYes -0.5773121  0.1560910  -3.699 0.000217 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
     Null deviance: 2418.3  on 1760  degrees of freedom
-Residual deviance: 2285.0  on 1755  degrees of freedom
-AIC: 2297
+Residual deviance: 2271.3  on 1754  degrees of freedom
+AIC: 2285.3
 
 Number of Fisher Scoring iterations: 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(crew.logit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(crew.logit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    (Intercept)  Task_Completed     Game_Length Sabotages_Fixed      EjectedYes 
-      0.6612529       1.0097070       0.9992088       1.1234734       5.2842691 
-    MurderedYes 
-      2.8668624 </code></pre>
+<pre><code>           (Intercept)         Task_Completed            Game_Length 
+             0.5259625              1.0953803              0.9992789 
+       Sabotages_Fixed             EjectedYes            MurderedYes 
+             1.1214667              5.4128231              2.9346819 
+All_Tasks_CompletedYes 
+             0.5614053 </code></pre>
 </div>
 </div>
 </section>
-<section id="로지스틱크루원" class="level2">
-<h2 class="anchored" data-anchor-id="로지스틱크루원">로지스틱(크루원)</h2>
-<p>방출됨 O, 살해당함 O =&gt; 승률 ↑</p>
-<p>게임 시간 ↑ =&gt; 승률 ↓</p>
+<section id="패배와-관련된-로지스틱-회귀분석크루원" class="level2">
+<h2 class="anchored" data-anchor-id="패배와-관련된-로지스틱-회귀분석크루원">패배와 관련된 로지스틱 회귀분석(크루원)</h2>
+<p>방출됨 O, 살해당함 O =&gt; 승률 ↓</p>
+<p>전체 임무 완료 O, 게임 시간 ↑ =&gt; 승률 ↑</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>imposter.logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(Outcome <span class="sc">~</span> Imposter_Kills <span class="sc">+</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                  Game_Length <span class="sc">+</span> Ejected,</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> imposter,</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">'logit'</span>))</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(imposter.logit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>crew<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(crew.logit<span class="sc">$</span>fitted.values <span class="sc">&lt;=</span> <span class="fl">0.5</span>,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                         <span class="st">'Yes'</span>, <span class="st">'No'</span>))</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(crew<span class="sc">$</span>Outcome, crew<span class="sc">$</span>pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+     No Yes
+  1 262 719
+  0 391 389</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">table</span>(crew<span class="sc">$</span>Outcome, crew<span class="sc">$</span>pred)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>TP <span class="ot">&lt;-</span> tab1[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>TN <span class="ot">&lt;-</span> tab1[<span class="dv">2</span>,<span class="dv">1</span>]</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>FP <span class="ot">&lt;-</span> tab1[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>FN <span class="ot">&lt;-</span> tab1[<span class="dv">2</span>,<span class="dv">2</span>]</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>accuracy_crew <span class="ot">&lt;-</span> (TP <span class="sc">+</span> TN) <span class="sc">/</span> (TP <span class="sc">+</span> TN <span class="sc">+</span> FP <span class="sc">+</span> FN)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>accuracy_crew</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6303237</code></pre>
+</div>
+</div>
+<p>정확도: 63%</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roc</span>(Outcome <span class="sc">~</span> crew.logit<span class="sc">$</span>fitted.values, <span class="at">data =</span> crew,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">'ROC CURVE'</span>, <span class="at">col=</span><span class="st">'tomato'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting levels: control = 1, case = 0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting direction: controls &lt; cases</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="amongus_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+roc.formula(formula = Outcome ~ crew.logit$fitted.values, data = crew,     plot = TRUE, main = "ROC CURVE", col = "tomato")
+
+Data: crew.logit$fitted.values in 981 controls (Outcome 1) &lt; 780 cases (Outcome 0).
+Area under the curve: 0.663</code></pre>
+</div>
+</div>
+</section>
+<section id="분석-3" class="level2">
+<h2 class="anchored" data-anchor-id="분석-3">분석</h2>
+<p>ROC 그래프의 AUC가 0.663으로써 0.7 이하이므로 가치가 높지 않다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>imposter.logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(Outcome <span class="sc">~</span> Imposter_Kills <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                  Game_Length <span class="sc">+</span> Ejected,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> imposter,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">'logit'</span>))</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(imposter.logit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -695,17 +746,67 @@ AIC: 473.33
 
 Number of Fisher Scoring iterations: 5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(imposter.logit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(imposter.logit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   (Intercept) Imposter_Kills    Game_Length     EjectedYes 
      0.2532768      0.5932989      1.0028643     31.8539256 </code></pre>
 </div>
 </div>
 </section>
-<section id="로지스틱임포스터" class="level2">
-<h2 class="anchored" data-anchor-id="로지스틱임포스터">로지스틱(임포스터)</h2>
-<p>방출됨 O, 게임시간 ↑ =&gt; 승률 ↑</p>
-<p>크루원 킬수 ↑ =&gt; 승률 ↓</p>
+<section id="패배와-관련된-로지스틱-회귀분석임포스터" class="level2">
+<h2 class="anchored" data-anchor-id="패배와-관련된-로지스틱-회귀분석임포스터">패배와 관련된 로지스틱 회귀분석(임포스터)</h2>
+<p>방출됨 O, 게임시간 ↑ =&gt; 승률 ↓</p>
+<p>크루원 킬수 ↑ =&gt; 승률 ↑</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>imposter<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(imposter.logit<span class="sc">$</span>fitted.values <span class="sc">&lt;=</span> <span class="fl">0.5</span>,<span class="st">'Yes'</span>, <span class="st">'No'</span>))</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(imposter<span class="sc">$</span>Outcome, imposter<span class="sc">$</span>pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+     No Yes
+  1  33 228
+  0 129  76</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> <span class="fu">table</span>(imposter<span class="sc">$</span>Outcome, imposter<span class="sc">$</span>pred)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>TP <span class="ot">&lt;-</span> tab2[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>TN <span class="ot">&lt;-</span> tab2[<span class="dv">2</span>,<span class="dv">1</span>]</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>FP <span class="ot">&lt;-</span> tab2[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>FN <span class="ot">&lt;-</span> tab2[<span class="dv">2</span>,<span class="dv">2</span>]</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>accuracy_imposter <span class="ot">&lt;-</span> (TP <span class="sc">+</span> TN) <span class="sc">/</span> (TP <span class="sc">+</span> TN <span class="sc">+</span> FP <span class="sc">+</span> FN)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>accuracy_imposter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7660944</code></pre>
+</div>
+</div>
+<p>정확도 76.6%</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roc</span>(Outcome <span class="sc">~</span> imposter.logit<span class="sc">$</span>fitted.values, <span class="at">data =</span> imposter,</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">'ROC CURVE'</span>, <span class="at">col=</span><span class="st">'tomato'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting levels: control = 1, case = 0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting direction: controls &lt; cases</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="amongus_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+roc.formula(formula = Outcome ~ imposter.logit$fitted.values,     data = imposter, plot = TRUE, main = "ROC CURVE", col = "tomato")
+
+Data: imposter.logit$fitted.values in 261 controls (Outcome 1) &lt; 205 cases (Outcome 0).
+Area under the curve: 0.8328</code></pre>
+</div>
+</div>
+</section>
+<section id="분석-4" class="level2">
+<h2 class="anchored" data-anchor-id="분석-4">분석</h2>
+<p>ROC 그래프의 AUC가 0.8328로써 어느정도 가치가 있다.</p>
 </section>
 
 </main>
