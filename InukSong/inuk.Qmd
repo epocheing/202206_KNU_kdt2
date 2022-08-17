@@ -34,7 +34,7 @@ str(brain)
 ```{r}
 sum(is.na(brain))
 ```
-#### stroke 비율 확인
+#### **dependent variable = stroke 비율 확인**
 ```{r}
 prop.table(table(brain$stroke))
 ```
@@ -90,15 +90,15 @@ ggplot(data = brain) +
 
 #### cdplot으로 밀도 차이 확인
 ```{r}
-cdplot(stroke ~ age, data = brain)
-cdplot(stroke ~ avg_glucose_level, data = brain)
-cdplot(stroke ~ bmi, data = brain)
+cdplot(stroke ~ age, data = brain, col = c("lightgreen", "gray"), main = "stroke ~ age")
+cdplot(stroke ~ avg_glucose_level, data = brain, col = c("lightgreen", "gray"), main = "stroke ~ avg_glucose_level")
+cdplot(stroke ~ bmi, data = brain, col = c("lightgreen", "gray"), main = "stroke ~ bmi")
 ```
 
 #### mosaicplot으로 stroke와 범주형 데이터 비교
 ```{r}
-mosaicplot(stroke ~ hypertension, data = brain)
-mosaicplot(stroke ~ heart_disease, data = brain)
+mosaicplot(stroke ~ hypertension, data = brain, main = "stroke vs hypertension", col = c("tomato", "skyblue"))
+mosaicplot(stroke ~ heart_disease, data = brain, main = "stroke vs heart_disease", col = c("tomato", "skyblue"))
 ```
 
 ## 2. 로지스틱 회귀분석
