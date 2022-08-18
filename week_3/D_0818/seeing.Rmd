@@ -1,12 +1,8 @@
-
-```{r}
-library(tidyverse)
-```
-
 # 데이터 시각화
 
 ## 데이터 불러오기
 ```{r}
+library(tidyverse)
 anscombe
 ans <- anscombe
 ```
@@ -190,9 +186,9 @@ p +
     coord_polar()
 ```
 
-## 다양한 데이터 시각화
+# 다양한 데이터 시각화
 
-### 지도 데이턴
+## 지도 데이터
 
 ```{r}
 world <- map_data("world")
@@ -203,7 +199,7 @@ ggplot(
     geom_polygon(fill = "lightyellow", color = "blue")
 ```
 
-### mpg
+## mpg
 
 ```{r}
 data(mpg)
