@@ -2,11 +2,25 @@ library(tidyverse)
 library(ggmap)
 library(plotly)
 library(shiny)
+library(mapproj)
+library(maps)
+
+
 
 # 데이터 불러오기
 df <- read.csv("data.csv", header = TRUE)
 
 # 구글 맵
+# register_google(key = "AIzaSyC3KY9GU0zR2ALsbNgnTb7jMUm9vwpXxRI")
+# map <- get_map(location = "south korea", zoom = 7, maptype = "roadmap", color = "bw")
+
+# CRS 좌표계 변경
+# map <- readOGR("ctp_rvn.shp")
+# ls_crs <- list(wgs84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+# map <- spTransform(map, CRSobj = CRS(ls_crs$wgs84))
+# df_map <- fortify(map)
+
+df_map <- map_data("world") |> filter(region == "South Korea")
 
 
 # 지역 구분 항목
@@ -55,17 +69,13 @@ ui <- fluidPage(
 )
 
 
-
 server <- function(input, output) {
     output$mapPlotly <- renderPlotly({
-        register_google(key = "AIzaSyC3KY9GU0zR2ALsbNgnTb7jMUm9vwpXxRI")
-        map <- get_map(location = "south korea", zoom = 7, maptype = "roadmap", color = "bw")
-        p1 <- ggmap(map) +
-            # ggplot() +
-            # geom_polygon(
-            #     data = df_map, aes(x = long, y = lat, group = group),
-            #     fill = "grey", alpha = 0.6
-            # ) +
+        p1 <- ggplot() +
+            geom_polygon(
+                data = df_map, aes(x = long, y = lat, group = group),
+                fill = "grey", alpha = 0.6
+            ) +
             geom_point(
                 data = make_map[make_map$시점 == input$year, ],
                 aes(x = long, y = lat, size = 사교육비, fill = 항목, alpha = 0.2)

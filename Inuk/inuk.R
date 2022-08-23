@@ -150,7 +150,7 @@ data <- make_gif
 
 
 # Make a ggplot, but add frame=year: one image per year
-ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
+ggplot(data, aes(, lifeExp, size = pop, color = continent)) +
     geom_point() +
     scale_x_log10() +
     theme_bw() +
@@ -160,4 +160,4 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
     ease_aes("linear")
 
 # Save at gif:
-anim_save("271-ggplot2-animated-gif-chart-with-gganimate1.gif")
+anim_save("inuk.gif")
