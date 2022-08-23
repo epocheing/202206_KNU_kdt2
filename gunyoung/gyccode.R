@@ -142,27 +142,51 @@ str(childkind.pv)
 ### 자녀 순위별 원형패킹 그래프
 View(childrank)
 
+#### 테스트 데이터
 childrank_year<-childrank|>
   filter(year==2017)
 childrank_year
+
+#### 본격적 그래프
 packing <- circleProgressiveLayout(childrank$total, sizetype='area')
 comment('각 원이 겹치지 않게 원 중심과 크기를 계산해줌')
 
-childrank_year.pack <- cbind(childrank, packing)
+childrank.pack <- cbind(childrank, packing)
 
 dat.gg <- circleLayoutVertices(packing, npoints=50)
 comment('각 원의 원주에 있는 점을 계산해줌')
+dat.gg<-cbind(dat.gg,childsu=rep(c('둘째','셋째 이상','첫째','외동'),each=51,times=5))
+dat.gg$year<-rep(c(2017,2018,2019,2020,2021),each=204)
 
+# childrank.pack|>
+#   filter(year==2019)|>
 ggplot() + 
-  geom_polygon(dat.gg, mapping=aes(x, y, group = id, fill=as.factor(id)), colour = "black", alpha = 0.6) +
-  geom_text(childrank.pack, mapping=aes(x, y, size=childsu, label = childsu)) +
+  geom_polygon(dat.gg, mapping=aes(x, y, group=as.factor(id), fill=childsu), colour = "black", alpha = 0.6) +
+  geom_text(childrank.pack,mapping=aes(x, y, label = childsu)) +
   #scale_size_continuous(range = c(1,4)) +
-  theme_void() + 
-  theme(legend.position="none") +
-  coord_equal()
-dat.gg
-# -------------------------------------------------------------------------
+  theme_void() +
+  geom_text(x=10, y=-15, aes(label=year), data=childrank.pack,size=10,col='green')+
+  theme() +
+  coord_equal()+
+  transition_states(childrank.pack$year)
 
+View(childrank.pack)
+View(dat.gg)
+# -------------------------------------
+
+pack.dat<-merge(childrank.pack,dat.gg,by.x=c('year','childsu'),by.y=c('year','childsu'))
+
+ggplot(pack.dat) + 
+  geom_polygon(mapping=aes(x.y, y.y, group=as.factor(id), fill=childsu), colour = "black", alpha = 0.6) +
+  geom_text(mapping=aes(x.x, y.x, label = childsu)) +
+  #scale_size_continuous(range = c(1,4)) +
+  theme_void() +
+  geom_text(x=10, y=-15, aes(label=year), data=childrank.pack,size=10,col='green')+
+  theme() +
+  coord_equal()+
+  transition_states(year)
+
+### 트리맵 그려보기
 
 
 
