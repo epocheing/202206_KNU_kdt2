@@ -109,9 +109,7 @@ server<-function(input,output){
   })
   
   output$displot3<-renderPlot({
-    pack.dat|>
-      filter(year==input$year)|>
-      ggplot() + 
+      ggplot(pack.dat) + 
       geom_polygon(dat.gg, mapping=aes(x, y, group=as.factor(id), fill=childsu), colour = "black", alpha = 0.6) +
       geom_text(childrank.pack,mapping=aes(x, y, label = childsu)) +
       #scale_size_continuous(range = c(1,4)) +
