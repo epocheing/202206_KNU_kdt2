@@ -71,11 +71,11 @@ ui<-pageWithSidebar(
   ),
   mainPanel(
     tabsetPanel(
-      tabPanel('자녀 수',plotlyOutput("displot1", height = '800px')
+      tabPanel('자녀 종류',plotlyOutput("displot1", height = '800px')
                ),
-      tabPanel('자녀 종류',plotOutput("displot2", height = '600px')
+      tabPanel('자녀 수',plotOutput("displot2", height = '600px')
       ),
-      tabPanel('자녀 순위별',plotOutput("displot3",height = '800px')
+      tabPanel('자녀 순위',plotOutput("displot3",height = '800px')
       )
     )
   )

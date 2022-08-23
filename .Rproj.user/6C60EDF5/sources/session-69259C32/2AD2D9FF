@@ -3,7 +3,7 @@
     "path": "C:/Rproject/team_wizard_bear/gunyoung/app.R",
     "project_path": "gunyoung/app.R",
     "type": "r_source",
-    "hash": "2731176523",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1661059913874.0,
@@ -12,16 +12,16 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "124,0",
-        "scrollLine": "113",
+        "cursorPosition": "109,4",
+        "scrollLine": "95",
         "docOutlineVisible": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1661230489,
+    "lastKnownWriteTime": 1661230762,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1661230489977,
+    "last_content_update": 1661230762902,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -135,7 +135,7 @@ childkind.pv|>
   ggplot(aes(x=childsu,y=value,fill=subject,group=subject))+
   geom_bar(stat="identity",colour='black')+
   theme_classic()+
-  theme(axis.text.x=element_text(size=15,angle=90),axis.text.y=element_text(size=15),plot)
+  theme(axis.text.x=element_text(size=15,angle=90),axis.text.y=element_text(size=15))
   
 str(childkind.pv) 
 
