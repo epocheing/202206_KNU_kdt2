@@ -27,18 +27,20 @@ subject_hangmok[c(-1, -2)]
 
 # 지도에 그릴 데이터 정리
 make_map <- subset(df, 항목 %in% reg_hangmok)
+
 # 지도에 그리기
 p1 <- ggmap(map) +
     geom_point(
         data = make_map[make_map$시점 == 2007, ],
-        aes(x = long, y = lat, size = 사교육비, color = 항목, alpha = 0.5)
+        aes(x = long, y = lat, size = 사교육비, fill = 항목, text = mytext,alpha = 0.3)
     ) +
-    scale_size_continuous(range = c(5, 23)) +
-    theme_void() +
+    scale_size_continuous(range = c(10, 50)) +
+    theme_minimal() +
+    theme(legend.position = "none") +
+    scale_fill_hue(c = 40) +
     coord_map()
-p1 <- ggplotly(p1)
-p1
 
+ggplotly(p1)
 #########################################################################################################################
 
 # barplot 그릴 데이터 정리
@@ -107,3 +109,21 @@ p <- ggplot(data, aes(x = as.factor(id), y = get(names(data)[3]) * 6, fill = 항
     geom_text(data = base_data, aes(x = title, y = -18, label = 항목), hjust = c(1, 1, 0, 0), colour = "black", alpha = 0.8, size = 4, fontface = "bold", inherit.aes = FALSE)
 
 p
+
+######################################################################
+
+make_circular <- df
+make_circular <- subset(make_circular, select = subject_hangmok)
+make_circular <- make_circular[make_circular$항목 %in% reg_hangmok, ]
+make_circular$항목 <- factor(make_circular$항목)
+data <- make_circular
+data <- subset(make_circular, select = c("항목", "시점", "국어"))
+
+
+# Plot again
+ggplot(data, aes(x=시점, y=get(names(data)[3]), fill=항목)) + 
+    geom_area()
+
+# Note: you can also sort levels alphabetically:
+myLevels <- levels(data$항목)
+data$항목 <- factor(data$항목 , levels=sort(myLevels) )

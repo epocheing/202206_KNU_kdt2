@@ -25,41 +25,35 @@ make_bar$항목 <- factor(make_bar$항목)
 
 
 ui <- fluidPage(
-    titlePanel(
-        h1("사교육비의 지역별 격차")
+    fluidRow(
+        h1("지역별 사교육비의 차이")
     ),
-    sidebarLayout(
-        sidebarPanel(
+    fluidRow(
+        column(
+            2,
             selectInput(
                 "year", "연도",
                 c(2007:2020)
-            ),
+            )
+        ),
+        column(5, plotlyOutput("mapPlotly")),
+        column(5, plotlyOutput("barPlotly"))
+    ),
+    fluidRow(
+        column(
+            2,
             selectInput(
                 "gwamok", "과목",
                 subject_hangmok[c(-1, -2)]
             )
         ),
-        mainPanel(
-            tabsetPanel(
-                tabPanel(
-                    "Map",
-                    plotlyOutput("mapPlotly"),
-                    plotlyOutput("barPlotly")
-                ),
-                tabPanel(
-                    "Circular",
-                    plotOutput("circular"),
-                    textOutput("text")
-                ),
-            )
-        )
+        column(5, plotOutput("circularPlot"))
     )
 )
 
 
 
 server <- function(input, output) {
-
     output$mapPlotly <- renderPlotly({
         p1 <- ggmap(map) +
             geom_point(
@@ -68,7 +62,11 @@ server <- function(input, output) {
             ) +
             scale_size_continuous(range = c(10, 50)) +
             theme_minimal() +
-            theme(legend.position = "none") +
+            theme(
+                legend.position = "none",
+                axis.title.x = element_blank(),
+                axis.title.y = element_blank()
+            ) +
             scale_fill_hue(c = 40) +
             coord_map()
         ggplotly(p1)
@@ -80,12 +78,15 @@ server <- function(input, output) {
             geom_bar(stat = "identity") +
             scale_fill_hue(c = 40) +
             theme_minimal() +
-            theme(legend.position = "none")
+            theme(
+                legend.position = "none",
+                axis.title.x = element_blank()
+            )
         ggplotly(p2)
     })
 
 
-    output$circular <- renderPlot({
+    output$circularPlot <- renderPlot({
         # circular 데이터 정제
         make_circular <- df
         make_circular <- subset(make_circular, select = subject_hangmok)
@@ -126,14 +127,14 @@ server <- function(input, output) {
         # Make the plot
         p <- ggplot(data, aes(x = as.factor(id), y = get(names(data)[3]) * 6, fill = 항목)) +
             geom_bar(aes(x = as.factor(id), y = get(names(data)[3]) * 6, fill = 항목), stat = "identity", alpha = 0.5) +
-            ylim(-80, 100) +
+            ylim(-100, 120) +
             theme_minimal() +
             theme(
                 legend.position = "none",
                 axis.text = element_blank(),
                 axis.title = element_blank(),
                 panel.grid = element_blank(),
-                plot.margin = unit(rep(-5, 20), "cm")
+                plot.margin = unit(rep(-5, 15), "cm")
             ) +
             coord_polar() +
             geom_text(data = label_data, aes(x = id, y = get(names(data)[3]) + 10, label = 시점, hjust = hjust), color = "black", fontface = "bold", alpha = 0.6, size = 2.5, angle = label_data$angle, inherit.aes = FALSE) +
@@ -141,6 +142,12 @@ server <- function(input, output) {
             geom_text(data = base_data, aes(x = title, y = -18, label = 항목), hjust = c(1, 1, 0, 0), colour = "black", alpha = 0.8, size = 4, fontface = "bold", inherit.aes = FALSE)
 
         p
+    })
+
+    output$areaPlot <- renderPlot({
+
+
+
     })
 }
 
