@@ -150,7 +150,7 @@ data <- make_gif
 
 
 # Make a ggplot, but add frame=year: one image per year
-ggplot(data, aes(, lifeExp, size = pop, color = continent)) +
+ggplot(data, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
     geom_point() +
     scale_x_log10() +
     theme_bw() +
