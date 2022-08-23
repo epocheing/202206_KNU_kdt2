@@ -71,7 +71,7 @@ ui<-pageWithSidebar(
   ),
   mainPanel(
     tabsetPanel(
-      tabPanel('자녀 수',plotOutput("displot1", height = '800px')
+      tabPanel('자녀 수',plotlyOutput("displot1", height = '800px')
                ),
       tabPanel('자녀 종류',plotOutput("displot2", height = '600px')
       ),
@@ -83,13 +83,14 @@ ui<-pageWithSidebar(
 
 
 server<-function(input,output){
-  output$displot1<-renderPlot({
-    childkind.pv|>
+  output$displot1<-renderPlotly({
+    p<-childkind.pv|>
       filter(year==input$year)|>
       ggplot(aes(x=childsu,y=value,fill=subject,group=subject))+
       geom_bar(stat="identity",colour='black')+
       theme_classic()+
       theme(axis.text.x=element_text(angle=90, hjust=1))
+    ggplotly(p)
   })
   
   output$displot2<-renderPlot({
@@ -109,9 +110,7 @@ server<-function(input,output){
   })
   
   output$displot3<-renderPlot({
-    pack.dat|>
-      filter(year==input$year)|>
-      ggplot() + 
+      ggplot(pack.dat) + 
       geom_polygon(dat.gg, mapping=aes(x, y, group=as.factor(id), fill=childsu), colour = "black", alpha = 0.6) +
       geom_text(childrank.pack,mapping=aes(x, y, label = childsu)) +
       #scale_size_continuous(range = c(1,4)) +

@@ -125,17 +125,17 @@ year.max.min|>
   xlim(c(-7,4))+
   labs(title='자녀 수 별 사교육 비율')+
   theme(legend.position = 'none',plot.title = element_text(size=20,color='pink4',hjust=0.5))
-
+setwd('C:/Rproject/team_wizard_bear/gunyoung')
 # -------------------------------------------------------------------------
 
 ### 자녀 종류별 스택 막대그래프 그리기
 comment('https://bookdown.org/content/b298e479-b1ab-49fa-b83d-a57c2b034d49/part.html#grouped-and-stacked-barplot')
-p<-childkind.pv|>
+childkind.pv|>
   filter(year==2017)|>
   ggplot(aes(x=childsu,y=value,fill=subject,group=subject))+
   geom_bar(stat="identity",colour='black')+
   theme_classic()+
-  theme(axis.text.x=element_text(angle=90, hjust=1))+
+  theme(axis.text.x=element_text(size=15,angle=90),axis.text.y=element_text(size=15),plot)
   
 str(childkind.pv) 
 
@@ -187,6 +187,8 @@ p<-ggplot(pack.dat) +
   theme() +
   coord_equal()+
   transition_states(year)
+
+anim_save('p.gif')
 
 ### 트리맵 그려보기
 
