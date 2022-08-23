@@ -49,11 +49,11 @@ hist(mtcars$wt,
 )
 
 plot(mtcars$mpg, mtcars$wt)
-plot(mtcars$mpg, mtcars$wt, col = 'tomato', pch = 19 )
+plot(mtcars$mpg, mtcars$wt, col = "tomato", pch = 19)
 
 # 연습문제 2.1
 str(iris)
-barplot(table(iris$Species), col = "tomato", xlab = '품종', ylab = '개수', main = '품종의 막대그래프')
+barplot(table(iris$Species), col = "tomato", xlab = "품종", ylab = "개수", main = "품종의 막대그래프")
 
 # 연습문제 2.2
 mean(iris$Petal.Length)
@@ -64,4 +64,4 @@ hist(iris$Petal.Width, col = "tomato", xlab = "꽃잎의 너비", ylab = "빈도
 
 # 연습문제 2.3
 str(mtcars)
-mtcars[5:10,]
+mtcars[5:10, ]
