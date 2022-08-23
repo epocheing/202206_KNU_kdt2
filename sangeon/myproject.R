@@ -30,6 +30,7 @@ library(data.table)
 library(MASS)
 library(extrafont)
 library(fmsb)
+??radarchart
 # animation bar
 ggplot(part2, aes(x=school, y=pri_exp, fill=school)) + 
   geom_bar(stat='identity') +
@@ -40,19 +41,24 @@ ggplot(part2, aes(x=school, y=pri_exp, fill=school)) +
     state_length = 1
   ) +
   ease_aes('sine-in-out')
-)anim_save("ggplot_animation")
-# reveal
-anim_plot <- ggplot(part2, aes(x=year, y=pri_exp, group=school, color=school)) +
+)
+
+ggplot(part2, aes(x=year, y=pri_exp, group=school, color=school)) +
   #geom_line(aes(lty = 항목),alpha = 0.6) +
-  geom_point(size = 5) +
+  geom_point(size = 15) +
   scale_color_viridis(discrete = T) +
+  geom_text(x=2010, y=30, aes(label=factor(year)), data=part2,size=13,col='red')+
   theme_classic() +
+  theme(axis.title=element_text(size=20)) +
+  theme(axis.text.x = element_text(size=15),
+        axis.text.y = element_text(size =15))+
   transition_time(year)
-anim_save(filename = "ggplot_animation.gif", animation = anim_plot)
-anim_plot
+
 # 
 part3 <- part2[part2["항목"]=="고등학교 (만원)", c(1:2, 6:11)]
 part4 <- part2[part2["school"]=="고등학교 (만원)", c(1:2, 18:22)]
+part5 <- part2[part2["school"]=="중학교 (만원)", c(1:2, 18:22)]
+part6 <- part2[part2["school"]=="초등학교 (만원)", c(1:2, 18:22)]
 
 part_ele_ent <- part2[part2["항목"]=="초등학교 (만원)", c(1:2, 13:16)]
 part_ele_sub <- part2[part2["항목"]=="초등학교 (만원)", c(1:2, 6:11)]
@@ -77,7 +83,25 @@ part_cate <- pivot_longer(
   names_sep = NULL,
   values_drop_na = F
 )
-view(part_cate)
+
+part_cate2 <- pivot_longer(
+  part5,
+  cols = c("개인과외","그룹과외","학원수강","방문학습지","유료인터넷.및.통신강좌.등"),
+  names_to = "유형",
+  values_to = "사교육비",
+  names_sep = NULL,
+  values_drop_na = F
+)
+
+part_cate3 <- pivot_longer(
+  part6,
+  cols = c("개인과외","그룹과외","학원수강","방문학습지","유료인터넷.및.통신강좌.등"),
+  names_to = "유형",
+  values_to = "사교육비",
+  names_sep = NULL,
+  values_drop_na = F
+)
+
 
 
 ggplot(part_sub, aes(x=과목, y=사교육비, fill=과목)) + 
@@ -108,16 +132,16 @@ ggplot(part_cate, aes(x=시점, y=사교육비, color=유형, size=사교육비)
   scale_size(range=c(3,18))+
   theme_minimal()+
   theme(legend.position='bottom')
-# mnulti bar
+# multi bar
 ggplot(part_sub, aes(fill=과목, y=사교육비, x=시점)) + 
   geom_bar(position="dodge", stat="identity")
-
+part_cate
 part_cate |>
   filter(유형!="방문학습지") |>
-  ggplot( aes(fill=유형, y=사교육비, x=시점)) +
+  ggplot( aes(fill=유형, y=사교육비, x=year)) +
   ggtitle("2007 ~ 2021 고등학교 유형별 사교육비") +
   geom_bar(position="dodge", stat="identity", width = 0.7) +
-  geom_text(aes(label = 사교육비), vjust = 0, color = "white", ) +
+  geom_text(aes(label = 사교육비), vjust = 0, color = "white") +
   facet_wrap(scales = 'free', . ~ 유형) +
   theme_ft_rc()
 
