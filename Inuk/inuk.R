@@ -3,12 +3,14 @@ library(ggmap)
 library(plotly)
 library(gganimate)
 library(viridis)
+library(rgdal)
+library(gganimate)
 
-
-# 구글지도 api 키 저장
-register_google(key = "AIzaSyC3KY9GU0zR2ALsbNgnTb7jMUm9vwpXxRI")
-# 구글지도에서 한국지도 불러오기
-map <- get_map(location = "south korea", zoom = 7, maptype = "roadmap", color = "bw")
+# CRS 좌표계 변경
+map <- readOGR("ctp_rvn.shp")
+ls_crs <- list(wgs84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+map <- spTransform(map, CRSobj = CRS(ls_crs$wgs84))
+df_map <- fortify(map)
 
 # 데이터 불러오기
 df <- read.csv("data.csv", header = TRUE)
@@ -19,9 +21,7 @@ str(df)
 # 지역 구분 항목
 reg_hangmok <- c("서울", "광역시", "중소도시", "읍면지역")
 # 과목 구분 항목
-subject_hangmok <- c("시점", "항목", "국어", "영어", "수학", "사회,과학", "논술", "음악", "미술", "체육")
-
-subject_hangmok[c(-1, -2)]
+subject_hangmok <- c("시점", "항목", "국어", "영어", "수학", "사회.과학", "논술", "음악", "미술", "체육")
 
 #########################################################################################################################
 
@@ -29,18 +29,23 @@ subject_hangmok[c(-1, -2)]
 make_map <- subset(df, 항목 %in% reg_hangmok)
 
 # 지도에 그리기
-p1 <- ggmap(map) +
+p1 <- ggplot() +
+    geom_polygon(
+        data = df_map, aes(x = long, y = lat, group = group),
+        fill = "grey", alpha = 0.3
+    ) +
     geom_point(
         data = make_map[make_map$시점 == 2007, ],
-        aes(x = long, y = lat, size = 사교육비, fill = 항목, text = mytext,alpha = 0.3)
+        aes(x = long, y = lat, size = 사교육비, fill = 항목, alpha = 0.3)
     ) +
     scale_size_continuous(range = c(10, 50)) +
     theme_minimal() +
     theme(legend.position = "none") +
     scale_fill_hue(c = 40) +
     coord_map()
-
 ggplotly(p1)
+
+
 #########################################################################################################################
 
 # barplot 그릴 데이터 정리
@@ -52,6 +57,8 @@ p2 <- ggplot(data = make_bar[make_bar$시점 == 2007, ], aes(x = 항목, y = 사
 p2 <- ggplotly(p2)
 p2
 
+str(subject_hangmok)
+str(make_circular)
 #########################################################################################################################
 
 # circular 데이터 정제
@@ -97,16 +104,17 @@ p <- ggplot(data, aes(x = as.factor(id), y = get(names(data)[3]) * 6, fill = 항
     ylim(-80, 100) +
     theme_minimal() +
     theme(
-        legend.position = "none",
+        legend.position = c(.5, .5),
+        legend.key.size = unit(0.8, "cm"),
+        legend.text = element_text(size = 12),
         axis.text = element_blank(),
         axis.title = element_blank(),
         panel.grid = element_blank(),
-        plot.margin = unit(rep(-5, 20), "cm")
+        plot.margin = unit(rep(-5, 15), "cm")
     ) +
     coord_polar() +
     geom_text(data = label_data, aes(x = id, y = get(names(data)[3]) + 10, label = 시점, hjust = hjust), color = "black", fontface = "bold", alpha = 0.6, size = 2.5, angle = label_data$angle, inherit.aes = FALSE) +
-    geom_segment(data = base_data, aes(x = start, y = -5, xend = end, yend = -5), colour = "black", alpha = 0.8, size = 0.6, inherit.aes = FALSE) +
-    geom_text(data = base_data, aes(x = title, y = -18, label = 항목), hjust = c(1, 1, 0, 0), colour = "black", alpha = 0.8, size = 4, fontface = "bold", inherit.aes = FALSE)
+    geom_segment(data = base_data, aes(x = start, y = -5, xend = end, yend = -5), colour = "black", alpha = 0.8, size = 0.6, inherit.aes = FALSE)
 
 p
 
@@ -121,9 +129,35 @@ data <- subset(make_circular, select = c("항목", "시점", "국어"))
 
 
 # Plot again
-ggplot(data, aes(x=시점, y=get(names(data)[3]), fill=항목)) + 
-    geom_area()
+p3 <- ggplot(data, aes(x = 시점, y = get(names(data)[3]), fill = 항목)) +
+    geom_area(alpha = 0.7) +
+    scale_fill_hue(c = 40) +
+    theme_minimal() +
+    labs(y = names(data)[3])
 
-# Note: you can also sort levels alphabetically:
-myLevels <- levels(data$항목)
-data$항목 <- factor(data$항목 , levels=sort(myLevels) )
+
+ggplotly(p3)
+
+########################################################################
+
+make_gif <- df
+make_gif <- subset(make_gif, select = subject_hangmok)
+make_gif <- make_gif[make_gif$항목 %in% reg_hangmok, ]
+make_gif$항목 <- factor(make_gif$항목)
+data <- make_gif
+
+
+
+
+# Make a ggplot, but add frame=year: one image per year
+ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
+    geom_point() +
+    scale_x_log10() +
+    theme_bw() +
+    # gganimate specific bits:
+    labs(title = "Year: {frame_time}", x = "GDP per capita", y = "life expectancy") +
+    transition_time(year) +
+    ease_aes("linear")
+
+# Save at gif:
+anim_save("271-ggplot2-animated-gif-chart-with-gganimate1.gif")
