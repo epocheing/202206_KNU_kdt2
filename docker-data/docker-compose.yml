@@ -1,11 +1,14 @@
 version: '3.9'
 
-
 volumes:
   mysqldb:
     name: mysqldb
-  #jupyter:
-    #name: jupyter
+  r_libs:
+    name: r_libs
+  # rstudio:
+  #   name: rstudio
+  # jupyter:
+  #   name: jupyter
 
 
 services:
@@ -28,11 +31,11 @@ services:
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
-  
+
   jupyter:
     container_name: jupyter-kr
     build:
-      context: .
+      context: ./jupyter
       dockerfile: Dockerfile
     image: jupyter/datascience-kr
     restart: always
@@ -42,7 +45,6 @@ services:
       - JUPYTER_TOKEN=1111
       - GRANT_SUDO=yes
       #- CHOWN_HOME=yes
-
     ports:
       - "8888:8888"
     stdin_open: true
@@ -51,9 +53,33 @@ services:
       - type: bind
         source: ../workspace
         target: /home/jovyan/workspace
-      #- type: volume
+        #- type: volume
         #source: jupyter
         #target: /home/jovyan/.jupyter
       - type: bind
         source: ./jupyter_lab_setting
         target: /home/jovyan/.jupyter
+  # rstudio:
+  #   container_name: rstudio
+  #   build:
+  #     context: ./rstudio
+  #     dockerfile: Dockerfile
+  #   image: rocker/verse-kr:siu
+  #   restart: always
+  #   environment:
+  #     - PASSWORD=1111
+  #     - TZ=Asia/Seoul
+  #   ports:
+  #     - "8787:8787"
+  #   stdin_open: true
+  #   tty: true
+  #   volumes:
+  #     - type: bind
+  #       source: ../workspace
+  #       target: /home/rstudio/projects
+  #     - type: volume
+  #       source: rstudio
+  #       target: /home/rstudio
+  #     - type: volume
+  #       source: r_libs
+  #       target: /usr/local/lib/R

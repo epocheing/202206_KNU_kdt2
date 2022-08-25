@@ -12,3 +12,5 @@ black
 jupyterlab_flake8
 flake8
 lckr-jupyterlab-variableinspector
+plotly_express
+

@@ -1,0 +1,20 @@
+# jupyter addr
+localhost:8888
+
+# rstudio addr
+localhost:8787
+rstudio
+password
+
+# jupyter config
+jupyter lab --generate-config
+/home/jovyan/.jupyter/
+
+# R studio config
+volume r_libs, rstudio
+
+# vscode-extension
+python
+R
+R debugger
+Quarto
