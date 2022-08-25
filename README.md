@@ -1,1 +1,10 @@
-# team_donggledonggle
+# ***team_donggledonggle***
+6조 동글동글
+
+## 대주제 : 동물
+    - 동물 관련 산업 동향
+        - 이색 애견 상품, 서비스 등
+    
+    - 학대받는 동물들
+        - 야생동물
+
