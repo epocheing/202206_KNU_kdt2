@@ -1,0 +1,484 @@
+<?xml-stylesheet href='C:\Program Files (x86)\USDA Forest Service\Metavist.Preview1\XML\NBII_classic.xsl' type='text/xsl'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Knowles, Michael S.</origin>
+        <origin>Flather, Curtis H.</origin>
+        <pubdate>2019</pubdate>
+        <title>Summary of U.S. threatened and endangered species listings, 1976-2019</title>
+        <geoform>tabular digital data</geoform>
+        <pubinfo>
+          <pubplace>Fort Collins, CO</pubplace>
+          <publish>Forest Service Research Data Archive</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.2737/RDS-2019-0046</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>These data document the summary of species, by taxonomic group, listed as threatened or endangered by the U.S. Fish &amp; Wildlife Service from 1 July 1976 to 30 September 2019 for the United States. Data were compiled from two sources: the Endangered Species Bulletins and the Environmental Conservation Online system (ECOS), http://ecos.fws.gov/tess_public/reports/box-score-report.</abstract>
+      <purpose>To create a temporal data set of species listed as threatened or endangered, by taxonomic group. The data are provided because the Fish &amp; Wildlife Service does not provide temporal counts of threatened and endangered species, only counts of single points in time.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>19760701</begdate>
+          <enddate>20190930</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>Publication date</current>
+    </timeperd>
+    <status>
+      <progress>In progress</progress>
+      <update>As needed</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-170.00000</westbc>
+        <eastbc>144.00000</eastbc>
+        <northbc>70.00000</northbc>
+        <southbc>-14.00000</southbc>
+      </bounding>
+      <descgeog>United States and its territories, including American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the Virgin Islands.  Nations with which the U.S. shares jurisdiction are also included.</descgeog>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>biota</themekey>
+        <themekey>environment</themekey>
+      </theme>
+      <theme>
+        <themekt>National Research &amp; Development Taxonomy</themekt>
+        <themekey>Wildlife (or Fauna)</themekey>
+        <themekey>Amphibians</themekey>
+        <themekey>Birds</themekey>
+        <themekey>Fish</themekey>
+        <themekey>Invertebrates</themekey>
+        <themekey>Mammals</themekey>
+        <themekey>Reptiles</themekey>
+        <themekey>Natural Resource Management &amp; Use</themekey>
+        <themekey>Policies and law</themekey>
+      </theme>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>threatened species</themekey>
+        <themekey>endangered species</themekey>
+        <themekey>box score</themekey>
+        <themekey>vertebrates</themekey>
+        <themekey>arachnids</themekey>
+        <themekey>clams</themekey>
+        <themekey>corals</themekey>
+        <themekey>crustaceans</themekey>
+        <themekey>mollusks</themekey>
+        <themekey>insects</themekey>
+        <themekey>snails</themekey>
+        <themekey>plants</themekey>
+        <themekey>Endangered Species Act</themekey>
+      </theme>
+      <place>
+        <placekt>None</placekt>
+        <placekey>United States</placekey>
+      </place>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>These data were collected using funding from the U.S. Government and can be used without additional permissions or fees. If you use these data in a publication, presentation, or other research product please use the following citation: 
+
+Knowles, Michael S.; Flather, Curtis H. 2019. Summary of U.S. threatened and endangered species listings, 1976-2019. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2019-0046</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Mike Knowles</cntper>
+          <cntorg>USDA Forest Service, Rocky Mountain Research Station</cntorg>
+        </cntperp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>240 West Prospect Road</address>
+          <city>Fort Collins</city>
+          <state>CO</state>
+          <postal>80521</postal>
+        </cntaddr>
+        <cntvoice>970-498-2571</cntvoice>
+        <cntpos>Ecologist</cntpos>
+        <cntemail>michael.s.knowles@usda.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>This projected was funded by the USDA Forest Service, Rocky Mountain Research Station.</datacred>
+    <crossref>
+      <citeinfo>
+        <origin>Flather, Curtis H.</origin>
+        <origin>Brady, Stephen J.</origin>
+        <origin>Knowles, Michael S.</origin>
+        <pubdate>1999</pubdate>
+        <title>Wildlife resource trends in the United States: A technical document supporting the 2000 USDA Forest Service RPA Assessment</title>
+        <geoform>document</geoform>
+        <serinfo>
+          <sername>General Technical Report</sername>
+          <issue>RMRS-GTR-33</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>Fort Collins, CO</pubplace>
+          <publish>U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station</publish>
+        </pubinfo>
+        <othercit>79 p.</othercit>
+        <onlink>https://doi.org/10.2737/RMRS-GTR-33</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Flather, Curtis H.</origin>
+        <origin>Knowles, Michael S.</origin>
+        <origin>McNees, Jason</origin>
+        <pubdate>2008</pubdate>
+        <title>Geographic patterns of at-risk species: A technical document supporting the USDA Forest Service Interim Update of the 2000 RPA Assessment</title>
+        <geoform>document</geoform>
+        <serinfo>
+          <sername>General Technical Report</sername>
+          <issue>RMRS-GTR-211</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>Fort Collins, CO</pubplace>
+          <publish>U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station</publish>
+        </pubinfo>
+        <othercit>21 p.</othercit>
+        <onlink>https://doi.org/10.2737/RMRS-GTR-211</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Flather, Curtis H.</origin>
+        <origin>Knowles, Michael S.</origin>
+        <origin>Jones, Martin F.</origin>
+        <origin>Schilli, Carol</origin>
+        <pubdate>2013</pubdate>
+        <title>Wildlife population and harvest trends in the United States: a technical document supporting the Forest Service 2010 RPA Assessment</title>
+        <geoform>document</geoform>
+        <serinfo>
+          <sername>General Technical Report</sername>
+          <issue>RMRS-GTR-296</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>Fort Collins, CO</pubplace>
+          <publish>U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station</publish>
+        </pubinfo>
+        <othercit>94 p.</othercit>
+        <onlink>https://doi.org/10.2737/RMRS-GTR-296</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>USDA Forest Service</origin>
+        <pubdate>2016</pubdate>
+        <title>Future of America's Forests and Rangelands: Update to the 2010 Resources Planning Act Assessment</title>
+        <geoform>document</geoform>
+        <serinfo>
+          <sername>General Technical Report</sername>
+          <issue>WO-GTR-94</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>Washington, DC</pubplace>
+          <publish>Washington Office</publish>
+        </pubinfo>
+        <othercit>250 p.</othercit>
+        <onlink>https://www.fs.usda.gov/treesearch/pubs/53212</onlink>
+      </citeinfo>
+    </crossref>
+    <tool>
+      <tooldesc>SAS is a statistical software suite developed by SAS Institute Inc., Cary, NC, USA that can be used for a variety of purposes including analysis and data management.</tooldesc>
+      <toolacc>
+        <onlink>https://www.sas.com/</onlink>
+        <toolinst>See website for more information.</toolinst>
+      </toolacc>
+    </tool>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>Listings were manually transcribed from the box scores into a SAS software program.</attraccr>
+    </attracc>
+    <logic>Values were manually checked within the SAS software program and in the hardcopy print.</logic>
+    <complete>Data are complete. Missing values indicate that no species with a group (e.g., Arachnids) had been listed as threatened or endangered as of that date.</complete>
+    <lineage>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>U.S. Fish &amp; Wildlife Service Environmental Conservation Online System</origin>
+            <pubdate>Unknown</pubdate>
+            <title>Endangered Species Bulletin Box Score</title>
+            <geoform>database</geoform>
+            <othercit>Data obtained 30 September, 2019</othercit>
+            <onlink>https://www.fws.gov/endangered/news/bulletin-archive.html</onlink>
+          </citeinfo>
+        </srccite>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>1976</begdate>
+              <enddate>2009</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>Publication Date</srccurr>
+        </srctime>
+        <srccitea>Endangered Species Bulletin</srccitea>
+        <typesrc>Online</typesrc>
+        <srccontr>Data collected are counts of threatened and endangered species in the United States.
+
+These counts: 
+
+(a)	include populations in which the United States shares jurisdiction with another nation;
+
+(b)	include 22 animal species (14 in the U.S.3 and 8 Foreign) that are counted more than once, primarily because these animals have distinct population segments (each with its own individual listing status);
+
+(c ) include the following groups:
+Plants,
+Animals,
+Amphibians,
+Arachnids,
+Birds,
+Clams,
+Corals,
+Crustaceans,
+Fishes,
+Insects,
+Mammals,
+Reptiles,
+Snails, and
+Mollusks (Snails and Clams combined);
+
+(d) do not include listings for species with a status of "Similarity of Appearance."
+	</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>U.S. Fish &amp; Wildlife Service Environmental Conservation Online System</origin>
+            <pubdate>Unknown</pubdate>
+            <title>Listed Species Summary (Boxscore)</title>
+            <geoform>database</geoform>
+            <onlink>http://ecos.fws.gov/tess_public/reports/box-score-report</onlink>
+          </citeinfo>
+        </srccite>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>2010</begdate>
+              <enddate>2019</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>Publication Date</srccurr>
+        </srctime>
+        <srccitea>ECOS Box Score</srccitea>
+        <typesrc>Online</typesrc>
+        <srccontr>Data collected are counts of threatened and endangered species in the United States.  
+		
+These counts: 
+
+(a)	include populations in which the United States shares jurisdiction with another nation;
+
+(b)	include 22 animal species (14 in the U.S.3 and 8 Foreign) that are counted more than once, primarily because these animals have distinct population segments (each with its own individual listing status);
+
+(c) include the following groups:
+Plants,
+Animals,
+Amphibians,
+Arachnids,
+Birds,
+Clams,
+Corals,
+Crustaceans,
+Fishes,
+Insects,
+Mammals,
+Reptiles,
+Snails, and
+Mollusks (Snails and Clams combined);
+ 
+(d) do not include listings for species with a status of "Similarity of Appearance."</srccontr>
+      </srcinfo>
+      <procstep>
+        <srcused>Endangered Species Bulletins and ECOS Box Score</srcused>
+        <procdesc>Data were compiled in periodic intervals for the number of species listed and recovery plans, by group, from the Endangered Species Bulletin publications and Environmental Conservation Online System (ECOS) Box Score. Groups reported were amphibians, arachnids, birds, clams, corals, crustaceans, fishes, insects, mammals, reptiles, snails, total plants, and grand totals.
+
+Data were manually transcribed from publication or online report into a SAS software program that created the master data set.</procdesc>
+        <procdate>20190930</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <eainfo>
+    <overview>
+      <eaover>Below you will find a complete list and description of the files available in this data publication. 
+
+NOTE: data files are available in two different file formats (CSV and XLSX)
+
+\Data\danger.csv: Comma-delimited ASCII text file containing the summary of U.S. threatened and endangered species from 1 July 1976 through 30 September 2019, by taxonomic group. Data compiled from the U.S. Fish &amp; Wildlife Service's Endangered Species Bulletin and Environmental Conservation Online System.
+
+\Data\danger_modified_mollusk.csv: Comma-delimited ASCII text file containing the summary of U.S. threatened and endangered species from 1 July 1976 through 30 September 2019, by taxonomic group. Four time periods (19 March 2008, 13 May 2008, 13 August 2008, and 28 November 2008) were modified due to an accounting change tied to species collectively referenced as O'ahu tree snails (Achatinella spp.). Data compiled from the U.S. Fish &amp; Wildlife Service's Endangered Species Bulletin and Environmental Conservation Online System.
+
+\Data\variable_descriptions.csv: Comma-delimited ASCII text file containing the variable name and description for danger.csv and danger_modified_mollusk.csv.
+
+
+\Data\danger.xlsx: Microsoft Excel Open XML spreadsheet file containing (a) the summary of U.S. threatened and endangered species from 1 July 1976 through 30 September, by taxonomic group, in sheet labelled "danger" and (b) the metadata defining the variables, sheet labelled "variable_descriptions". Data compiled from the U.S. Fish &amp; Wildlife Service's Endangered Species Bulletin and Environmental Conservation Online System.
+
+\Data\danger_modified_mollusk.xlsx: Microsoft Excel Open XML spreadsheet file containing (a) the summary of U.S. threatened and endangered species from 1 July 1976 through 30 September, by taxonomic group, in sheet labelled "danger_modified_mollusk" and (b) the metadata defining the variables, sheet labelled "variable_descriptions". Four time periods (19 March 2008, 13 May 2008, 13 August 2008, and 28 November 2008) were modified due to an accounting change ties to species collectively referenced as O'ahu tree snails (Achatinella spp.). Data compiled from the U.S. Fish &amp; Wildlife Service's Endangered Species Bulletin and Environmental Conservation Online System.
+
+
+Below is a list of the variables found in data files (not necessarily in this order). Each variable is the count (number) of species that are listed as threatened or endangered in the U.S. (this includes territories and nations that the U.S. shares jurisdiction with).
+
+date = Date of report (format is: dd Mon yyyy, where dd = numeric day, Mon = 3-letter abbreviation for month, yyyy = numeric year)
+
+end_m = Endangered listings of mammals
+thrt_m = Threatened listings of mammals
+all_m = Total threatened and endangered listings of mammals
+
+end_b = Endangered listings of birds
+thrt_b = Threatened listings of birds
+all_b = Total threatened and endangered listings of birds
+
+end_r = Endangered listings of reptiles
+thrt_r = Threatened listings of reptiles
+all_r = Total threatened and endangered listings of reptiles
+
+end_am = Endangered listings of amphibians
+thrt_am = Threatened listings of amphibians
+all_am = Total threatened and endangered listings of amphibians
+
+end_f = Endangered listings of fishes
+thrt_f = Threatened listings of fishes
+all_f = Total threatened and endangered listings of fishes
+
+end_s = Endangered listings of snails
+thrt_s = Threatened listings of snails
+all_s = Total threatened and endangered listings of snails
+
+end_cl = Endangered listings of clams
+thrt_cl = Threatened listings of clams
+all_cl = Total threatened and endangered listings of clams
+
+end_mo = Endangered listings of mollusks (Snails and Clams combined) 
+thrt_mo = Threatened listings of mollusks (Snails and Clams combined)
+all_mo = Total threatened and endangered listings of mollusks (Snails and Clams combined)
+
+end_cr = Endangered listings of crustaceans
+thrt_cr = Threatened listings of crustaceans
+all_cr = Total threatened and endangered listings of crustaceans
+
+end_i = Endangered listings of insects
+thrt_i = Threatened listings of insects
+all_i = Total threatened and endangered listings of insects
+
+end_ar = Endangered listings of arachnids
+thrt_ar = Threatened listings of arachnids
+all_ar = Total threatened and endangered listings of arachnids
+
+end_p = Endangered listings of plants
+thrt_p = Threatened listings of plants
+all_p = Total threatened and endangered listings of plants
+
+end_co = Endangered listings of corals
+thrt_co = Threatened listings of corals
+all_co = Total threatened and endangered listings of corals
+
+end_ani = Endangered listings of animals
+thrt_ani = Threatened listings of animals
+all_ani = Total threatened and endangered listings of animals
+
+end_all = Endangered listings of all taxa
+thrt_all = Threatened listings of all taxa
+all_all = Total threatened and endangered listings of all taxa
+
+all_ani = Total threatened and endangered listings of animals
+</eaover>
+      <eadetcit>Flather, Curtis H.; Brady, Stephen J.; Knowles, Michael S. 1999. Wildlife resource trends in the United States: A technical document supporting the 2000 RPA Assessment. Gen. Tech. Rep. RMRS-GTR-33. Fort Collins, CO: U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station. 79 p. https://doi.org/10.2737/RMRS-GTR-33
+	  
+Flather, Curtis H.; Knowles, Michael S.; McNees, Jason. 2008. Geographic patterns of at-risk species: A technical document supporting the USDA Forest Service Interim Update of the 2000 RPA Assessment. Gen. Tech. Rep. RMRS-GTR-211. Fort Collins, CO: U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station. 21 p. https://doi.org/10.2737/RMRS-GTR-211
+
+Flather, Curtis H.; Knowles, Michael S.; Jones, Martin F.; Schilli, Carol. 2013. Wildlife population and harvest trends in the United States: a technical document supporting the Forest Service 2010 RPA Assessment. Gen. Tech. Rep. RMRS-GTR-296. Fort Collins, CO: U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station. 94 p. https://doi.org/10.2737/RMRS-GTR-296
+
+USDA Forest Service. 2016. Future of America's Forests and Rangelands: Update to the 2010 Resources Planning Act Assessment.  Gen. Tech. Report WO-GTR-94. Washington, DC. 250 p. https://www.fs.usda.gov/treesearch/pubs/53212	  
+	  </eadetcit>
+    </overview>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>USDA Forest Service, Research and Development</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>240 West Prospect Road</address>
+          <city>Fort Collins</city>
+          <state>CO</state>
+          <postal>80526</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>see Contact Instructions</cntvoice>
+        <cntpos>Research Data Archivist</cntpos>
+        <cntinst>This contact information was current as of November 2019. For current information see Contact Us page on: https://doi.org/10.2737/RDS.</cntinst>
+      </cntinfo>
+    </distrib>
+    <resdesc>RDS-2019-0046</resdesc>
+    <distliab>Metadata documents have been reviewed for accuracy and completeness. Unless otherwise stated, all data and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. However, neither the author, the Archive, nor any part of the federal government can assure the reliability or suitability of these data for a particular purpose. The act of distribution shall not constitute any such warranty, and no responsibility is assumed for a user's application of these data or related materials.
+
+The metadata, data, or related materials may be updated without notification. If a user believes errors are present in the metadata, data or related materials, please use the information in (1) Identification Information: Point of Contact, (2) Metadata Reference: Metadata Contact, or (3) Distribution Information: Distributor to notify the author or the Archive of the issues.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>ASCII</formname>
+          <formvern>see Format Specification</formvern>
+          <formspec>Comma-delimited ASCII text file (CSV)</formspec>
+          <filedec>Files zipped with 7-Zip 18.05</filedec>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://doi.org/10.2737/RDS-2019-0046</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <digform>
+        <digtinfo>
+          <formname>XLSX</formname>
+          <formvern>see Format Specification</formvern>
+          <formspec>Microsoft Office open XML spreadsheet file (XLSX)</formspec>
+          <filedec>Files zipped with 7-Zip 18.05</filedec>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://doi.org/10.2737/RDS-2019-0046</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees>None</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20191104</metd>
+    <metc>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>USDA Forest Service, Rocky Mountain Research Station</cntorg>
+          <cntper>Michael Knowles</cntper>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>240 West Prospect Road</address>
+          <city>Fort Collins</city>
+          <state>CO</state>
+          <postal>80526</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>970-498-1100</cntvoice>
+        <cntpos>Ecologist</cntpos>
+        <cntemail>michael.s.knowles@usda.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Biological Data Profile of the Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001.1-1999</metstdv>
+  </metainfo>
+</metadata>
