@@ -28,5 +28,6 @@
     - 박병준(PBJ) - 동물보호관리시스템 분석(유기동물 정보조회, 동물복지산업)
 
     - 송인욱(SIU) - 멸종위기종과 생태계 변화
+    - https://public.tableau.com/app/profile/inuk.song/viz/endangeredanimalsandbiodiversity/sheet0?publish=yes
 
     - 심정윤(Aravis_S) - 동물 유기 원인 파악, 원인별 해결책 제시
