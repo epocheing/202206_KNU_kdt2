@@ -27,7 +27,7 @@
     - https://public.tableau.com/shared/6D6QHZFJG?:display_count=n&:origin=viz_share_link
 
     - 박병준(PBJ) - 동물보호관리시스템 분석(동물복지산업, 동물치료소)
-    - https://public.tableau.com/app/profile/.54344548/viz/10_16617472043020/1_1?publish=yes
+    - https://public.tableau.com/shared/5GZYJJBNY?:display_count=n&:origin=viz_share_link
 
     - 송인욱(SIU) - 멸종위기종과 생태계 변화
     - https://public.tableau.com/views/endangeredanimalsandbiodiversity/sheet0_2?:language=ko-KR&:display_count=n&:origin=viz_share_link
