@@ -30,7 +30,7 @@
     - https://public.tableau.com/app/profile/.54344548/viz/10_16617472043020/1_1?publish=yes
 
     - 송인욱(SIU) - 멸종위기종과 생태계 변화
-    - https://public.tableau.com/app/profile/inuk.song/viz/endangeredanimalsandbiodiversity/sheet0_2
+    - https://public.tableau.com/views/endangeredanimalsandbiodiversity/sheet0_2?:language=ko-KR&:display_count=n&:origin=viz_share_link
 
     - 심정윤(Aravis_S) - 동물 유기 원인 파악, 원인별 해결책 제시
     - https://public.tableau.com/app/profile/aravis/viz/1_16617475624160/1?publish=yes
