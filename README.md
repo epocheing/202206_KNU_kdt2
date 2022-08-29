@@ -26,9 +26,11 @@
     - 남재환(NJH) - 경기도권 반려동물 등록칩 등록현황과 시군별 등록수 등 진행중.
     - https://public.tableau.com/app/profile/.32815943/viz/Team_0829/sheet6?publish=yes
 
-    - 박병준(PBJ) - 동물보호관리시스템 분석(유기동물 정보조회, 동물복지산업)
+    - 박병준(PBJ) - 동물보호관리시스템 분석(동물복지산업, 동물치료소)
+    - https://public.tableau.com/app/profile/.54344548/viz/10_16617472043020/1_1?publish=yes
 
     - 송인욱(SIU) - 멸종위기종과 생태계 변화
     - https://public.tableau.com/app/profile/inuk.song/viz/endangeredanimalsandbiodiversity/sheet0?publish=yes
 
     - 심정윤(Aravis_S) - 동물 유기 원인 파악, 원인별 해결책 제시
+    - https://public.tableau.com/app/profile/aravis/viz/1_16617475624160/1?publish=yes
