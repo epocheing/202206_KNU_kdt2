@@ -24,6 +24,7 @@
     - 김라희(KLH) - 개와 고양이 외 반려동물의 종(species)과 2017년 이후 반려견 증가 이유
 
     - 남재환(NJH) - 경기도권 반려동물 등록칩 등록현황과 시군별 등록수 등 진행중.
+    - https://public.tableau.com/app/profile/.32815943/viz/Team_0829/sheet6?publish=yes
 
     - 박병준(PBJ) - 동물보호관리시스템 분석(유기동물 정보조회, 동물복지산업)
 
