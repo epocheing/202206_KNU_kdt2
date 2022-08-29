@@ -1,0 +1,1964 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20222.22.0624.2136                               -->
+<workbook original-version='18.1' source-build='2022.2.0 (20222.22.0624.2136)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AccessibleZoneTabOrder.true...AccessibleZoneTabOrder />
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MapboxVectorStylesAndLayers />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <repository-location id='Team_0829' path='/workbooks' revision='1.3' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='반려동물등록현황' inline='true' name='federated.1phadbi0ke7yu617dmayt0awvq3q' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='반려동물등록현황' name='textscan.1sn1lmd1ai6bqx1g2oeyz11myfo4'>
+            <connection class='textscan' directory='C:/Users/User/Desktop/유기동물' filename='반려동물등록현황.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.1sn1lmd1ai6bqx1g2oeyz11myfo4' name='반려동물등록현황.csv' table='[반려동물등록현황#csv]' type='table'>
+          <columns character-set='EUC-KR' header='yes' locale='ko_KR' separator=','>
+            <column datatype='string' name='시군명' ordinal='0' />
+            <column datatype='string' name='읍면동명' ordinal='1' />
+            <column datatype='integer' name='등록동물수(마리)' ordinal='2' />
+            <column datatype='integer' name='(등록주체)시군구등록' ordinal='3' />
+            <column datatype='integer' name='(등록주체)대행업체등록' ordinal='4' />
+            <column datatype='integer' name='(등록주체)기타' ordinal='5' />
+            <column datatype='integer' name='(RFID종류)내장형' ordinal='6' />
+            <column datatype='integer' name='(RFID종류)외장형' ordinal='7' />
+            <column datatype='integer' name='(RFID종류)인식표' ordinal='8' />
+            <column datatype='integer' name='등록품종수' ordinal='9' />
+            <column datatype='integer' name='등록소유자수' ordinal='10' />
+            <column datatype='real' name='동물소유자당등록동물수' ordinal='11' />
+            <column datatype='integer' name='해당동의등록대행업체수' ordinal='12' />
+            <column datatype='date' name='데이터기준일자' ordinal='13' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='textscan.1sn1lmd1ai6bqx1g2oeyz11myfo4' name='반려동물등록현황.csv' table='[반려동물등록현황#csv]' type='table'>
+          <columns character-set='EUC-KR' header='yes' locale='ko_KR' separator=','>
+            <column datatype='string' name='시군명' ordinal='0' />
+            <column datatype='string' name='읍면동명' ordinal='1' />
+            <column datatype='integer' name='등록동물수(마리)' ordinal='2' />
+            <column datatype='integer' name='(등록주체)시군구등록' ordinal='3' />
+            <column datatype='integer' name='(등록주체)대행업체등록' ordinal='4' />
+            <column datatype='integer' name='(등록주체)기타' ordinal='5' />
+            <column datatype='integer' name='(RFID종류)내장형' ordinal='6' />
+            <column datatype='integer' name='(RFID종류)외장형' ordinal='7' />
+            <column datatype='integer' name='(RFID종류)인식표' ordinal='8' />
+            <column datatype='integer' name='등록품종수' ordinal='9' />
+            <column datatype='integer' name='등록소유자수' ordinal='10' />
+            <column datatype='real' name='동물소유자당등록동물수' ordinal='11' />
+            <column datatype='integer' name='해당동의등록대행업체수' ordinal='12' />
+            <column datatype='date' name='데이터기준일자' ordinal='13' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <refresh increment-key='' incremental-updates='false' />
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;EUC-KR&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;ko&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₩&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;ko_KR&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>시군명</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[시군명]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>시군명</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LKO_RKR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>읍면동명</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[읍면동명]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>읍면동명</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LKO_RKR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>등록동물수(마리)</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[등록동물수(마리)]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>등록동물수(마리)</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>(등록주체)시군구등록</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[(등록주체)시군구등록]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>(등록주체)시군구등록</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>(등록주체)대행업체등록</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[(등록주체)대행업체등록]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>(등록주체)대행업체등록</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>(등록주체)기타</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[(등록주체)기타]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>(등록주체)기타</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>(RFID종류)내장형</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[(RFID종류)내장형]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>(RFID종류)내장형</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>(RFID종류)외장형</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[(RFID종류)외장형]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>(RFID종류)외장형</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>(RFID종류)인식표</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[(RFID종류)인식표]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>(RFID종류)인식표</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>등록품종수</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[등록품종수]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>등록품종수</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>등록소유자수</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[등록소유자수]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>등록소유자수</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>동물소유자당등록동물수</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[동물소유자당등록동물수]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>동물소유자당등록동물수</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>해당동의등록대행업체수</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[해당동의등록대행업체수]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>해당동의등록대행업체수</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>데이터기준일자</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[데이터기준일자]</local-name>
+            <parent-name>[반려동물등록현황.csv]</parent-name>
+            <remote-alias>데이터기준일자</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='(Rfid종류)내장형' datatype='integer' name='[(RFID종류)내장형]' role='measure' type='quantitative' />
+      <column caption='(Rfid종류)외장형' datatype='integer' name='[(RFID종류)외장형]' role='measure' type='quantitative' />
+      <column caption='(Rfid종류)인식표' datatype='integer' name='[(RFID종류)인식표]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[(등록주체)기타]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[(등록주체)대행업체등록]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[(등록주체)시군구등록]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='반려동물등록현황.csv' datatype='table' name='[__tableau_internal_object_id__].[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]' role='measure' type='quantitative' />
+      <column datatype='date' name='[데이터기준일자]' role='dimension' type='ordinal' />
+      <column datatype='real' name='[동물소유자당등록동물수]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[등록동물수(마리)]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[등록소유자수]' role='measure' type='quantitative' />
+      <column aggregation='None' datatype='integer' name='[등록품종수(구간차원)]' role='dimension' type='quantitative'>
+        <calculation class='bin' decimals='2' formula='[등록품종수]' peg='0' size='123' />
+      </column>
+      <column datatype='integer' name='[등록품종수]' role='measure' type='quantitative' />
+      <column datatype='string' name='[시군명]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column-instance column='[(RFID종류)내장형]' derivation='Avg' name='[avg:(RFID종류)내장형:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[동물소유자당등록동물수]' derivation='Avg' name='[avg:동물소유자당등록동물수:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[등록소유자수]' derivation='Avg' name='[avg:등록소유자수:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[등록동물수(마리)]' derivation='Count' name='[cnt:등록동물수(마리):qk]' pivot='key' type='quantitative' />
+      <column-instance column='[(RFID종류)내장형]' derivation='None' name='[none:(RFID종류)내장형:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[(RFID종류)내장형]' derivation='Sum' name='[sum:(RFID종류)내장형:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[(RFID종류)외장형]' derivation='Sum' name='[sum:(RFID종류)외장형:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[(등록주체)기타]' derivation='Sum' name='[sum:(등록주체)기타:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[(등록주체)대행업체등록]' derivation='Sum' name='[sum:(등록주체)대행업체등록:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[(등록주체)시군구등록]' derivation='Sum' name='[sum:(등록주체)시군구등록:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[동물소유자당등록동물수]' derivation='Sum' name='[sum:동물소유자당등록동물수:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[등록동물수(마리)]' derivation='Sum' name='[sum:등록동물수(마리):qk]' pivot='key' type='quantitative' />
+      <column-instance column='[등록소유자수]' derivation='Sum' name='[sum:등록소유자수:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[데이터기준일자]' derivation='Year-Trunc' name='[tyr:데이터기준일자:ok]' pivot='key' type='ordinal' />
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='ko_KR' class='hyper' dbname='C:/Tableau_project/반려동물등록현황.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>시군명</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[시군명]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>시군명</remote-alias>
+              <ordinal>0</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>31</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LKO_RKR' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>읍면동명</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[읍면동명]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>읍면동명</remote-alias>
+              <ordinal>1</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>673</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LKO_RKR' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>등록동물수(마리)</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[등록동물수(마리)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>등록동물수(마리)</remote-alias>
+              <ordinal>2</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>560</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>(등록주체)시군구등록</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[(등록주체)시군구등록]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>(등록주체)시군구등록</remote-alias>
+              <ordinal>3</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>231</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>(등록주체)대행업체등록</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[(등록주체)대행업체등록]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>(등록주체)대행업체등록</remote-alias>
+              <ordinal>4</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>553</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>(등록주체)기타</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[(등록주체)기타]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>(등록주체)기타</remote-alias>
+              <ordinal>5</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>16</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>(RFID종류)내장형</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[(RFID종류)내장형]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>(RFID종류)내장형</remote-alias>
+              <ordinal>6</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>490</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>(RFID종류)외장형</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[(RFID종류)외장형]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>(RFID종류)외장형</remote-alias>
+              <ordinal>7</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>414</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>(RFID종류)인식표</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[(RFID종류)인식표]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>(RFID종류)인식표</remote-alias>
+              <ordinal>8</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>289</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>등록품종수</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[등록품종수]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>등록품종수</remote-alias>
+              <ordinal>9</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>120</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>등록소유자수</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[등록소유자수]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>등록소유자수</remote-alias>
+              <ordinal>10</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>511</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>동물소유자당등록동물수</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[동물소유자당등록동물수]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>동물소유자당등록동물수</remote-alias>
+              <ordinal>11</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>129</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>해당동의등록대행업체수</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[해당동의등록대행업체수]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>해당동의등록대행업체수</remote-alias>
+              <ordinal>12</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>18</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>데이터기준일자</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[데이터기준일자]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>데이터기준일자</remote-alias>
+              <ordinal>13</ordinal>
+              <family>반려동물등록현황.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>28</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[avg:(RFID종류)내장형:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:(RFID종류)내장형:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)외장형:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)대행업체등록:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)기타:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[avg:동물소유자당등록동물수:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[avg:등록소유자수:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:동물소유자당등록동물수:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)시군구등록:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[cnt:등록동물수(마리):qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[tyr:데이터기준일자:ok]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>#2020-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#2022-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#2021-01-01 00:00:00#</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;대한민국&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='반려동물등록현황.csv' id='반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8'>
+            <properties context=''>
+              <relation connection='textscan.1sn1lmd1ai6bqx1g2oeyz11myfo4' name='반려동물등록현황.csv' table='[반려동물등록현황#csv]' type='table'>
+                <columns character-set='EUC-KR' header='yes' locale='ko_KR' separator=','>
+                  <column datatype='string' name='시군명' ordinal='0' />
+                  <column datatype='string' name='읍면동명' ordinal='1' />
+                  <column datatype='integer' name='등록동물수(마리)' ordinal='2' />
+                  <column datatype='integer' name='(등록주체)시군구등록' ordinal='3' />
+                  <column datatype='integer' name='(등록주체)대행업체등록' ordinal='4' />
+                  <column datatype='integer' name='(등록주체)기타' ordinal='5' />
+                  <column datatype='integer' name='(RFID종류)내장형' ordinal='6' />
+                  <column datatype='integer' name='(RFID종류)외장형' ordinal='7' />
+                  <column datatype='integer' name='(RFID종류)인식표' ordinal='8' />
+                  <column datatype='integer' name='등록품종수' ordinal='9' />
+                  <column datatype='integer' name='등록소유자수' ordinal='10' />
+                  <column datatype='real' name='동물소유자당등록동물수' ordinal='11' />
+                  <column datatype='integer' name='해당동의등록대행업체수' ordinal='12' />
+                  <column datatype='date' name='데이터기준일자' ordinal='13' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='등록자,인당등'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>경기도 시군별 등록자수  및 인당 동물 등록수</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='반려동물등록현황' name='federated.1phadbi0ke7yu617dmayt0awvq3q' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1phadbi0ke7yu617dmayt0awvq3q'>
+            <column-instance column='[동물소유자당등록동물수]' derivation='Avg' name='[avg:동물소유자당등록동물수:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[시군명]' derivation='None' name='[none:시군명:nk]' pivot='key' type='nominal' />
+            <column-instance column='[동물소유자당등록동물수]' derivation='Sum' name='[sum:동물소유자당등록동물수:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[등록동물수(마리)]' derivation='Sum' name='[sum:등록동물수(마리):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[등록소유자수]' derivation='Sum' name='[sum:등록소유자수:qk]' pivot='key' type='quantitative' />
+            <column datatype='real' name='[동물소유자당등록동물수]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[등록동물수(마리)]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[등록소유자수]' role='measure' type='quantitative' />
+            <column datatype='string' name='[시군명]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]' included-values='non-null' />
+          <filter class='categorical' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:시군명:nk]' />
+              <groupfilter function='union'>
+                <groupfilter function='member' level='[none:시군명:nk]' member='&quot;과천시&quot;' />
+                <groupfilter function='member' level='[none:시군명:nk]' member='&quot;광명시&quot;' />
+                <groupfilter function='member' level='[none:시군명:nk]' member='&quot;군포시&quot;' />
+                <groupfilter function='member' level='[none:시군명:nk]' member='&quot;시흥시&quot;' />
+                <groupfilter function='member' level='[none:시군명:nk]' member='&quot;의왕시&quot;' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:동물소유자당등록동물수:qk]' included-values='in-range-or-null'>
+            <min>1.26</min>
+            <max>126.23999999999998</max>
+          </filter>
+          <slices>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:동물소유자당등록동물수:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]' field-type='quantitative' max='14207264.98949568' min='14062811.526234873' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]' field-type='quantitative' max='4589123.6525691953' min='4420793.5799682084' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:동물소유자당등록동물수:qk]' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#f1f1f1</color>
+                <color>#f2dada</color>
+                <color>#f3c3c3</color>
+                <color>#f5abab</color>
+                <color>#f69393</color>
+                <color>#f87c7c</color>
+                <color>#f96363</color>
+                <color>#fa4b4b</color>
+                <color>#fc3232</color>
+                <color>#fd1919</color>
+                <color>#ff0000</color>
+              </color-palette>
+            </encoding>
+            <encoding attr='color' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[avg:동물소유자당등록동물수:qk]' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#f1f1f1</color>
+                <color>#f2dada</color>
+                <color>#f3c3c3</color>
+                <color>#f5abab</color>
+                <color>#f69393</color>
+                <color>#f87c7c</color>
+                <color>#f96363</color>
+                <color>#fa4b4b</color>
+                <color>#fc3232</color>
+                <color>#fd1919</color>
+                <color>#ff0000</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='omit-on-special' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' value='false' />
+            <format attr='break-on-special' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' value='false' />
+            <format attr='show-null-value-warning' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[avg:동물소유자당등록동물수:qk]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]' />
+              <geometry column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]</rows>
+        <cols>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]</cols>
+        <mark-labels>
+          <mark-label id='0'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[avg:동물소유자당등록동물수:qk]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Geometry (generated)]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;하남시&quot;</value>
+                <value>37.549999999999997</value>
+                <value>13085.0</value>
+                <value>&quot;POLYGON((127.2857 37.5143,127.2762 37.5085,127.2686 37.5065,127.2546 37.5063,127.2533 37.5033,127.2585 37.4897,127.2537 37.4865,127.2445 37.4851,127.2446 37.4767,127.2285 37.4775,127.2156 37.4822,127.1978 37.4796,127.1885 37.4804,127.1839 37.4839,127.1758 37.4854,127.1754 37.4768,127.1789 37.4747,127.1754 37.4729,127.1677 37.4688,127.1546 37.4735,127.1539 37.4735,127.1436 37.4739,127.1486 37.484,127.1582 37.4895,127.1614 37.4996,127.1422 37.5049,127.14 37.5086,127.1451 37.5169,127.1532 37.5292,127.1536 37.5337,127.1634 37.545,127.1828 37.5464,127.1819 37.5613,127.1754 37.5783,127.1686 37.579,127.1707 37.5811,127.1833 37.5917,127.1965 37.5911,127.2022 37.5891,127.2136 37.5767,127.22 37.5734,127.2202 37.5669,127.2327 37.5591,127.2381 37.5462,127.2649 37.5321,127.2813 37.5251,127.2857 37.5143))&quot;</value>
+                <value>37.5306</value>
+                <value>127.21080000000001</value>
+              </tuple>
+            </tuple-reference>
+            <label-position x='0.457627' y='0.322581' />
+          </mark-label>
+          <mark-label id='1'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[avg:동물소유자당등록동물수:qk]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Geometry (generated)]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>%null%</value>
+                <value>%null%</value>
+                <value>&quot;의정부시&quot;</value>
+                <value>58997</value>
+                <value>&quot;POLYGON((127.1462 37.7555,127.1465 37.7499,127.1384 37.7474,127.1286 37.7481,127.1237 37.7389,127.1258 37.7275,127.1123 37.7178,127.109 37.7087,127.0964 37.7022,127.084 37.7019,127.0811 37.6961,127.0727 37.6938,127.0627 37.6947,127.0518 37.6857,127.0485 37.694,127.0412 37.6953,127.031 37.6931,127.0293 37.6993,127.0155 37.7015,127.0182 37.7051,127.0128 37.7125,127.0105 37.7219,127.0122 37.7261,127.0057 37.7337,127.0022 37.7442,127.0066 37.7477,127.0024 37.7552,127.0017 37.7614,127.0085 37.7624,127.0174 37.7689,127.0272 37.7665,127.0338 37.7684,127.0418 37.7666,127.0513 37.761,127.0696 37.7651,127.0854 37.7739,127.1057 37.7803,127.1258 37.7727,127.1348 37.7627,127.1397 37.764,127.1462 37.7555))&quot;</value>
+                <value>37.730600000000003</value>
+                <value>127.0668</value>
+              </tuple>
+            </tuple-reference>
+            <label-position x='0.45283' y='0.325581' />
+          </mark-label>
+          <mark-label id='2'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[avg:동물소유자당등록동물수:qk]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Geometry (generated)]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]</field>
+                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>1.5563636363636364</value>
+                <value>390.04545454545456</value>
+                <value>&quot;양주시&quot;</value>
+                <value>11848</value>
+                <value>&quot;POLYGON((127.0097 37.9282,127.0133 37.9192,127.0062 37.9152,127.0105 37.9102,127.011 37.9047,127.0219 37.8985,127.0287 37.8988,127.0459 37.8946,127.0482 37.8832,127.0539 37.8756,127.0638 37.8693,127.0737 37.8728,127.0782 37.8702,127.0858 37.8723,127.093 37.8711,127.0978 37.8665,127.1036 37.8657,127.1088 37.8604,127.1144 37.8497,127.1172 37.8346,127.1222 37.8255,127.1203 37.8168,127.1219 37.812,127.117 37.8044,127.1177 37.796,127.1057 37.7803,127.0854 37.7739,127.0696 37.7651,127.0513 37.761,127.0418 37.7666,127.0338 37.7684,127.0272 37.7665,127.0174 37.7689,127.0085 37.7624,127.0017 37.7614,127.0024 37.7552,127.0066 37.7477,127.0022 37.7442,127.0057 37.7337,127.0122 37.7261,127.0105 37.7219,127.0128 37.7125,127.0182 37.7051,127.0155 37.7015,127.0076 37.6916,127.0086 37.6845,126.9973 37.6835,126.9922 37.6796,126.9824 37.6852,126.9749 37.6866,126.9651 37.6928,126.9537 37.6926,126.9515 37.6882,126.9514 37.688,126.9494 37.6873,126.9452 37.6858,126.9445 37.6814,126.9429 37.672,126.9388 37.6702,126.9204 37.6716,126.9155 37.6701,126.9112 37.6687,126.9077 37.6719,126.9065 37.673,126.9087 37.6741,126.913 37.6764,126.9153 37.6882,126.9223 37.7004,126.9253 37.7087,126.9225 37.7117,126.921 37.7134,126.9248 37.7197,126.9249 37.7198,126.9221 37.7318,126.9306 37.7362,126.93 37.7412,126.9291 37.7485,126.928 37.757,126.9353 37.7736,126.9346 37.782,126.9379 37.787,126.9318 37.789,126.9264 37.7852,126.915 37.7909,126.9047 37.7924,126.906 37.8024,126.9117 37.806,126.9087 37.8107,126.91 37.8167,126.9049 37.8197,126.9026 37.8265,126.911 37.8285,126.9124 37.8405,126.9252 37.8416,126.9273 37.8376,126.9366 37.8414,126.9337 37.8461,126.9462 37.8678,126.9454 37.8888,126.9482 37.8968,126.9461 37.8995,126.9541 37.9129,126.9495 37.9184,126.9598 37.92,126.9648 37.9287,126.9647 37.9384,126.9725 37.9421,126.9799 37.9374,126.9861 37.9385,127.0011 37.9335,127.0097 37.9282))&quot;</value>
+                <value>37.805199999999999</value>
+                <value>127.014</value>
+              </tuple>
+            </tuple-reference>
+            <label-position x='0.240506' y='0.56' />
+          </mark-label>
+        </mark-labels>
+      </table>
+      <simple-id uuid='{08BB8940-BC07-4B01-A4E7-56379319965E}' />
+    </worksheet>
+    <worksheet name='시군별동물수 및 품종'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>시군별 등록품종수평균</run>
+            <run>Æ&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='반려동물등록현황' name='federated.1phadbi0ke7yu617dmayt0awvq3q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1phadbi0ke7yu617dmayt0awvq3q'>
+            <column-instance column='[등록품종수]' derivation='Avg' name='[avg:등록품종수:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[시군명]' derivation='None' name='[none:시군명:nk]' pivot='key' type='nominal' />
+            <column-instance column='[등록동물수(마리)]' derivation='Sum' name='[sum:등록동물수(마리):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[등록소유자수]' derivation='Sum' name='[sum:등록소유자수:qk]' pivot='key' type='quantitative' />
+            <column datatype='integer' name='[등록동물수(마리)]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[등록소유자수]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[등록품종수]' role='measure' type='quantitative' />
+            <column datatype='string' name='[시군명]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <size column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]' />
+              <color column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[avg:등록품종수:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{AFA942C0-10BF-454E-8700-C37419C9DD85}' />
+    </worksheet>
+    <worksheet name='시군별등록'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>시군별 등록자수</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='반려동물등록현황' name='federated.1phadbi0ke7yu617dmayt0awvq3q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1phadbi0ke7yu617dmayt0awvq3q'>
+            <column-instance column='[시군명]' derivation='None' name='[none:시군명:nk]' pivot='key' type='nominal' />
+            <column-instance column='[등록동물수(마리)]' derivation='Sum' name='[sum:등록동물수(마리):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[등록소유자수]' derivation='Sum' name='[sum:등록소유자수:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[데이터기준일자]' derivation='Year' name='[yr:데이터기준일자:ok]' pivot='key' type='ordinal' />
+            <column datatype='date' name='[데이터기준일자]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[등록동물수(마리)]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[등록소유자수]' role='measure' type='quantitative' />
+            <column datatype='string' name='[시군명]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]' included-values='non-null' />
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' direction='DESC' measure-to-sort-by='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]' palette='purple_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]</rows>
+        <cols>([federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk] / [federated.1phadbi0ke7yu617dmayt0awvq3q].[yr:데이터기준일자:ok])</cols>
+      </table>
+      <simple-id uuid='{A61024C0-C2C4-4F7B-887D-344E48DAC182}' />
+    </worksheet>
+    <worksheet name='시군별등록업'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>시군별 등록주체 비교</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='반려동물등록현황' name='federated.1phadbi0ke7yu617dmayt0awvq3q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1phadbi0ke7yu617dmayt0awvq3q'>
+            <column datatype='integer' name='[(등록주체)기타]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[(등록주체)대행업체등록]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[(등록주체)시군구등록]' role='measure' type='quantitative' />
+            <column-instance column='[시군명]' derivation='None' name='[none:시군명:nk]' pivot='key' type='nominal' />
+            <column-instance column='[(등록주체)기타]' derivation='Sum' name='[sum:(등록주체)기타:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[(등록주체)대행업체등록]' derivation='Sum' name='[sum:(등록주체)대행업체등록:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[(등록주체)시군구등록]' derivation='Sum' name='[sum:(등록주체)시군구등록:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[데이터기준일자]' derivation='Year-Trunc' name='[tyr:데이터기준일자:ok]' pivot='key' type='ordinal' />
+            <column datatype='date' name='[데이터기준일자]' role='dimension' type='ordinal' />
+            <column datatype='string' name='[시군명]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)기타:qk]' included-values='non-null' />
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)대행업체등록:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)기타:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)대행업체등록:qk]' field-type='quantitative' max='110917' min='4901' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[tyr:데이터기준일자:ok]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)기타:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[tyr:데이터기준일자:ok]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)대행업체등록:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[tyr:데이터기준일자:ok]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)시군구등록:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[tyr:데이터기준일자:ok]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)대행업체등록:qk] + ([federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)시군구등록:qk] + [federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)기타:qk]))</rows>
+        <cols>[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]</cols>
+      </table>
+      <simple-id uuid='{72E945A1-2F9B-4FCD-914D-9862FEE4CF10}' />
+    </worksheet>
+    <worksheet name='시군별인식'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>시군별  Rfid(종류)  비교</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='반려동물등록현황' name='federated.1phadbi0ke7yu617dmayt0awvq3q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1phadbi0ke7yu617dmayt0awvq3q'>
+            <column caption='(Rfid종류)내장형' datatype='integer' name='[(RFID종류)내장형]' role='measure' type='quantitative' />
+            <column caption='(Rfid종류)외장형' datatype='integer' name='[(RFID종류)외장형]' role='measure' type='quantitative' />
+            <column caption='(Rfid종류)인식표' datatype='integer' name='[(RFID종류)인식표]' role='measure' type='quantitative' />
+            <column-instance column='[시군명]' derivation='None' name='[none:시군명:nk]' pivot='key' type='nominal' />
+            <column-instance column='[(RFID종류)내장형]' derivation='Sum' name='[sum:(RFID종류)내장형:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[(RFID종류)외장형]' derivation='Sum' name='[sum:(RFID종류)외장형:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[(RFID종류)인식표]' derivation='Sum' name='[sum:(RFID종류)인식표:qk]' pivot='key' type='quantitative' />
+            <column datatype='string' name='[시군명]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:시군명:nk]' />
+              <groupfilter function='member' level='[none:시군명:nk]' member='&quot;의정부시&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]' included-values='non-null' />
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)인식표:qk]' field-type='quantitative' max='25873' min='-2671' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-color' value='#f9a655' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)외장형:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-color' value='#e15759' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)인식표:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-color' value='#499894' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk] + ([federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)외장형:qk] + [federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)인식표:qk]))</rows>
+        <cols>[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]</cols>
+      </table>
+      <simple-id uuid='{FC8576AB-A252-4293-8DE1-474FBA339B10}' />
+    </worksheet>
+    <worksheet name='시트 2'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>경기도 시군별 등록소유자수 현황</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='반려동물등록현황' name='federated.1phadbi0ke7yu617dmayt0awvq3q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1phadbi0ke7yu617dmayt0awvq3q'>
+            <column caption='(Rfid종류)내장형' datatype='integer' name='[(RFID종류)내장형]' role='measure' type='quantitative' />
+            <column caption='(Rfid종류)외장형' datatype='integer' name='[(RFID종류)외장형]' role='measure' type='quantitative' />
+            <column caption='(Rfid종류)인식표' datatype='integer' name='[(RFID종류)인식표]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[(등록주체)기타]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[(등록주체)대행업체등록]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[(등록주체)시군구등록]' role='measure' type='quantitative' />
+            <_.fcp.ObjectModelTableType.false...column caption='반려동물등록현황.csv' datatype='integer' name='[__tableau_internal_object_id__].[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]' role='measure' type='quantitative' />
+            <column-instance column='[__tableau_internal_object_id__].[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8:qk]' pivot='key' type='quantitative' />
+            <_.fcp.ObjectModelTableType.true...column caption='반려동물등록현황.csv' datatype='table' name='[__tableau_internal_object_id__].[반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8]' role='measure' type='quantitative' />
+            <column-instance column='[시군명]' derivation='None' name='[none:시군명:nk]' pivot='key' type='nominal' />
+            <column-instance column='[읍면동명]' derivation='None' name='[none:읍면동명:nk]' pivot='key' type='nominal' />
+            <column-instance column='[(RFID종류)내장형]' derivation='Sum' name='[sum:(RFID종류)내장형:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[(RFID종류)외장형]' derivation='Sum' name='[sum:(RFID종류)외장형:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[(RFID종류)인식표]' derivation='Sum' name='[sum:(RFID종류)인식표:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[(등록주체)기타]' derivation='Sum' name='[sum:(등록주체)기타:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[(등록주체)대행업체등록]' derivation='Sum' name='[sum:(등록주체)대행업체등록:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[(등록주체)시군구등록]' derivation='Sum' name='[sum:(등록주체)시군구등록:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[동물소유자당등록동물수]' derivation='Sum' name='[sum:동물소유자당등록동물수:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[등록동물수(마리)]' derivation='Sum' name='[sum:등록동물수(마리):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[등록소유자수]' derivation='Sum' name='[sum:등록소유자수:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[등록품종수]' derivation='Sum' name='[sum:등록품종수:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[해당동의등록대행업체수]' derivation='Sum' name='[sum:해당동의등록대행업체수:qk]' pivot='key' type='quantitative' />
+            <column datatype='real' name='[동물소유자당등록동물수]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[등록동물수(마리)]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[등록소유자수]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[등록품종수]' role='measure' type='quantitative' />
+            <column datatype='string' name='[시군명]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column datatype='string' name='[읍면동명]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[해당동의등록대행업체수]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[:Measure Names]'>
+            <groupfilter function='level-members' level='[:Measure Names]' />
+          </filter>
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[__tableau_internal_object_id__].[cnt:반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8:qk]' included-values='non-null' />
+          <manual-sort column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;수원시&quot;</bucket>
+              <bucket>&quot;부천시&quot;</bucket>
+              <bucket>&quot;용인시&quot;</bucket>
+              <bucket>&quot;화성시&quot;</bucket>
+              <bucket>&quot;남양주시&quot;</bucket>
+              <bucket>&quot;안양시&quot;</bucket>
+              <bucket>&quot;파주시&quot;</bucket>
+              <bucket>&quot;광주시&quot;</bucket>
+              <bucket>&quot;광명시&quot;</bucket>
+              <bucket>&quot;오산시&quot;</bucket>
+              <bucket>&quot;이천시&quot;</bucket>
+              <bucket>&quot;양주시&quot;</bucket>
+              <bucket>&quot;포천시&quot;</bucket>
+              <bucket>&quot;안성시&quot;</bucket>
+              <bucket>&quot;양평군&quot;</bucket>
+              <bucket>&quot;김포시&quot;</bucket>
+              <bucket>&quot;동두천시&quot;</bucket>
+              <bucket>&quot;여주시&quot;</bucket>
+              <bucket>&quot;과천시&quot;</bucket>
+              <bucket>&quot;연천군&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:읍면동명:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:읍면동명:nk]' />
+              <groupfilter function='union'>
+                <groupfilter function='member' level='[none:읍면동명:nk]' member='%null%' />
+                <groupfilter function='member' level='[none:읍면동명:nk]' member='&quot;합계&quot;' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)외장형:qk]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)인식표:qk]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)기타:qk]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)대행업체등록:qk]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)시군구등록:qk]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:동물소유자당등록동물수:qk]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록품종수:qk]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:해당동의등록대행업체수:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[__tableau_internal_object_id__].[cnt:반려동물등록현황.csv_FDECFA0A1E3F4166992A83525C199CA8:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)외장형:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)인식표:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)기타:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)대행업체등록:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(등록주체)시군구등록:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:동물소유자당등록동물수:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록소유자수:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록품종수:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:해당동의등록대행업체수:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:읍면동명:nk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#ff007f' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]</rows>
+        <cols>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Multiple Values]</cols>
+      </table>
+      <simple-id uuid='{8A455692-A198-432A-BA25-87D804876ED4}' />
+    </worksheet>
+    <worksheet name='시트 3'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>읍면동별 Rfid(종류) 비교</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='반려동물등록현황' name='federated.1phadbi0ke7yu617dmayt0awvq3q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1phadbi0ke7yu617dmayt0awvq3q'>
+            <column caption='(Rfid종류)내장형' datatype='integer' name='[(RFID종류)내장형]' role='measure' type='quantitative' />
+            <column caption='(Rfid종류)외장형' datatype='integer' name='[(RFID종류)외장형]' role='measure' type='quantitative' />
+            <column caption='(Rfid종류)인식표' datatype='integer' name='[(RFID종류)인식표]' role='measure' type='quantitative' />
+            <column-instance column='[읍면동명]' derivation='None' name='[none:읍면동명:nk]' pivot='key' type='nominal' />
+            <column-instance column='[(RFID종류)내장형]' derivation='Sum' name='[sum:(RFID종류)내장형:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[(RFID종류)외장형]' derivation='Sum' name='[sum:(RFID종류)외장형:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[(RFID종류)인식표]' derivation='Sum' name='[sum:(RFID종류)인식표:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[등록품종수]' derivation='Sum' name='[sum:등록품종수:qk]' pivot='key' type='quantitative' />
+            <column datatype='integer' name='[등록품종수]' role='measure' type='quantitative' />
+            <column datatype='string' name='[읍면동명]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:읍면동명:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:읍면동명:nk]' />
+              <groupfilter function='union'>
+                <groupfilter function='member' level='[none:읍면동명:nk]' member='%null%' />
+                <groupfilter function='member' level='[none:읍면동명:nk]' member='&quot;합계&quot;' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록품종수:qk]' included-values='non-null' />
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:읍면동명:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록품종수:qk]</column>
+            <column>[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:읍면동명:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)인식표:qk]' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#f1f1f1</color>
+                <color>#eae2f2</color>
+                <color>#e3d3f3</color>
+                <color>#dcc4f5</color>
+                <color>#d5b4f6</color>
+                <color>#cea5f8</color>
+                <color>#c795f9</color>
+                <color>#c085fa</color>
+                <color>#b875fc</color>
+                <color>#b165fd</color>
+                <color>#aa55ff</color>
+              </color-palette>
+            </encoding>
+            <encoding attr='color' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)외장형:qk]' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#f1f1f1</color>
+                <color>#f2e2da</color>
+                <color>#f3d3c3</color>
+                <color>#f5c4ab</color>
+                <color>#f6b493</color>
+                <color>#f8a57c</color>
+                <color>#f99563</color>
+                <color>#fa854b</color>
+                <color>#fc7532</color>
+                <color>#fd6519</color>
+                <color>#ff5500</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)외장형:qk]'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)외장형:qk]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)외장형:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)인식표:qk]'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)인식표:qk]' />
+              <text column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)인식표:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:읍면동명:nk]</rows>
+        <cols>([federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk] + ([federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)외장형:qk] + [federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)인식표:qk]))</cols>
+      </table>
+      <simple-id uuid='{341A0517-4E62-4C53-BE5F-03509B4E3CF4}' />
+    </worksheet>
+    <worksheet name='시트 6'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='반려동물등록현황' name='federated.1phadbi0ke7yu617dmayt0awvq3q' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1phadbi0ke7yu617dmayt0awvq3q'>
+            <column-instance column='[시군명]' derivation='None' name='[none:시군명:nk]' pivot='key' type='nominal' />
+            <column-instance column='[등록동물수(마리)]' derivation='Sum' name='[sum:등록동물수(마리):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[등록품종수]' derivation='Sum' name='[sum:등록품종수:qk]' pivot='key' type='quantitative' />
+            <column datatype='integer' name='[등록동물수(마리)]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[등록품종수]' role='measure' type='quantitative' />
+            <column datatype='string' name='[시군명]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]' field-type='quantitative' max='14427838.112676909' min='14071176.96890033' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]' field-type='quantitative' max='4616467.8830794217' min='4404254.4923281986' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록품종수:qk]' />
+              <lod column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]' />
+              <size column='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='3.7016575336456299' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]</rows>
+        <cols>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{7CC03CF7-57C5-4C04-AFBD-33B8CA70EA45}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='발표용자료' type='storyboard'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>경기도 인식칩 등록 현황</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style>
+        <style-rule element='story-point-caption'>
+          <format attr='width' value='437' />
+        </style-rule>
+      </style>
+      <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' />
+      <zones>
+        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98340' id='1' param='vert' removable='false' type-v2='layout-flow' w='98426' x='787' y='830'>
+            <zone h='4357' id='3' type-v2='title' w='98426' x='787' y='830' />
+            <zone fixed-size='124' h='12863' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='98426' x='787' y='5187' />
+            <zone h='81120' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='98426' x='787' y='18050'>
+              <flipboard active-id='5' nav-type='caption' show-nav-arrows='true'>
+                <story-points>
+                  <story-point caption='시군별 다양한 그래프로 어느 지역이 잘 진행되고 있는지 확인' captured-sheet='시군별등록자' id='2' />
+                  <story-point caption='안산시 반려동물 등록된 수가 8만으로 수치가 높' captured-sheet='등록자,인당등' id='3'>
+                    <capturedDeltas>
+                      <worksheet name='등록자,인당등'>
+                        <style delta-type='added'>
+                          <style-rule element='axis'>
+                            <encoding attr='space' class='0' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]' field-type='quantitative' max='4688750.9427816523' min='4414944.4521214413' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+                            <encoding attr='space' class='0' field='[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]' field-type='quantitative' max='14331973.336318867' min='14037407.669077052' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+                          </style-rule>
+                        </style>
+                        <selection-collection>
+                          <tuple-selection>
+                            <tuple-reference>
+                              <tuple-descriptor>
+                                <pane-descriptor>
+                                  <x-fields>
+                                    <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]</field>
+                                  </x-fields>
+                                  <y-fields>
+                                    <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]</field>
+                                  </y-fields>
+                                </pane-descriptor>
+                                <columns>
+                                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[avg:동물소유자당등록동물수:qk]</field>
+                                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[avg:등록소유자수:qk]</field>
+                                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[none:시군명:nk]</field>
+                                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]</field>
+                                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Geometry (generated)]</field>
+                                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Latitude (generated)]</field>
+                                  <field>[federated.1phadbi0ke7yu617dmayt0awvq3q].[Longitude (generated)]</field>
+                                </columns>
+                              </tuple-descriptor>
+                              <tuple>
+                                <value>1.4887096774193549</value>
+                                <value>2084.9677419354839</value>
+                                <value>&quot;안산시&quot;</value>
+                                <value>86158</value>
+                                <value>&quot;MULTIPOLYGON(((126.8906 37.3754,126.8964 37.3595,126.8939 37.3538,126.8922 37.3521,126.8869 37.3469,126.8865 37.3432,126.8861 37.3399,126.8771 37.3327,126.8728 37.3263,126.8737 37.3233,126.8743 37.3211,126.8882 37.3201,126.8915 37.3199,126.8925 37.32,126.9076 37.3218,126.9112 37.3191,126.9157 37.3156,126.9164 37.3051,126.9244 37.3063,126.9302 37.3072,126.9329 37.3031,126.9394 37.2966,126.9291 37.286,126.9273 37.2788,126.9179 37.2854,126.9165 37.2879,126.9154 37.2898,126.9056 37.2909,126.901 37.2914,126.8982 37.2897,126.8931 37.2866,126.89 37.282,126.8871 37.2829,126.879 37.2855,126.8758 37.2813,126.867 37.2809,126.8621 37.2807,126.8626 37.2779,126.8632 37.2741,126.8603 37.2736,126.8529 37.2724,126.8473 37.2684,126.8401 37.2756,126.836 37.2772,126.8279 37.2806,126.8268 37.2836,126.8257 37.2868,126.8146 37.2952,126.8145 37.2952,126.8053 37.2995,126.8013 37.2956,126.794 37.2943,126.7894 37.2934,126.7334 37.3091,126.7324 37.3094,126.7322 37.3095,126.7238 37.3146,126.735 37.326,126.7386 37.3296,126.7465 37.3247,126.7494 37.3331,126.7544 37.3368,126.76 37.3409,126.7692 37.3426,126.7723 37.3432,126.7808 37.3412,126.7884 37.3393,126.7913 37.3419,126.7931 37.3436,126.7911 37.3483,126.7903 37.3502,126.7954 37.3551,126.8047 37.3531,126.8099 37.3551,126.8166 37.3577,126.8252 37.3657,126.832 37.3617,126.8419 37.3636,126.8482 37.3648,126.857 37.3606,126.8656 37.3623,126.8796 37.3738,126.8813 37.3774,126.8906 37.3754)),((126.5905 37.265,126.5961 37.2619,126.6042 37.2629,126.6123 37.2588,126.6175 37.2562,126.614 37.25,126.616 37.2485,126.6236 37.2424,126.6222 37.2366,126.6398 37.2301,126.6483 37.2252,126.6512 37.2202,126.6497 37.2174,126.6465 37.2111,126.6374 37.2167,126.6292 37.2183,126.6235 37.2267,126.6235 37.2303,126.6235 37.234,126.6095 37.2326,126.6035 37.2304,126.599 37.2278,126.5987 37.2276,126.6093 37.2209,126.6102 37.2192,126.6143 37.2111,126.6083 37.21,126.6023 37.214,126.5951 37.2142,126.589 37.2144,126.5877 37.218,126.5868 37.2205,126.5785 37.2218,126.577 37.2221,126.5721 37.2087,126.5693 37.2067,126.5672 37.201,126.5655 37.1961,126.56 37.2,126.5528 37.2052,126.5478 37.2059,126.5452 37.2063,126.5448 37.2096,126.5442 37.2139,126.5505 37.2143,126.5546 37.2145,126.5573 37.2179,126.5513 37.2223,126.5495 37.2236,126.5422 37.2247,126.5427 37.2296,126.5432 37.2341,126.5539 37.2333,126.5598 37.2352,126.5645 37.2367,126.5608 37.2427,126.5634 37.2567,126.5591 37.2587,126.5585 37.2669,126.5573 37.2679,126.5506 37.2737,126.5563 37.2771,126.5634 37.2779,126.5694 37.2785,126.584 37.2721,126.5846 37.2701,126.5852 37.2679,126.5905 37.265)),((126.6503 37.1982,126.6415 37.1972,126.6445 37.2061,126.6487 37.2005,126.6503 37.1982)),((126.3937 37.1006,126.3923 37.0991,126.3802 37.1066,126.3804 37.1098,126.3807 37.1132,126.3858 37.1146,126.3873 37.1151,126.3917 37.1138,126.3938 37.1131,126.3949 37.1034,126.395 37.102,126.3937 37.1006)))&quot;</value>
+                                <value>37.3233</value>
+                                <value>126.803</value>
+                              </tuple>
+                            </tuple-reference>
+                          </tuple-selection>
+                        </selection-collection>
+                      </worksheet>
+                    </capturedDeltas>
+                  </story-point>
+                  <story-point caption='반려동물 등록대비 부천시가 다양한 품종수의 반려동물을 키우고 있음' captured-sheet='시군별동물수 및 품종' id='4' />
+                  <story-point caption='다양한 종류의 인식칩도 높은 수치로 사용되고 있음을 알 수 있다.' captured-sheet='시군별인식' id='5' />
+                  <story-point caption='시군구등록 하는 수보다 대행업체등록이 많은 이유를 생각해  볼때, 안산시민들의 반려동물에 대한 인식이 아주 높다고 할 수 있다고 보인다.' captured-sheet='시군별등록업' id='6' />
+                </story-points>
+              </flipboard>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <simple-id uuid='{C0BAF16B-F463-46D9-9F1B-C847AEB3DEAA}' />
+    </dashboard>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='시군별등록자'>
+      <style />
+      <size maxheight='750' maxwidth='1000' minheight='750' minwidth='1000' preset-index='17' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97866' id='23' param='horz' type-v2='layout-flow' w='98400' x='800' y='1067'>
+            <zone h='97866' id='15' type-v2='layout-basic' w='98400' x='800' y='1067'>
+              <zone h='97866' id='9' param='horz' type-v2='layout-flow' w='98400' x='800' y='1067'>
+                <zone h='97866' id='7' type-v2='layout-basic' w='98400' x='800' y='1067'>
+                  <zone h='97866' id='5' name='시군별인식' w='22696' x='51900' y='1067'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='97866' id='13' name='시군별등록업' w='24604' x='74596' y='1067'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='48934' id='21' name='시군별동물수 및 품종' w='51100' x='800' y='49999'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='48932' id='26' name='시군별등록' w='51100' x='800' y='1067'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1200' minheight='1200' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='66' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97866' id='65' param='vert' type-v2='layout-flow' w='98400' x='800' y='1067'>
+                <zone fixed-size='280' h='48932' id='26' is-fixed='true' name='시군별등록' w='51100' x='800' y='1067'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='97866' id='5' is-fixed='true' name='시군별인식' w='22696' x='51900' y='1067'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='97866' id='13' is-fixed='true' name='시군별등록업' w='24604' x='74596' y='1067'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='48934' id='21' is-fixed='true' name='시군별동물수 및 품종' w='51100' x='800' y='49999'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{7A025FC0-0252-4E29-B08F-329DCCF8E17D}' />
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='dashboard' name='시군별등록자'>
+      <viewpoints>
+        <viewpoint name='시군별동물수 및 품종' />
+        <viewpoint name='시군별등록'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='시군별등록업'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='시군별인식'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{C1B01E50-0435-4071-9FF0-3BA65B0EE5E6}' />
+    </window>
+    <window class='worksheet' name='등록자,인당등'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='28'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:동물소유자당등록동물수:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+            <card pane-specification-id='0' param='[federated.1phadbi0ke7yu617dmayt0awvq3q].[avg:동물소유자당등록동물수:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{2FDF123E-996D-4DEC-8854-5DEF9E6891E0}' />
+    </window>
+    <window class='worksheet' name='시군별등록'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='29'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{8FBCE910-329E-4B2D-A312-EFEDE9C36CC5}' />
+    </window>
+    <window class='worksheet' name='시군별동물수 및 품종'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='29'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{13962774-F93A-4B99-A3E4-0BCB63ADF5EA}' />
+    </window>
+    <window class='worksheet' name='시군별인식'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{CD7085D3-3231-4E9E-9137-81FE8A9B999C}' />
+    </window>
+    <window class='worksheet' name='시군별등록업'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='29'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1phadbi0ke7yu617dmayt0awvq3q].[tyr:데이터기준일자:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{BB839BFB-35EC-49BC-A79D-0F9C408AB8BF}' />
+    </window>
+    <window class='dashboard' maximized='true' name='발표용자료'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{4E5FE78C-0306-4021-AD3B-4878C6C7CC85}' />
+    </window>
+    <window class='worksheet' name='시트 6'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='29'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록동물수(마리):qk]' type='size' />
+            <card pane-specification-id='0' param='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:등록품종수:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A5DD5090-CA9C-44FD-A292-71D514B6F357}' />
+    </window>
+    <window class='worksheet' name='시트 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='29'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)외장형:qk]' type='color' />
+            <card pane-specification-id='1' param='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)내장형:qk]' type='color' />
+            <card pane-specification-id='3' param='[federated.1phadbi0ke7yu617dmayt0awvq3q].[sum:(RFID종류)인식표:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{537D1CA6-9DB0-486E-908C-026036D2ADB9}' />
+    </window>
+    <window class='worksheet' name='시트 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='29'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{9193FE68-F7C3-461A-A9E3-7329CE0ACC61}' />
+    </window>
+  </windows>
+</workbook>
