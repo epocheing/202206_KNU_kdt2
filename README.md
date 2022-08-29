@@ -33,4 +33,4 @@
     - https://public.tableau.com/views/endangeredanimalsandbiodiversity/sheet0_2?:language=ko-KR&:display_count=n&:origin=viz_share_link
 
     - 심정윤(Aravis_S) - 동물 유기 원인 파악, 원인별 해결책 제시
-    - https://public.tableau.com/app/profile/aravis/viz/1_16617475624160/1?publish=yes
+    - https://public.tableau.com/shared/Q7PNN9FWD?:display_count=n&:origin=viz_share_link
