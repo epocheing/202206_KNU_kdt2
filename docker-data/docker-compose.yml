@@ -3,8 +3,8 @@ version: '3.9'
 volumes:
   mysqldb:
     name: mysqldb
-  r_libs:
-    name: r_libs
+  # r_libs:
+  #   name: r_libs
   # rstudio:
   #   name: rstudio
   # jupyter:

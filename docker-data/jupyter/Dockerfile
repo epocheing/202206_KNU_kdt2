@@ -25,7 +25,7 @@ ENV LANG=ko_KR.UTF-8 \
     LANGUAGE=ko_KR.UTF-8 \
     LC_ALL=ko_KR.UTF-8 \
     PYTHONIOENCODING=utf-8
-    
+
 # install Quarto
 RUN curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb \
     && gdebi -n quarto-linux-amd64.deb \
@@ -47,9 +47,7 @@ RUN mamba install --quiet --yes \
     conda install -c nclibz r-vscdebugger && \
     conda install -c conda-forge radian && \
     mamba clean --all -f -y && \
-    conda clean --all -f -y && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+    conda clean --all -f -y
 
 # Switch back to jovyan to avoid accidental container runs as root
 USER ${NB_UID}
