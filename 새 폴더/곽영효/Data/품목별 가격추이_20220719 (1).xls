@@ -1,0 +1,100 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+	<meta content="application/vnd.ms-excel; charset=UTF-8" name="Content-type">
+	<meta content="Excel.Sheet" name="ProgId">
+	<meta content="PHP5" name="Generator">
+	<title>소비자물가정보서비스</title>
+</head>
+<body>
+	<table border='1'>
+	    <tr>
+			<td colspan='15' align='center'>품목별 가격추이</td>
+		</tr>
+		<tr>
+			<td bgcolor='#EAEAEA'>품목명</td>
+			<td bgcolor='#EAEAEA'>제품명</td>
+			<td bgcolor='#EAEAEA'>용량</td>
+					<td bgcolor='#EAEAEA'>1월</td>
+					<td bgcolor='#EAEAEA'>2월</td>
+					<td bgcolor='#EAEAEA'>3월</td>
+					<td bgcolor='#EAEAEA'>4월</td>
+					<td bgcolor='#EAEAEA'>5월</td>
+					<td bgcolor='#EAEAEA'>6월</td>
+					<td bgcolor='#EAEAEA'>7월</td>
+					<td bgcolor='#EAEAEA'>8월</td>
+					<td bgcolor='#EAEAEA'>9월</td>
+					<td bgcolor='#EAEAEA'>10월</td>
+					<td bgcolor='#EAEAEA'>11월</td>
+					<td bgcolor='#EAEAEA'>12월</td>
+				</tr>
+                    	<tr>
+                        	<td class="R_line">식용유</td>
+                            <td class="R_line">[CJ제일제당]백설 콩100%로 국내에서 만든 콩기름</td>
+                            <td class="R_line">1.8L</td>
+							                            <td class='R_line'>6,147</td>
+							                            <td class='R_line'>6,061</td>
+							                            <td class='R_line'>6,208</td>
+							                            <td class='R_line'>6,204</td>
+							                            <td class='R_line'>6,374</td>
+							                            <td class='R_line'>6,352</td>
+							                            <td class='R_line'>6,597</td>
+							                            <td class='R_line'>6,783</td>
+							                            <td class='R_line'>6,609</td>
+							                            <td class='R_line'>6,968</td>
+							                            <td class='R_line'>6,965</td>
+							                            <td class='R_line'>6,966</td>
+							                        </tr>
+                    	<tr>
+                        	<td class="R_line">식용유</td>
+                            <td class="R_line">[사조해표]식용유 콩기름</td>
+                            <td class="R_line">1.8L</td>
+							                            <td class='R_line'>6,556</td>
+							                            <td class='R_line'>6,434</td>
+							                            <td class='R_line'>6,497</td>
+							                            <td class='R_line'>6,512</td>
+							                            <td class='R_line'>6,725</td>
+							                            <td class='R_line'>6,779</td>
+							                            <td class='R_line'>6,885</td>
+							                            <td class='R_line'>6,936</td>
+							                            <td class='R_line'>6,928</td>
+							                            <td class='R_line'>7,102</td>
+							                            <td class='R_line'>7,053</td>
+							                            <td class='R_line'>7,102</td>
+							                        </tr>
+                    	<tr>
+                        	<td class="R_line">식용유</td>
+                            <td class="R_line">[오뚜기]콩100% 식용유</td>
+                            <td class="R_line">1.8L</td>
+							                            <td class='R_line'>6,071</td>
+							                            <td class='R_line'>6,107</td>
+							                            <td class='R_line'>6,184</td>
+							                            <td class='R_line'>6,358</td>
+							                            <td class='R_line'>6,426</td>
+							                            <td class='R_line'>6,418</td>
+							                            <td class='R_line'>6,753</td>
+							                            <td class='R_line'>6,728</td>
+							                            <td class='R_line'>6,395</td>
+							                            <td class='R_line'>6,921</td>
+							                            <td class='R_line'>6,976</td>
+							                            <td class='R_line'>7,076</td>
+							                        </tr>
+                    	<tr>
+                        	<td class="R_line R_line_blue" colspan="2">평균</td>
+                            <td class="R_line R_line_blue"></td>
+							                            <td class="R_line R_line_blue">6,258</td>
+							                            <td class="R_line R_line_blue">6,201</td>
+							                            <td class="R_line R_line_blue">6,296</td>
+							                            <td class="R_line R_line_blue">6,358</td>
+							                            <td class="R_line R_line_blue">6,508</td>
+							                            <td class="R_line R_line_blue">6,516</td>
+							                            <td class="R_line R_line_blue">6,745</td>
+							                            <td class="R_line R_line_blue">6,816</td>
+							                            <td class="R_line R_line_blue">6,644</td>
+							                            <td class="R_line R_line_blue">6,997</td>
+							                            <td class="R_line R_line_blue">6,998</td>
+							                            <td class="R_line R_line_blue">7,048</td>
+							                        </tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html lang="ko">
+<head>
+<title>축산물품질평가원 축산유통정보 </title>
+
+</head>
+<script>
+</script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+    <div class="both-contents">
+    	
+    	 <div class="left-contents">
+    	 	<div class="filter-search-result">
+	            <dl>
+	                <dt style="height: 30px">1+등급</dt>
+	            </dl>
+	        </div>
+            
+        </div>
+    	
+    </div>
+     <div class="both-contents">
+    	<div class="right-contents">
+            <p id="unitLabel">
+            	(단위 :  원/100g)
+            </p>
+       	 </div>
+	</div>
+    <div class="table-wrap mb100">
+        <div class="table-list">
+	   <table border="1" summary="기간별 소비자가격을 나타낸  표">
+            <caption>기간별 소비자가격 평균</caption>
+		   <colgroup>
+		      <col width="*"/>
+		      <col width="6.6%"/>
+		      <col width="6.6%"/>
+		      <col width="6.6%"/>
+		      <col width="6.6%"/>
+		      <col width="6.6%"/>
+		      <col width="6.6%"/>
+		      <col width="6.6%"/>
+		      <col width="6.6%"/>
+		      <col width="6.6%"/>
+		      <col width="6.6%"/>
+		      <col width="6.6%"/>
+		      <col width="6.6%"/>
+		      <col width="6.6%"/>
+		    </colgroup>
+		    <thead>
+		        <tr>
+		          <th scope="col">구분</th>
+		          <th scope="col">1월</th>
+		          <th scope="col">2월</th>
+		          <th scope="col">3월</th>
+		          <th scope="col">4월</th>
+		          <th scope="col">5월</th>
+		          <th scope="col">6월</th>
+		          <th scope="col">7월</th>
+		          <th scope="col">8월</th>
+		          <th scope="col">9월</th>
+		          <th scope="col">10월</th>
+		          <th scope="col">11월</th>
+		          <th scope="col">12월</th>
+		          <th scope="col">연평균</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	
+		    		<tr>
+			    		<td>2020</td>
+		    			<td>11,075</td>
+		    			<td>11,374</td>
+		    			<td>11,318</td>
+		    			<td>11,193</td>
+		    			<td>11,586</td>
+		    			<td>11,688</td>
+		    			<td>11,821</td>
+		    			<td>11,957</td>
+		    			<td>12,145</td>
+		    			<td>12,199</td>
+		    			<td>12,232</td>
+		    			<td>12,204</td>
+		    			<td>
+			    				11,734
+	    				</td>
+		    		</tr>
+		    	
+		    		<tr>
+			    		<td>2021</td>
+		    			<td>12,104</td>
+		    			<td>12,399</td>
+		    			<td>12,678</td>
+		    			<td>12,668</td>
+		    			<td>12,848</td>
+		    			<td>12,789</td>
+		    			<td>12,931</td>
+		    			<td>13,070</td>
+		    			<td>13,098</td>
+		    			<td>13,528</td>
+		    			<td>13,994</td>
+		    			<td>14,063</td>
+		    			<td>
+			    				13,026
+	    				</td>
+		    		</tr>
+		    	
+		    		<tr>
+			    		<td>2022</td>
+		    			<td>13,140</td>
+		    			<td>12,838</td>
+		    			<td>12,925</td>
+		    			<td>13,354</td>
+		    			<td>13,147</td>
+		    			<td>13,108</td>
+		    			<td>12,878</td>
+		    			<td></td>
+		    			<td></td>
+		    			<td></td>
+		    			<td></td>
+		    			<td></td>
+		    			<td>
+			    				13,069
+	    				</td>
+		    		</tr>
+		    	
+		    </tbody>
+		</table>
+        </div>
+    </div>
+<script language='javascript'>
+  // google analytics
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33100861-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })(); 
+
+</script>
+        
+</body>
+
+</html>
