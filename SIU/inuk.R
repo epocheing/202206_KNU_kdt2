@@ -1,10 +1,10 @@
-a <- read.csv("./산림면적.csv", header = TRUE)
-b <- read.csv("./멸종위기적색지수.csv", header = TRUE)
+library(dplyr)
 
-c <- merge(a, b)
+a <- read.csv("로드킬2021.csv", header = TRUE)
+b <- read.csv("생태통로.csv", header = TRUE)
 
-str(c)
+c <- full_join(a, b, by = "경도")
 
-c <- c[order(c$시점), ]
+c$위도 <- c$위도.x + c$위도.y
 
-write.csv(c, "산림면적+적색지수.csv")
+write.csv(c, "합체.csv")
