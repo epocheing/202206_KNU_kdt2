@@ -4,7 +4,9 @@ localhost:8888
 # rstudio addr
 localhost:8787
 rstudio
-password
+password: 1111
+
+# mysql password: 1111
 
 # jupyter config
 jupyter lab --generate-config
@@ -12,9 +14,3 @@ jupyter lab --generate-config
 
 # R studio config
 volume r_libs, rstudio
-
-# vscode-extension
-python
-R
-R debugger
-Quarto

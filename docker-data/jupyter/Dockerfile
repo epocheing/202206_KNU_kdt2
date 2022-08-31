@@ -39,16 +39,10 @@ RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt \
     && rm -rf requirements.txt
 
-USER ${NB_UID}
 RUN mamba install --quiet --yes \
     'r-languageserver' \
     'r-httpgd' \
     'r-vim' && \
     conda install -c nclibz r-vscdebugger && \
     conda install -c conda-forge radian && \
-    mamba clean --all -f -y && \
-    conda clean --all -f -y
-
-# Switch back to jovyan to avoid accidental container runs as root
-USER ${NB_UID}
-WORKDIR "${HOME}"
+    mamba clean --all -f -y
