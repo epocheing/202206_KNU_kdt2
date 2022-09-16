@@ -1,4 +1,4 @@
-# team_wizard_bear
+# team-wizard-bear
 
 ## 한국의 사교육비 데이터 시각화
 
