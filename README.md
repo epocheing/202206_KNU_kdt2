@@ -1,2 +1,2 @@
 # week11-team5
-11주차 머신러닝 미니 팀프로젝트입니다.
+KNU K-Digitaltraining 2기 11주차 5조 미니 팀 프로젝트
