@@ -1,5 +1,5 @@
 # KNU-Kdigital-docker 
-## 빅데이터분석가 양성과정에 필요한 도커입니다.</br>
+## 빅데이터분석가 양성과정에 필요한 도커.</br>
 </br>
 
 ### **Version 2 update**
