@@ -3,15 +3,14 @@
 </br>
 
 ### **Version 2 update**
-### jupyter lab + mysql
+### jupyter lab + mysql (rstudio)
 
 </br>
 
-1) jupyter:datascience-notebook 이미지 사용
+1) jupyter:datascience-notebook, rocker/geospatial, mysql 이미지 사용
 2) locale 설정 및 nanum, D2Coding 폰트 설치
 3) jupyter lab 기본 환경 구성 (python, R, Julia)
-4) vscode 사용에 필요한 R packages 설치 (languageserver, radian, httpgd)
-
+4) requirements.txt, requirements-mamba.txt 사용 패키지 설치
 
 </br></br>
 

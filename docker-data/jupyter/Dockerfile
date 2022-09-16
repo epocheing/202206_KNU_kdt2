@@ -1,10 +1,8 @@
 # set base image
 FROM jupyter/datascience-notebook
 
-
 # maintainer: SsongIU
 MAINTAINER SsongIU
-
 
 # hangul fonts setting
 USER root
@@ -35,14 +33,10 @@ RUN curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb \
 USER ${NB_UID}
 WORKDIR "${HOME}"
 COPY requirements.txt .
+COPY requirements-mamba.txt .
 RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt \
-    && rm -rf requirements.txt
-
-RUN mamba install --quiet --yes \
-    'r-languageserver' \
-    'r-httpgd' \
-    'r-vim' && \
-    conda install -c nclibz r-vscdebugger && \
-    conda install -c conda-forge radian && \
-    mamba clean --all -f -y
+    && pip install -r requirements.txt \
+    && mamba install --yes --file requirements-mamba.txt \
+    && conda install -c nclibz r-vscdebugger \
+    && mamba clean --all -f -y \
+    && rm -rf requirements.txt requirements-mamba.txt

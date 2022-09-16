@@ -18,6 +18,7 @@ services:
       - MYSQL_ROOT_PASSWORD=1111
     ports:
       - "3306:3306"
+    privileged: true
     volumes:
       - type: volume
         source: mysqldb
@@ -43,6 +44,7 @@ services:
       - GRANT_SUDO=yes
     ports:
       - "8888:8888"
+    privileged: true
     stdin_open: true
     tty: true
     volumes:
@@ -50,7 +52,7 @@ services:
         source: ../workspace
         target: /home/jovyan/workspace
       - type: bind
-        source: ./jupyter_lab_setting
+        source: ./jupyter-lab-setting
         target: /home/jovyan/.jupyter
   #
   # rstudio:
@@ -77,3 +79,4 @@ services:
   #     - type: volume
   #       source: r_libs
   #       target: /usr/local/lib/R
+  #   privileged: true
