@@ -169,3 +169,5 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+*/*ubyte
+natural-language-processing/D-0923/data/*
