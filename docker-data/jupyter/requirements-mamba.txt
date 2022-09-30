@@ -8,6 +8,7 @@ wheel
 requests
 selenium
 wordcloud
+nltk
 jpype1
 openpyxl
 pymysql
