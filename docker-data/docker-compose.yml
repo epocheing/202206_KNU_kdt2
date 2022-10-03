@@ -37,6 +37,7 @@ services:
       dockerfile: Dockerfile
     image: jupyterlab-kr
     restart: always
+    user: root
     environment:
       - TZ=Asia/Seoul
       - JUPYTER_ENABLE_LABS=yes

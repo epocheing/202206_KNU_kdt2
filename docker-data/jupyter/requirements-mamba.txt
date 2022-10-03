@@ -7,8 +7,8 @@ seaborn
 wheel
 requests
 selenium
-wordcloud
 nltk
+wordcloud
 jpype1
 openpyxl
 pymysql
