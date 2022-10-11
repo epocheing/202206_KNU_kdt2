@@ -42,7 +42,7 @@ services:
       - TZ=Asia/Seoul
       - JUPYTER_ENABLE_LABS=yes
       - JUPYTER_TOKEN=1111
-      - GRANT_SUDO=yes
+      - CHOWN_HOME=yes
     ports:
       - "8888:8888"
     privileged: true
