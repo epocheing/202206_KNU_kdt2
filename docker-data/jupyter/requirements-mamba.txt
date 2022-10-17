@@ -12,6 +12,7 @@ wordcloud
 jpype1
 openpyxl
 pymysql
+xgboost
 scikit-learn
 scikit-learn-intelex
 tensorflow
