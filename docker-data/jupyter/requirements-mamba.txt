@@ -12,6 +12,7 @@ wordcloud
 jpype1
 openpyxl
 pymysql
+opencv
 xgboost
 scikit-learn
 scikit-learn-intelex
