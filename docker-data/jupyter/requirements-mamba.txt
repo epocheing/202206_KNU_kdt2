@@ -13,7 +13,8 @@ jpype1
 openpyxl
 pymysql
 opencv
-xgboost
+prophet
+py-xgboost
 scikit-learn
 scikit-learn-intelex
 tensorflow

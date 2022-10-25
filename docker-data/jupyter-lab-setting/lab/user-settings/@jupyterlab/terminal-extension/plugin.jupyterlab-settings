@@ -1,6 +1,6 @@
 {
     "fontFamily": "D2Coding",
-    "fontSize": 18,
+    "fontSize": 16,
     "lineHeight": 1,
     "theme": "inherit",
     "screenReaderMode": false,

@@ -30,11 +30,12 @@ USER ${NB_UID}
 WORKDIR "${HOME}"
 COPY requirements.txt .
 COPY requirements-mamba.txt .
-RUN pip install --upgrade pip \
-    && pip install -r requirements.txt \
-    && mamba install --yes --file requirements-mamba.txt \
-    && conda install -c nclibz r-vscdebugger \
+RUN pip install --quiet --upgrade pip \
+    && pip install --quiet -r requirements.txt \
+    && mamba install --quiet --yes --file requirements-mamba.txt \
+    && conda install --quiet -c nclibz r-vscdebugger \
     && mamba clean --all -f -y \
+    && conda clean --all -f -y \
     && rm -rf requirements.txt requirements-mamba.txt \
     && fix-permissions "${CONDA_DIR}" \
     && fix-permissions "/home/${NB_USER}"
@@ -48,5 +49,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && fc-cache -fv \
     && rm -fr ~/.cache/matplotlib \
     && rm -rf /var/lib/apt/lists/*
+
+# chage user
 USER ${NB_UID}
 WORKDIR "${HOME}"
