@@ -206,7 +206,7 @@ for x, y in val_data_multi.take(1):
 es = EarlyStopping(monitor="val_loss", mode="min", verbose=1, patience=10)
 mc = ModelCheckpoint("best_model.h5", monitor="val_loss", save_best_only=True)
 
-##########모델생성###############
+##########모델생성#########
 history = model.fit(
     train_data_multi,
     epochs=100,
