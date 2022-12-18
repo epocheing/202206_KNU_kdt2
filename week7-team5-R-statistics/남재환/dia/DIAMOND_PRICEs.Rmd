@@ -1,0 +1,116 @@
+---
+title: "DIAMOND"
+author: "NJH"
+date: "2022-08-08"
+output: html_document
+---
+
+## 다이아몬드 데이터 가져오기
+```{r}
+DIA1 <- read.csv("../dia/Diamonds_Prices2022.csv", header = T)
+str(DIA1)
+```
+
+## cut, color, clarity를 범주형(factor) 변경
+```{r}
+
+str(DIA1)
+levels(factor(DIA1$cut))
+f.cut = factor(DIA1$cut, levels = c('Fair','Good','Very Good','Premium','Ideal'))
+DIA1$cut=f.cut
+
+levels(factor(DIA1$color))
+f.color = factor(DIA1$color, levels = c('J','I','H','G','F','E','D'))
+DIA1$color=f.color
+str(DIA1)
+
+levels(factor(DIA1$clarity))
+f.clarity = factor(DIA1$clarity, levels = c('IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1'))
+DIA1$clarity=f.clarity
+str(DIA1)
+```
+
+## 다이아몬드 캐럿별 갯수 파악
+
+
+```{r}
+# 다이아캐럿별 갯수 그래프화.
+# 큰 캐럿일수록 수가 급격하게 줄어든다.
+hist(DIA1$carat,col = 'tomato',main = '캐럿의 크기 및 갯수',xlab = '캐럿크기', ylab = '캐럿갯수')
+mean(DIA1$carat) # 평균
+sd(DIA1$carat) # 표준편차
+var(DIA1$carat)
+```
+## 다이아몬드의 크기 평균
+
+```{r}
+#0~1캐럿이 많아 평균적인 크기는 얼마인지 파악
+#x,y,z는 다이아의 3차원 크기를 파악하는 수치입니다.
+# 0~1캐럿이 많아 평균적으로 작은 크기를 가지고 있음.
+
+#x값 이상치 제거
+outlier <- boxplot.stats(DIA1$x)$out #이상치값 확인
+DIA1[DIA1$x %in% outlier, ] <- NA # 이상치 NA로 변경
+DIA1.no.outlier <- na.omit(DIA1) # NA값 제거
+#boxplot(DIA1.no.outlier$x)
+
+#y값 이상치 제거
+outlier <- boxplot.stats(DIA1$y)$out
+DIA1[DIA1$y %in% outlier, ] <- NA
+DIA1.no.outlier <- na.omit(DIA1)
+#boxplot(DIA1.no.outlier$y)
+
+#z값 이상치 제거
+outlier <- boxplot.stats(DIA1$z)$out
+DIA1[DIA1$z %in% outlier, ] <- NA
+DIA1.no.outlier <- na.omit(DIA1)
+#boxplot(DIA1.no.outlier$z)
+
+
+boxplot(DIA1.no.outlier$z,DIA1.no.outlier$y,DIA1.no.outlier$y,main = '다이아몬드의 크기 평균치', names = c('X값','Y값','Z값'), col = hcl.colors(3))
+```
+
+
+
+
+
+## 다이아(table)과 다이아(depth)깊이 관계 그래프
+
+```{r}
+# 테이블은 다이아몬드 머리, 평평한 부분의 직경을 말하며,
+# 뎁쓰는 다이아의 머리부터 뾰족한부분의 높이를 말함.
+# 둘의 관계를 보았을때 캐럿의 크기가 제한적이며,
+# 테이블 50~70, 뎁쓰 55~70 크기를 유지하는 것으로 보인다.
+plot(DIA1$depth, DIA1$table, col = 'red', pch = 19, xlab = 'Depth', ylab = 'Table', cex=0.8)
+
+```
+
+## 다이아의 가격과 캐럿 관계 그래프
+
+```{r}
+#캐럿이 크면 무조건 비싼가? YES..
+#하지만 그래프를 보면 높은 캐럿이라도 낮은 캐럿보다
+# 가격이 비슷하거나 낮은 것을 볼 수 있음.
+# 결국 캐럿만으로 다이아의 가치를 완전히 판단할 수 없음.
+plot(DIA1$carat, DIA1$price, col = 'tomato', pch = 19, xlab = 'Carat', ylab = 'Price', cex=0.6)
+```
+
+
+## 범주별 가격 평균 그래프(cut(세공),clarity(투명도),color(색상))
+
+```{r}
+#다이아의 등급, 세공, 투명도, 색상 3가지가 존재하며 등급측정에 적용됨.
+# 하지만 그래프시각화를 해보았을땐 캐럿의 가치만큼의 기대값까지는 나오지 않는 것으로 판단됨.
+
+
+barplot(tapply(DIA1$price,DIA1$cut ,mean),col = cm.colors(5))
+barplot(tapply(DIA1$price,DIA1$clarity,mean), col = 'tomato')
+barplot(tapply(DIA1$price,DIA1$color,mean), col = 'skyblue')
+
+```
+
+
+## 결국 캐럿만으로 가치를 결정내릴 순 없으며,
+## 캐럿, 세공, 투명도, 색상 등 다양한 기준이 충족이 되어야(빛의 반사능력)
+## 제 가치를 받을 수 있다는 것을 알았음.
+

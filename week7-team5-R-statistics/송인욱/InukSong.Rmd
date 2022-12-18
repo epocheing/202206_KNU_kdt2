@@ -1,0 +1,30 @@
+---
+title: "Diamond"
+autor: "Siu"
+date: "2022-08-08"
+---
+
+# Titanic Data Analysis
+
+### read data
+```{r}
+getwd()
+df <- read.csv("Diamonds Prices2022.csv", header = T)
+str(df)
+```
+
+결측치 확인
+```{r}
+sum(!complete.cases(df))
+```
+
+```{r}
+df$cut
+df$price
+```
+
+
+```{r}
+fa
+boxplot(~ df$price)
+```

@@ -1,0 +1,25 @@
+---
+title: "TITANIC_TEST"
+author: "NJH"
+date: "2022-08-08"
+output: html_document
+---
+## 타이타닉 파일 불러오기
+```{r}
+df <- read.csv("../rstudio-project/TITANIC_TEST/train.csv", header = F)
+str(df)
+```
+
+##
+
+```{r}
+
+```
+
+##
+
+
+```{r}
+
+```
+
