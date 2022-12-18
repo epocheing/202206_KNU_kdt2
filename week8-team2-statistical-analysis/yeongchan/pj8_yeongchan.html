@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="yc">
+
+<title>pj8</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="pj8_yeongchan_files/libs/clipboard/clipboard.min.js"></script>
+<script src="pj8_yeongchan_files/libs/quarto-html/quarto.js"></script>
+<script src="pj8_yeongchan_files/libs/quarto-html/popper.min.js"></script>
+<script src="pj8_yeongchan_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="pj8_yeongchan_files/libs/quarto-html/anchor.min.js"></script>
+<link href="pj8_yeongchan_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="pj8_yeongchan_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="pj8_yeongchan_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="pj8_yeongchan_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="pj8_yeongchan_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">pj8</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>yc </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="목표-응답결과에-따른-연령-교육수준-나이-관련성" class="level1">
+<h1>목표 : 응답결과에 따른 연령, 교육수준, 나이 관련성</h1>
+</section>
+<section id="항까지는-설문항목-2628항까지는-연령-교육수준-나이" class="level1">
+<h1>25항까지는 설문항목, 26~28항까지는 연령, 교육수준, 나이</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psychTools)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>corrplot 0.92 loaded</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bfiDF_2nd <span class="ot">&lt;-</span> bfi</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>bfiDF_omit <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(bfiDF_2nd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="o개방성" class="level1">
+<h1>O개방성</h1>
+</section>
+<section id="c성실성" class="level1">
+<h1>C성실성</h1>
+</section>
+<section id="e외향성" class="level1">
+<h1>E외향성</h1>
+</section>
+<section id="a우호성" class="level1">
+<h1>A우호성</h1>
+</section>
+<section id="n신경증" class="level1">
+<h1>N신경증</h1>
+</section>
+<section id="성별-교육-나이-범주화-" class="level1">
+<h1>성별, 교육, 나이 범주화—-</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>f_gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(bfiDF_omit<span class="sc">$</span>gender, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'Males'</span>, <span class="st">'Females'</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>f_education <span class="ot">&lt;-</span> <span class="fu">factor</span>(bfiDF_omit<span class="sc">$</span>education, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'HS'</span>, <span class="st">'finished HS'</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">'some college'</span>, <span class="st">'college graduate'</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">'graduate degree'</span>))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>f_age <span class="ot">&lt;-</span> <span class="fu">cut</span>(bfiDF_omit<span class="sc">$</span>age, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">60</span>,<span class="dv">70</span>,<span class="dv">80</span>,<span class="dv">90</span>),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'under 10'</span>, <span class="st">'10s'</span>, <span class="st">'20s'</span>,<span class="st">'30s'</span>, <span class="st">'40s'</span>, <span class="st">'50s'</span>, <span class="st">'60s'</span>, <span class="st">'70s'</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>               <span class="st">'80s'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="barplot--" class="level1">
+<h1>barplot —-</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># par(mfrow=c(4,4))</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 성별, 교육, 나이 그래프</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>f_gender), <span class="at">main=</span><span class="st">'gender'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 성별 응답자 중 여성이 많음</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>f_education), <span class="at">main=</span><span class="st">'education'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 교육수준별 응답자 중 대재가 가장 많음</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>age), <span class="at">main=</span><span class="st">'age'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 연령별 응답자 중 20살이 가장 많음</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># par(mfrow=c(1,1))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="각-설문항목의-합-" class="level1">
+<h1>각 설문항목의 합—-</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>sum_A <span class="ot">&lt;-</span> bfiDF_omit[,<span class="dv">1</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">2</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">3</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">4</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">5</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>sum_C <span class="ot">&lt;-</span> bfiDF_omit[,<span class="dv">6</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">7</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">8</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">9</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">10</span>]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>sum_E <span class="ot">&lt;-</span> bfiDF_omit[,<span class="dv">11</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">12</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">13</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">14</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">15</span>]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>sum_N <span class="ot">&lt;-</span> bfiDF_omit[,<span class="dv">16</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">17</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">18</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">19</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">20</span>]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>sum_O <span class="ot">&lt;-</span> bfiDF_omit[,<span class="dv">21</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">22</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">23</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">24</span>]<span class="sc">+</span>bfiDF_omit[,<span class="dv">25</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#?barplot()</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_A), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">32</span>),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>), <span class="at">main=</span><span class="st">'Sum of Agreeableness'</span>) <span class="co">#22</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_C), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">32</span>),</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">320</span>), <span class="at">main=</span><span class="st">'Sum of Conscientiousness'</span>) <span class="co">#20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_E), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">32</span>),</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">320</span>), <span class="at">main=</span><span class="st">'Sum of Extraversion'</span>) <span class="co">#19</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_N), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">32</span>),</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">120</span>), <span class="at">main=</span><span class="st">'Sum of Neuroticism'</span>) <span class="co">#14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-5-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_O), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">32</span>),</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">420</span>), <span class="at">main=</span><span class="st">'Sum of Openness'</span>) <span class="co">#20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-5-5.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="n신경증-항목은-다른-항목에-비해-부정적인-면이-강해서-수치가-고루-분포-된것으로-확인되었습니다." class="level1">
+<h1>N(신경증) 항목은 다른 항목에 비해 부정적인 면이 강해서 수치가 고루 분포 된것으로 확인되었습니다.</h1>
+</section>
+<section id="카이제곱-검정-시작-" class="level1">
+<h1>카이제곱 검정 시작—-</h1>
+</section>
+<section id="카이제곱-검정성별-교육수준" class="level1">
+<h1>카이제곱 검정(성별, 교육수준)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>f_gender, bfiDF_omit<span class="sc">$</span>f_education)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+           HS finished HS some college college graduate graduate degree
+  Males    82          92          306              120             135
+  Females 116         158          772              226             229</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>f_gender, bfiDF_omit<span class="sc">$</span>f_education))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  table(bfiDF_omit$f_gender, bfiDF_omit$f_education)
+X-squared = 21.573, df = 4, p-value = 0.0002437</code></pre>
+</div>
+</div>
+</section>
+<section id="응답자의-성별과-교육수준은-통계적-유의성이-있다." class="level1">
+<h1>응답자의 성별과 교육수준은 통계적 유의성이 있다.</h1>
+</section>
+<section id="카이제곱-검정성별-연령" class="level1">
+<h1>카이제곱 검정(성별, 연령)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>f_gender, bfiDF_omit<span class="sc">$</span>f_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+          under 10 10s 20s 30s 40s 50s 60s 70s 80s
+  Males          1 161 334 139  60  32   7   1   0
+  Females        0 338 582 322 173  76   9   0   1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>f_gender, bfiDF_omit<span class="sc">$</span>f_age))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in chisq.test(table(bfiDF_omit$f_gender, bfiDF_omit$f_age)): Chi-squared
+approximation may be incorrect</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  table(bfiDF_omit$f_gender, bfiDF_omit$f_age)
+X-squared = 18.283, df = 8, p-value = 0.0192</code></pre>
+</div>
+</div>
+</section>
+<section id="p-value가-0.05보다-작으므로-응답자의-성별과-나이는-통계적-유의성이-있다." class="level1">
+<h1>p-value가 0.05보다 작으므로 응답자의 성별과 나이는 통계적 유의성이 있다.</h1>
+</section>
+<section id="카이제곱-검정교육수준-연령" class="level1">
+<h1>카이제곱 검정(교육수준, 연령)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>f_education, bfiDF_omit<span class="sc">$</span>f_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                  
+                   under 10 10s 20s 30s 40s 50s 60s 70s 80s
+  HS                      0 101  48  28  15   5   1   0   0
+  finished HS             0  54  97  46  34  15   3   0   1
+  some college            0 329 456 182  77  31   3   0   0
+  college graduate        0  10 169  86  56  24   1   0   0
+  graduate degree         1   5 146 119  51  33   8   1   0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>f_education, bfiDF_omit<span class="sc">$</span>f_age))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in chisq.test(table(bfiDF_omit$f_education, bfiDF_omit$f_age)): Chi-
+squared approximation may be incorrect</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  table(bfiDF_omit$f_education, bfiDF_omit$f_age)
+X-squared = 388.74, df = 32, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="상관관계" class="level1">
+<h1>상관관계</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bfiDF_omit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   2236 obs. of  36 variables:
+ $ A1         : int  6 4 4 4 1 2 4 1 2 2 ...
+ $ A2         : int  6 3 4 5 5 6 5 6 4 5 ...
+ $ A3         : int  5 1 5 2 6 5 5 6 4 1 ...
+ $ A4         : int  6 5 6 2 5 6 6 1 4 3 ...
+ $ A5         : int  5 1 5 1 6 5 5 6 3 5 ...
+ $ C1         : int  6 3 4 5 4 3 5 5 6 5 ...
+ $ C2         : int  6 2 3 5 3 5 5 2 5 4 ...
+ $ C3         : int  6 4 5 5 2 6 4 5 6 5 ...
+ $ C4         : int  1 2 3 2 4 3 1 1 1 2 ...
+ $ C5         : int  3 4 2 2 5 6 1 1 1 5 ...
+ $ E1         : int  2 3 1 3 2 2 3 1 2 1 ...
+ $ E2         : int  1 6 3 4 1 2 2 1 4 2 ...
+ $ E3         : int  6 4 2 3 2 4 5 6 4 6 ...
+ $ E4         : int  5 2 5 6 5 6 5 6 2 5 ...
+ $ E5         : int  6 1 4 5 2 6 6 6 6 4 ...
+ $ N1         : int  3 6 3 2 2 4 2 2 3 1 ...
+ $ N2         : int  5 3 3 4 2 4 3 3 3 4 ...
+ $ N3         : int  2 2 4 2 2 4 3 1 5 2 ...
+ $ N4         : int  2 6 2 2 2 6 1 2 3 2 ...
+ $ N5         : int  3 4 3 3 2 6 1 1 2 5 ...
+ $ O1         : int  4 3 5 5 6 6 6 6 5 2 ...
+ $ O2         : int  3 2 3 2 1 1 2 4 2 4 ...
+ $ O3         : int  5 4 5 5 5 5 5 5 6 5 ...
+ $ O4         : int  6 5 6 5 5 6 6 5 6 4 ...
+ $ O5         : int  1 3 3 5 2 1 2 3 1 1 ...
+ $ gender     : int  2 1 1 1 1 2 1 2 2 2 ...
+ $ education  : int  3 2 1 1 5 2 1 3 5 3 ...
+ $ age        : int  21 19 21 17 68 27 18 20 51 33 ...
+ $ f_gender   : Factor w/ 2 levels "Males","Females": 2 1 1 1 1 2 1 2 2 2 ...
+ $ f_education: Factor w/ 5 levels "HS","finished HS",..: 3 2 1 1 5 2 1 3 5 3 ...
+ $ f_age      : Factor w/ 9 levels "under 10","10s",..: 3 2 3 2 7 3 2 2 6 4 ...
+ $ sum_A      : int  28 14 24 14 23 24 25 20 17 16 ...
+ $ sum_C      : int  22 15 17 19 18 23 16 14 19 21 ...
+ $ sum_E      : int  20 16 15 21 12 20 21 20 18 18 ...
+ $ sum_N      : int  15 21 15 13 10 24 10 9 16 14 ...
+ $ sum_O      : int  19 17 22 22 19 19 21 23 20 16 ...
+ - attr(*, "na.action")= 'omit' Named int [1:564] 1 2 3 4 5 7 9 10 12 13 ...
+  ..- attr(*, "names")= chr [1:564] "61617" "61618" "61620" "61621" ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corr.test</span>(bfiDF_omit[,<span class="fu">c</span>(<span class="dv">26</span><span class="sc">:</span><span class="dv">28</span>,<span class="dv">32</span><span class="sc">:</span><span class="dv">36</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:corr.test(x = bfiDF_omit[, c(26:28, 32:36)])
+Correlation matrix 
+          gender education   age sum_A sum_C sum_E sum_N sum_O
+gender      1.00      0.01  0.05  0.15 -0.04 -0.01  0.12 -0.04
+education   0.01      1.00  0.25 -0.05  0.06  0.01 -0.04  0.00
+age         0.05      0.25  1.00  0.07 -0.04 -0.05 -0.11 -0.04
+sum_A       0.15     -0.05  0.07  1.00  0.05  0.30 -0.13  0.18
+sum_C      -0.04      0.06 -0.04  0.05  1.00  0.18  0.25  0.23
+sum_E      -0.01      0.01 -0.05  0.30  0.18  1.00  0.03  0.25
+sum_N       0.12     -0.04 -0.11 -0.13  0.25  0.03  1.00  0.17
+sum_O      -0.04      0.00 -0.04  0.18  0.23  0.25  0.17  1.00
+Sample Size 
+[1] 2236
+Probability values (Entries above the diagonal are adjusted for multiple tests.) 
+          gender education  age sum_A sum_C sum_E sum_N sum_O
+gender      0.00      1.00 0.31  0.00  0.50  1.00  0.00  0.48
+education   0.79      0.00 0.00  0.31  0.09  1.00  0.48  1.00
+age         0.03      0.00 0.00  0.01  0.47  0.14  0.00  0.54
+sum_A       0.00      0.03 0.00  0.00  0.15  0.00  0.00  0.00
+sum_C       0.07      0.01 0.05  0.01  0.00  0.00  0.00  0.00
+sum_E       0.57      0.63 0.01  0.00  0.00  0.00  0.72  0.00
+sum_N       0.00      0.05 0.00  0.00  0.00  0.14  0.00  0.00
+sum_O       0.05      0.85 0.09  0.00  0.00  0.00  0.00  0.00
+
+ To see confidence intervals of the correlations, print with the short=FALSE option</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># p-value=&gt;education-sum_A 0.03,</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># # A우호성</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># education-sum_C =&gt; 0.01</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # C성실성</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># corrplot(bfiDF_omit[c(,27,31:35)])</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>corData <span class="ot">&lt;-</span> bfiDF_omit[,<span class="fu">c</span>(<span class="dv">26</span><span class="sc">:</span><span class="dv">28</span>,<span class="dv">32</span><span class="sc">:</span><span class="dv">36</span>)]</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>corMatrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(corData)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>corMatrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                gender    education         age       sum_A       sum_C
+gender     1.000000000  0.005729646  0.04697530  0.14713996 -0.03816819
+education  0.005729646  1.000000000  0.24911368 -0.04712627  0.05776667
+age        0.046975299  0.249113684  1.00000000  0.07203687 -0.04206447
+sum_A      0.147139960 -0.047126267  0.07203687  1.00000000  0.05346300
+sum_C     -0.038168193  0.057766674 -0.04206447  0.05346300  1.00000000
+sum_E     -0.012037519  0.010146235 -0.05448275  0.30039252  0.18170833
+sum_N      0.116491021 -0.040814950 -0.10563180 -0.12711922  0.25206114
+sum_O     -0.040612688 -0.003942030 -0.03588258  0.17705902  0.23152325
+                sum_E       sum_N       sum_O
+gender    -0.01203752  0.11649102 -0.04061269
+education  0.01014624 -0.04081495 -0.00394203
+age       -0.05448275 -0.10563180 -0.03588258
+sum_A      0.30039252 -0.12711922  0.17705902
+sum_C      0.18170833  0.25206114  0.23152325
+sum_E      1.00000000  0.03085249  0.24605280
+sum_N      0.03085249  1.00000000  0.16735843
+sum_O      0.24605280  0.16735843  1.00000000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(corMatrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="다항-선형회귀" class="level1">
+<h1>다항 선형회귀</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'car'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:psych':
+
+    logit</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>form_multi_age_A <span class="ot">&lt;-</span> sum_A<span class="sc">~</span>age<span class="sc">+</span><span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(form_multi_age_A, <span class="at">data=</span>bfiDF_omit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_multi_age_A, data = bfiDF_omit)
+
+Coefficients:
+(Intercept)          age     I(age^2)  
+  18.427003     0.153791    -0.001831  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>model_multi_age_A <span class="ot">&lt;-</span> <span class="fu">lm</span>(form_multi_age_A, <span class="at">data=</span>bfiDF_omit)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sum_A<span class="sc">~</span>age, <span class="at">data=</span>bfiDF_omit, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="st">'steelblue'</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:car':
+
+    recode</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(bfiDF_omit,</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">lines</span>(<span class="fu">arrange</span>(<span class="fu">data.frame</span>(age, <span class="fu">fitted</span>(model_multi_age_A)), age),</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">lty=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">'tomato'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_multi_age_A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_multi_age_A, data = bfiDF_omit)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.9959  -2.2589   0.4088   2.4885   9.3978 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 18.427003   0.636746  28.939  &lt; 2e-16 ***
+age          0.153791   0.038933   3.950 8.05e-05 ***
+I(age^2)    -0.001831   0.000542  -3.377 0.000745 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.62 on 2233 degrees of freedom
+Multiple R-squared:  0.01024,   Adjusted R-squared:  0.009358 
+F-statistic: 11.56 on 2 and 2233 DF,  p-value: 1.016e-05</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_multi_age_A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: sum_A
+            Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+age          1   153.4 153.424  11.708 0.0006336 ***
+I(age^2)     1   149.4 149.450  11.404 0.0007453 ***
+Residuals 2233 29262.5  13.105                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># form_age_sA &lt;- age~sum_A</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co"># model_age_sA &lt;- lm(formula=form_age_sA, data=bfiDF_omit)</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co"># abline(model_age_sA, lwd=2, col='tomato')</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(model_age_sA)</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="co"># anova(model_age_sA)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="분석-나이가-많아질수록-우호성a이-좋아지다가-낮아진다" class="level1">
+<h1>분석: 나이가 많아질수록 우호성(A)이 좋아지다가 낮아진다</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(sum_A<span class="sc">~</span>f_age, <span class="at">data=</span>bfiDF_omit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+f_age          8    341   42.59   3.245 0.00112 **
+Residuals   2227  29225   13.12                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bfiDF_omit<span class="sc">$</span>f_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Factor w/ 9 levels "under 10","10s",..: 3 2 3 2 7 3 2 2 6 4 ...</code></pre>
+</div>
+</div>
+</section>
+<section id="다항선형회귀나이와-항목c" class="level1">
+<h1>다항선형회귀(나이와 항목C)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>form_multi_age_C <span class="ot">&lt;-</span> sum_C<span class="sc">~</span>age<span class="sc">+</span><span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(form_multi_age_C, <span class="at">data=</span>bfiDF_omit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_multi_age_C, data = bfiDF_omit)
+
+Coefficients:
+(Intercept)          age     I(age^2)  
+ 19.1231849    0.0050200   -0.0002247  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>model_multi_age_C <span class="ot">&lt;-</span> <span class="fu">lm</span>(form_multi_age_C, <span class="at">data=</span>bfiDF_omit)</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sum_C<span class="sc">~</span>age, <span class="at">data=</span>bfiDF_omit, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="st">'steelblue'</span>)</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(bfiDF_omit,</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">lines</span>(<span class="fu">arrange</span>(<span class="fu">data.frame</span>(age, <span class="fu">fitted</span>(model_multi_age_C)), age),</span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">lty=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">'tomato'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_multi_age_C)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_multi_age_C, data = bfiDF_omit)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-14.1374  -2.0236  -0.0715   1.8751  10.8751 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 19.1231849  0.4832995  39.568   &lt;2e-16 ***
+age          0.0050200  0.0295507   0.170    0.865    
+I(age^2)    -0.0002247  0.0004114  -0.546    0.585    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.748 on 2233 degrees of freedom
+Multiple R-squared:  0.001903,  Adjusted R-squared:  0.001009 
+F-statistic: 2.128 on 2 and 2233 DF,  p-value: 0.1193</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_multi_age_C)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: sum_C
+            Df  Sum Sq Mean Sq F value  Pr(&gt;F)  
+age          1    29.9 29.8862  3.9586 0.04675 *
+I(age^2)     1     2.3  2.2522  0.2983 0.58499  
+Residuals 2233 16858.3  7.5496                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="분석-성실성c은-나이가-많아질-수록-낮아짐을-확인할-수-있었습니다." class="level1">
+<h1>분석: 성실성(C)은 나이가 많아질 수록 낮아짐을 확인할 수 있었습니다.</h1>
+</section>
+<section id="다항선형회귀나이와-항목e" class="level1">
+<h1>다항선형회귀(나이와 항목E)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>form_multi_age_E <span class="ot">&lt;-</span> sum_E<span class="sc">~</span>age<span class="sc">+</span><span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(form_multi_age_E, <span class="at">data=</span>bfiDF_omit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_multi_age_E, data = bfiDF_omit)
+
+Coefficients:
+(Intercept)          age     I(age^2)  
+ 19.0239102    0.0074921   -0.0002997  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>model_multi_age_E <span class="ot">&lt;-</span> <span class="fu">lm</span>(form_multi_age_E, <span class="at">data=</span>bfiDF_omit)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sum_E<span class="sc">~</span>age, <span class="at">data=</span>bfiDF_omit, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="st">'steelblue'</span>)</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(bfiDF_omit,</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">lines</span>(<span class="fu">arrange</span>(<span class="fu">data.frame</span>(age, <span class="fu">fitted</span>(model_multi_age_E)), age),</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">lty=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">'tomato'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_multi_age_E)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_multi_age_E, data = bfiDF_omit)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-14.0581  -1.8481  -0.0239   1.4772   9.0013 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 19.0239102  0.4699957  40.477   &lt;2e-16 ***
+age          0.0074921  0.0287373   0.261    0.794    
+I(age^2)    -0.0002997  0.0004001  -0.749    0.454    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.672 on 2233 degrees of freedom
+Multiple R-squared:  0.003219,  Adjusted R-squared:  0.002326 
+F-statistic: 3.605 on 2 and 2233 DF,  p-value: 0.02733</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_multi_age_E)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: sum_E
+            Df  Sum Sq Mean Sq F value  Pr(&gt;F)   
+age          1    47.5  47.477  6.6498 0.00998 **
+I(age^2)     1     4.0   4.007  0.5612 0.45385   
+Residuals 2233 15942.9   7.140                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="분석-나이가-많아질수록-외향성e이-낮아진다." class="level1">
+<h1>분석: 나이가 많아질수록 외향성(E)이 낮아진다.</h1>
+</section>
+<section id="다항선형회귀나이와-항목n" class="level1">
+<h1>다항선형회귀(나이와 항목N)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>form_multi_age_N <span class="ot">&lt;-</span> sum_N<span class="sc">~</span>age<span class="sc">+</span><span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(form_multi_age_N, <span class="at">data=</span>bfiDF_omit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_multi_age_N, data = bfiDF_omit)
+
+Coefficients:
+(Intercept)          age     I(age^2)  
+  15.635262     0.058502    -0.001667  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>model_multi_age_N <span class="ot">&lt;-</span> <span class="fu">lm</span>(form_multi_age_N, <span class="at">data=</span>bfiDF_omit)</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sum_N<span class="sc">~</span>age, <span class="at">data=</span>bfiDF_omit, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="st">'steelblue'</span>)</span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(bfiDF_omit,</span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">lines</span>(<span class="fu">arrange</span>(<span class="fu">data.frame</span>(age, <span class="fu">fitted</span>(model_multi_age_N)), age),</span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">lty=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">'tomato'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_multi_age_N)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_multi_age_N, data = bfiDF_omit)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-11.1481  -4.7620  -0.1449   4.1536  15.7181 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 15.6352620  1.0451858  14.959   &lt;2e-16 ***
+age          0.0585024  0.0639065   0.915   0.3601    
+I(age^2)    -0.0016674  0.0008897  -1.874   0.0611 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 5.942 on 2233 degrees of freedom
+Multiple R-squared:  0.01271,   Adjusted R-squared:  0.01183 
+F-statistic: 14.37 on 2 and 2233 DF,  p-value: 6.267e-07</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_multi_age_N)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: sum_N
+            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+age          1    891  891.07 25.2368 5.473e-07 ***
+I(age^2)     1    124  124.01  3.5122   0.06105 .  
+Residuals 2233  78844   35.31                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="분석-신경증n은-20세-근처에서-최대였다가-나이가-많아질수록-감소함." class="level1">
+<h1>분석: 신경증(N)은 20세 근처에서 최대였다가 나이가 많아질수록 감소함.</h1>
+</section>
+<section id="다항선형회귀나이와-항목o" class="level1">
+<h1>다항선형회귀(나이와 항목O)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>form_multi_age_O <span class="ot">&lt;-</span> sum_O<span class="sc">~</span>age<span class="sc">+</span><span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(form_multi_age_O, <span class="at">data=</span>bfiDF_omit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_multi_age_O, data = bfiDF_omit)
+
+Coefficients:
+(Intercept)          age     I(age^2)  
+ 20.2255138   -0.0452281    0.0005143  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>model_multi_age_O <span class="ot">&lt;-</span> <span class="fu">lm</span>(form_multi_age_O, <span class="at">data=</span>bfiDF_omit)</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sum_O<span class="sc">~</span>age, <span class="at">data=</span>bfiDF_omit, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="st">'steelblue'</span>)</span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(bfiDF_omit,</span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">lines</span>(<span class="fu">arrange</span>(<span class="fu">data.frame</span>(age, <span class="fu">fitted</span>(model_multi_age_N)), age),</span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">lty=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">'tomato'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_multi_age_O)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_multi_age_O, data = bfiDF_omit)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-14.552  -1.527  -0.244   1.543   9.584 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 20.2255138  0.4662129  43.383   &lt;2e-16 ***
+age         -0.0452281  0.0285060  -1.587    0.113    
+I(age^2)     0.0005143  0.0003969   1.296    0.195    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.651 on 2233 degrees of freedom
+Multiple R-squared:  0.002038,  Adjusted R-squared:  0.001144 
+F-statistic:  2.28 on 2 and 2233 DF,  p-value: 0.1025</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_multi_age_O)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: sum_O
+            Df  Sum Sq Mean Sq F value  Pr(&gt;F)  
+age          1    20.2 20.2396  2.8810 0.08977 .
+I(age^2)     1    11.8 11.7962  1.6791 0.19518  
+Residuals 2233 15687.3  7.0252                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="분석-개방성o-또한-20세-근처에서-최대였다가-나이가-많아질수록-감소함." class="level1">
+<h1>분석: 개방성(O) 또한 20세 근처에서 최대였다가 나이가 많아질수록 감소함.</h1>
+</section>
+<section id="다중-선형-회귀교육과-각-설문항목" class="level1">
+<h1>다중 선형 회귀(교육과 각 설문항목)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># education~sum_A+sum_C+sum_E+sum_N+sum_O</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>bfiDF_e_sum <span class="ot">&lt;-</span> <span class="fu">subset</span>(bfiDF_omit,</span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">select=</span><span class="fu">c</span>(<span class="dv">27</span>, <span class="dv">32</span><span class="sc">:</span><span class="dv">36</span>))</span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(bfiDF_e_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            education       sum_A      sum_C      sum_E       sum_N       sum_O
+education  1.00000000 -0.04712627 0.05776667 0.01014624 -0.04081495 -0.00394203
+sum_A     -0.04712627  1.00000000 0.05346300 0.30039252 -0.12711922  0.17705902
+sum_C      0.05776667  0.05346300 1.00000000 0.18170833  0.25206114  0.23152325
+sum_E      0.01014624  0.30039252 0.18170833 1.00000000  0.03085249  0.24605280
+sum_N     -0.04081495 -0.12711922 0.25206114 0.03085249  1.00000000  0.16735843
+sum_O     -0.00394203  0.17705902 0.23152325 0.24605280  0.16735843  1.00000000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bfiDF_e_sum, <span class="at">pch=</span><span class="dv">19</span>, <span class="at">col=</span><span class="st">'steelblue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>form_2 <span class="ot">=</span> education <span class="sc">~</span> sum_A<span class="sc">+</span>sum_C<span class="sc">+</span>sum_E<span class="sc">+</span>sum_N<span class="sc">+</span>sum_O</span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(form_2, <span class="at">data =</span> bfiDF_e_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_2, data = bfiDF_e_sum)
+
+Coefficients:
+(Intercept)        sum_A        sum_C        sum_E        sum_N        sum_O  
+   3.105277    -0.019843     0.030636     0.007801    -0.012685    -0.001337  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(form_2, <span class="at">data =</span> bfiDF_e_sum))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_2, data = bfiDF_e_sum)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.5765 -0.3193 -0.1414  0.7729  2.0912 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.105277   0.255055  12.175  &lt; 2e-16 ***
+sum_A       -0.019843   0.006888  -2.881 0.004002 ** 
+sum_C        0.030636   0.009069   3.378 0.000743 ***
+sum_E        0.007801   0.009463   0.824 0.409835    
+sum_N       -0.012685   0.004135  -3.068 0.002183 ** 
+sum_O       -0.001337   0.009446  -0.142 0.887427    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.107 on 2230 degrees of freedom
+Multiple R-squared:  0.01042,   Adjusted R-squared:  0.008204 
+F-statistic: 4.698 on 5 and 2230 DF,  p-value: 0.0002855</code></pre>
+</div>
+</div>
+</section>
+<section id="stargazer" class="level1">
+<h1>stargazer</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Please cite as: </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> Hlavac, Marek (2022). stargazer: Well-Formatted Regression and Summary Statistics Tables.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> R package version 5.2.3. https://CRAN.R-project.org/package=stargazer </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(<span class="fu">lm</span>(form_2, <span class="at">data =</span> bfiDF_e_sum), <span class="at">type=</span><span class="st">'text'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+===============================================
+                        Dependent variable:    
+                    ---------------------------
+                             education         
+-----------------------------------------------
+sum_A                        -0.020***         
+                              (0.007)          
+                                               
+sum_C                        0.031***          
+                              (0.009)          
+                                               
+sum_E                          0.008           
+                              (0.009)          
+                                               
+sum_N                        -0.013***         
+                              (0.004)          
+                                               
+sum_O                         -0.001           
+                              (0.009)          
+                                               
+Constant                     3.105***          
+                              (0.255)          
+                                               
+-----------------------------------------------
+Observations                   2,236           
+R2                             0.010           
+Adjusted R2                    0.008           
+Residual Std. Error      1.107 (df = 2230)     
+F Statistic           4.698*** (df = 5; 2230)  
+===============================================
+Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+</section>
+<section id="설문항목-a-c-n이-교육수준과-회귀계수가-높음을-확인-했으나-설문항목과-교육수준의-상관관계가-약하므로-높은-회귀계수는-의미가-없음을-확인" class="level1">
+<h1>설문항목 A, C, N이 교육수준과 회귀계수가 높음을 확인 했으나 설문항목과 교육수준의 상관관계가 약하므로 높은 회귀계수는 의미가 없음을 확인</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scatterplotMatrix</span>(bfiDF_omit[<span class="dv">29</span><span class="sc">:</span><span class="dv">36</span>], <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">cex =</span> <span class="fl">1.2</span>,</span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="at">regLine =</span> <span class="fu">list</span>(<span class="at">method =</span> lm, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"tomato"</span>), <span class="at">smooth =</span> <span class="fu">list</span>(<span class="at">smoother =</span> loessLine, <span class="at">spread =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">lwd.smooth =</span> <span class="dv">2</span>, <span class="at">col.smooth =</span> <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="항목-합들을-구간을-나누기3구간" class="level1">
+<h1>항목 합들을 구간을 나누기(3구간)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bfiDF_omit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   2236 obs. of  36 variables:
+ $ A1         : int  6 4 4 4 1 2 4 1 2 2 ...
+ $ A2         : int  6 3 4 5 5 6 5 6 4 5 ...
+ $ A3         : int  5 1 5 2 6 5 5 6 4 1 ...
+ $ A4         : int  6 5 6 2 5 6 6 1 4 3 ...
+ $ A5         : int  5 1 5 1 6 5 5 6 3 5 ...
+ $ C1         : int  6 3 4 5 4 3 5 5 6 5 ...
+ $ C2         : int  6 2 3 5 3 5 5 2 5 4 ...
+ $ C3         : int  6 4 5 5 2 6 4 5 6 5 ...
+ $ C4         : int  1 2 3 2 4 3 1 1 1 2 ...
+ $ C5         : int  3 4 2 2 5 6 1 1 1 5 ...
+ $ E1         : int  2 3 1 3 2 2 3 1 2 1 ...
+ $ E2         : int  1 6 3 4 1 2 2 1 4 2 ...
+ $ E3         : int  6 4 2 3 2 4 5 6 4 6 ...
+ $ E4         : int  5 2 5 6 5 6 5 6 2 5 ...
+ $ E5         : int  6 1 4 5 2 6 6 6 6 4 ...
+ $ N1         : int  3 6 3 2 2 4 2 2 3 1 ...
+ $ N2         : int  5 3 3 4 2 4 3 3 3 4 ...
+ $ N3         : int  2 2 4 2 2 4 3 1 5 2 ...
+ $ N4         : int  2 6 2 2 2 6 1 2 3 2 ...
+ $ N5         : int  3 4 3 3 2 6 1 1 2 5 ...
+ $ O1         : int  4 3 5 5 6 6 6 6 5 2 ...
+ $ O2         : int  3 2 3 2 1 1 2 4 2 4 ...
+ $ O3         : int  5 4 5 5 5 5 5 5 6 5 ...
+ $ O4         : int  6 5 6 5 5 6 6 5 6 4 ...
+ $ O5         : int  1 3 3 5 2 1 2 3 1 1 ...
+ $ gender     : int  2 1 1 1 1 2 1 2 2 2 ...
+ $ education  : int  3 2 1 1 5 2 1 3 5 3 ...
+ $ age        : int  21 19 21 17 68 27 18 20 51 33 ...
+ $ f_gender   : Factor w/ 2 levels "Males","Females": 2 1 1 1 1 2 1 2 2 2 ...
+ $ f_education: Factor w/ 5 levels "HS","finished HS",..: 3 2 1 1 5 2 1 3 5 3 ...
+ $ f_age      : Factor w/ 9 levels "under 10","10s",..: 3 2 3 2 7 3 2 2 6 4 ...
+ $ sum_A      : int  28 14 24 14 23 24 25 20 17 16 ...
+ $ sum_C      : int  22 15 17 19 18 23 16 14 19 21 ...
+ $ sum_E      : int  20 16 15 21 12 20 21 20 18 18 ...
+ $ sum_N      : int  15 21 15 13 10 24 10 9 16 14 ...
+ $ sum_O      : int  19 17 22 22 19 19 21 23 20 16 ...
+ - attr(*, "na.action")= 'omit' Named int [1:564] 1 2 3 4 5 7 9 10 12 13 ...
+  ..- attr(*, "names")= chr [1:564] "61617" "61618" "61620" "61621" ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A----</span></span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>sum_A_3 <span class="ot">&lt;-</span> <span class="fu">cut</span>(bfiDF_omit<span class="sc">$</span>sum_A, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>),</span>
+<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>))</span>
+<span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_A_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  10   20   30 
+  19  807 1410 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 0~10 10~20 20~30 </span></span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  19   807  1410 </span></span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="co"># C----</span></span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>sum_C_3 <span class="ot">&lt;-</span> <span class="fu">cut</span>(bfiDF_omit<span class="sc">$</span>sum_C, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>),</span>
+<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>))</span>
+<span id="cb103-6"><a href="#cb103-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_C_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  10   20   30 
+   8 1600  628 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># 0~10 10~20 20~30 </span></span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a> <span class="co">#    8  1600   628 </span></span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a><span class="co"># E----</span></span>
+<span id="cb105-4"><a href="#cb105-4" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>sum_E_3 <span class="ot">&lt;-</span> <span class="fu">cut</span>(bfiDF_omit<span class="sc">$</span>sum_E, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>),</span>
+<span id="cb105-5"><a href="#cb105-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>))</span>
+<span id="cb105-6"><a href="#cb105-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_E_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  10   20   30 
+   4 1681  551 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># 0~10 10~20 20~30 </span></span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a> <span class="co">#    4  1681   551 </span></span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="co"># N----</span></span>
+<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>sum_N_3 <span class="ot">&lt;-</span> <span class="fu">cut</span>(bfiDF_omit<span class="sc">$</span>sum_N, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>),</span>
+<span id="cb107-5"><a href="#cb107-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>))</span>
+<span id="cb107-6"><a href="#cb107-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_N_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  10   20   30 
+ 491 1235  510 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># 0~10 10~20 20~30 </span></span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a> <span class="co">#  491  1235   510 </span></span>
+<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="co"># O----</span></span>
+<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a>bfiDF_omit<span class="sc">$</span>sum_O_3 <span class="ot">&lt;-</span> <span class="fu">cut</span>(bfiDF_omit<span class="sc">$</span>sum_O, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>),</span>
+<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>))</span>
+<span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_O_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  10   20   30 
+   5 1573  658 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># 0~10 10~20 20~30 </span></span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a> <span class="co">#    5  1573   658 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="구간-나눈-항목들-그래프" class="level1">
+<h1>구간 나눈 항목들 그래프</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">2</span>))</span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_A_3), <span class="at">main=</span><span class="st">'Agreeableness_3'</span>) <span class="co"># 20~30점 이 가장 많음</span></span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_C_3), <span class="at">main=</span><span class="st">'Conscientiousness_3'</span>) <span class="co"># 10~20점 이 가장 많음</span></span>
+<span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_E_3), <span class="at">main=</span><span class="st">'Exraversion_3'</span>) <span class="co"># 10~20점 이 가장 많음</span></span>
+<span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_N_3), <span class="at">main=</span><span class="st">'Neuroticism_3'</span>) <span class="co"># 10~20점 이 가장 많음</span></span>
+<span id="cb112-6"><a href="#cb112-6" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_O_3), <span class="at">main=</span><span class="st">'Openness_3'</span>) <span class="co"># 10~20점 이 가장 많음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="pj8_yeongchan_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_A_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  10   20   30 
+  19  807 1410 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_C_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  10   20   30 
+   8 1600  628 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_E_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  10   20   30 
+   4 1681  551 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_N_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  10   20   30 
+ 491 1235  510 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bfiDF_omit<span class="sc">$</span>sum_O_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  10   20   30 
+   5 1573  658 </code></pre>
+</div>
+</div>
+</section>
+<section id="단순선형회귀나이와-항목a" class="level1">
+<h1>단순선형회귀(나이와 항목A)</h1>
+</section>
+<section id="r-종속변수-age-독립변수-항목-form_age_sa3---agesum_a_3-model_age_sa3---lmformulaform_age_sa3-databfidf_omit-ablinemodel_age_sa3-lwd2-coltomato-summarymodel_age_sa3-anovamodel_age_sa3-0.007314" class="level1">
+<h1><code>{r} # # 종속변수 :  age # # 독립변수 :  항목? # form_age_sA3 &lt;- age~sum_A_3 # model_age_sA3 &lt;- lm(formula=form_age_sA3, data=bfiDF_omit) # abline(model_age_sA3, lwd=2, col='tomato') # summary(model_age_sA3) # anova(model_age_sA3) # 0.007314 ** #</code></h1>
+</section>
+<section id="박스플롯age각-항목-3구간" class="level1">
+<h1>박스플롯(age~각 항목 3구간)</h1>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(age<span class="sc">~</span>sum_A_3, <span class="at">data=</span>bfiDF_omit, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="at">col=</span><span class="st">'steelblue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>::: {.cell-output-display} <img src="pj8_yeongchan_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"> :::</p>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(age<span class="sc">~</span>sum_C_3, <span class="at">data=</span>bfiDF_omit, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="at">col=</span><span class="st">'steelblue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>::: {.cell-output-display} <img src="pj8_yeongchan_files/figure-html/unnamed-chunk-22-2.png" class="img-fluid" width="672"> :::</p>
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(age<span class="sc">~</span>sum_E_3, <span class="at">data=</span>bfiDF_omit, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-3"><a href="#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="at">col=</span><span class="st">'steelblue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>::: {.cell-output-display} <img src="pj8_yeongchan_files/figure-html/unnamed-chunk-22-3.png" class="img-fluid" width="672"> :::</p>
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(age<span class="sc">~</span>sum_N_3, <span class="at">data=</span>bfiDF_omit, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-3"><a href="#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="at">col=</span><span class="st">'steelblue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>::: {.cell-output-display} <img src="pj8_yeongchan_files/figure-html/unnamed-chunk-22-4.png" class="img-fluid" width="672"> :::</p>
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(age<span class="sc">~</span>sum_O_3, <span class="at">data=</span>bfiDF_omit, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="at">col=</span><span class="st">'steelblue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>::: {.cell-output-display} <img src="pj8_yeongchan_files/figure-html/unnamed-chunk-22-5.png" class="img-fluid" width="672"> ::: :::</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a>form_A_3 <span class="ot">&lt;-</span> age<span class="sc">~</span>sum_A_3</span>
+<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a>form_C_3 <span class="ot">&lt;-</span> age<span class="sc">~</span>sum_C_3</span>
+<span id="cb128-3"><a href="#cb128-3" aria-hidden="true" tabindex="-1"></a>form_E_3 <span class="ot">&lt;-</span> age<span class="sc">~</span>sum_E_3</span>
+<span id="cb128-4"><a href="#cb128-4" aria-hidden="true" tabindex="-1"></a>form_N_3 <span class="ot">&lt;-</span> age<span class="sc">~</span>sum_N_3</span>
+<span id="cb128-5"><a href="#cb128-5" aria-hidden="true" tabindex="-1"></a>form_O_3 <span class="ot">&lt;-</span> age<span class="sc">~</span>sum_O_3</span>
+<span id="cb128-6"><a href="#cb128-6" aria-hidden="true" tabindex="-1"></a>model_A_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula=</span>form_A_3, <span class="at">data=</span>bfiDF_omit)</span>
+<span id="cb128-7"><a href="#cb128-7" aria-hidden="true" tabindex="-1"></a>model_C_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula=</span>form_C_3, <span class="at">data=</span>bfiDF_omit)</span>
+<span id="cb128-8"><a href="#cb128-8" aria-hidden="true" tabindex="-1"></a>model_E_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula=</span>form_E_3, <span class="at">data=</span>bfiDF_omit)</span>
+<span id="cb128-9"><a href="#cb128-9" aria-hidden="true" tabindex="-1"></a>model_N_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula=</span>form_N_3, <span class="at">data=</span>bfiDF_omit)</span>
+<span id="cb128-10"><a href="#cb128-10" aria-hidden="true" tabindex="-1"></a>model_O_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula=</span>form_O_3, <span class="at">data=</span>bfiDF_omit)</span>
+<span id="cb128-11"><a href="#cb128-11" aria-hidden="true" tabindex="-1"></a><span class="co"># abline(model_A_3, lwd=2, col='tomato')</span></span>
+<span id="cb128-12"><a href="#cb128-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_A_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_A_3, data = bfiDF_omit)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-26.933  -8.901  -2.933   6.099  57.099 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   24.053      2.442   9.849   &lt;2e-16 ***
+sum_A_320      4.848      2.471   1.962   0.0499 *  
+sum_A_330      5.880      2.459   2.392   0.0169 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 10.65 on 2233 degrees of freedom
+Multiple R-squared:  0.004395,  Adjusted R-squared:  0.003503 
+F-statistic: 4.929 on 2 and 2233 DF,  p-value: 0.007314</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_C_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_C_3, data = bfiDF_omit)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-26.918  -8.583  -2.918   6.082  56.082 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   20.750      3.762   5.516 3.86e-08 ***
+sum_C_320      9.168      3.771   2.431   0.0151 *  
+sum_C_330      7.833      3.785   2.069   0.0386 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 10.64 on 2233 degrees of freedom
+Multiple R-squared:  0.005588,  Adjusted R-squared:  0.004697 
+F-statistic: 6.274 on 2 and 2233 DF,  p-value: 0.001918</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_E_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_E_3, data = bfiDF_omit)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-25.673  -8.673  -2.779   6.221  56.221 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   32.000      5.329   6.005 2.23e-09 ***
+sum_E_320     -2.221      5.335  -0.416    0.677    
+sum_E_330     -3.327      5.348  -0.622    0.534    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 10.66 on 2233 degrees of freedom
+Multiple R-squared:  0.002093,  Adjusted R-squared:  0.001199 
+F-statistic: 2.341 on 2 and 2233 DF,  p-value: 0.09644</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_N_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_N_3, data = bfiDF_omit)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-25.815  -8.055  -2.815   6.185  53.945 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  32.0550     0.4776  67.116  &lt; 2e-16 ***
+sum_N_320    -3.2404     0.5646  -5.739 1.08e-08 ***
+sum_N_330    -3.3099     0.6691  -4.947 8.11e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 10.58 on 2233 degrees of freedom
+Multiple R-squared:  0.01604,   Adjusted R-squared:  0.01515 
+F-statistic:  18.2 on 2 and 2233 DF,  p-value: 1.451e-08</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_O_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = form_O_3, data = bfiDF_omit)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-25.666  -8.666  -2.855   6.145  57.334 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   32.200      4.765   6.758 1.78e-11 ***
+sum_O_320     -2.345      4.772  -0.491    0.623    
+sum_O_330     -3.534      4.783  -0.739    0.460    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 10.65 on 2233 degrees of freedom
+Multiple R-squared:  0.002725,  Adjusted R-squared:  0.001832 
+F-statistic:  3.05 on 2 and 2233 DF,  p-value: 0.04753</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_A_3) <span class="co"># 0.007314 **</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: age
+            Df Sum Sq Mean Sq F value   Pr(&gt;F)   
+sum_A_3      2   1117  558.57  4.9289 0.007314 **
+Residuals 2233 253060  113.33                    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_C_3) <span class="co"># 0.001918 **</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: age
+            Df Sum Sq Mean Sq F value   Pr(&gt;F)   
+sum_C_3      2   1420  710.15  6.2739 0.001918 **
+Residuals 2233 252756  113.19                    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_E_3) <span class="co"># 0.09644</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: age
+            Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+sum_E_3      2    532  265.94  2.3413 0.09644 .
+Residuals 2233 253645  113.59                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_N_3) <span class="co"># 1.451e-08 ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: age
+            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+sum_N_3      2   4076  2037.9  18.195 1.451e-08 ***
+Residuals 2233 250101   112.0                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_O_3) <span class="co"># 0.04753 *</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: age
+            Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+sum_O_3      2    693  346.28  3.0505 0.04753 *
+Residuals 2233 253484  113.52                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,259 @@
+---
+title: "Inuk"
+author: "Inuk Song"
+date: "2022-08-17"
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+```
+
+
+# 로지스틱 회귀분석을 통한 뇌졸증 발병 예측
+    - 데이터 출처: https://www.kaggle.com/datasets/zzettrkalpakbal/full-filled-brain-stroke-dataset
+
+## 1. EDA
+
+### 1-1. 데이터 불러오기
+
+#### 데이터 랜덤으로 섞기
+```{r echo = TRUE, include=FALSE}
+brain1 <- read.csv("../InukSOng/brain_stroke.csv", header = TRUE)
+brain2 <- read.csv("../InukSOng/brain_stroke_filled.csv", header = TRUE)
+brain <- rbind(brain1, brain2)
+```
+
+
+### 1-2. 데이터 정보 확인
+
+#### 데이터 요약
+```{r}
+str(brain)
+```
+#### 결측치 확인
+```{r}
+sum(is.na(brain))
+```
+#### **dependent variable = stroke 비율 확인**
+```{r}
+prop.table(table(brain$stroke))
+```
+
+### 1-3. 데이터 전처리
+
+#### 범주형데이터 factor로 변경
+```{r}
+index <- c(1, 3, 4, 5, 6, 7, 10, 11)
+brain[, index] <- lapply(brain[, index], factor)
+str(brain)
+```
+
+### 1-4. 데이터 시각화
+
+#### 수치형 데이터 boxplot 그려보기
+```{r}
+library(ggplot2)
+library(dplyr)
+label <- c("non stroke", "stroke")
+brain$stroke <- factor(brain$stroke)
+
+ggplot(data = brain) +
+    geom_boxplot(
+        mapping = aes(
+            x = stroke, y = age, fill = stroke
+        ),
+        alpha = 0.4, outlier.color = "red"
+    ) +
+    geom_jitter(aes(x = stroke, y = age, col = stroke), alpha = 0.1) +
+    theme_bw()
+
+ggplot(data = brain) +
+    geom_boxplot(
+        mapping = aes(
+            x = stroke, y = avg_glucose_level, fill = stroke
+        ),
+        alpha = 0.4, outlier.color = "red"
+    ) +
+    geom_jitter(aes(x = stroke, y = avg_glucose_level, col = stroke), alpha = 0.1) +
+    theme_bw()
+
+ggplot(data = brain) +
+    geom_boxplot(
+        mapping = aes(
+            x = stroke, y = bmi, fill = stroke
+        ),
+        alpha = 0.4, outlier.color = "red"
+    ) +
+    geom_jitter(aes(x = stroke, y = bmi, col = stroke), alpha = 0.1) +
+    theme_bw()
+```
+
+#### cdplot으로 밀도 차이 확인
+```{r}
+cdplot(stroke ~ age, data = brain, col = c("lightgreen", "gray"), main = "stroke ~ age")
+cdplot(stroke ~ avg_glucose_level, data = brain, col = c("lightgreen", "gray"), main = "stroke ~ avg_glucose_level")
+cdplot(stroke ~ bmi, data = brain, col = c("lightgreen", "gray"), main = "stroke ~ bmi")
+```
+
+#### mosaicplot으로 stroke와 범주형 데이터 비교
+```{r}
+mosaicplot(stroke ~ hypertension, data = brain, main = "stroke vs hypertension", col = c("tomato", "skyblue"))
+mosaicplot(stroke ~ heart_disease, data = brain, main = "stroke vs heart_disease", col = c("tomato", "skyblue"))
+```
+
+## 2. 로지스틱 회귀분석
+
+### 2-1. 모델 생성
+
+#### train, test 데이터 나누기
+```{r echo = TRUE}
+set.seed(1500)
+brain <- brain[sample(nrow(brain)), ]
+brain.train <- brain[1:3500, ]
+brain.test <- brain[3501:5182, ]
+```
+
+#### 로지스틱 모델 생성
+```{r}
+model <- glm(stroke ~ ., data = brain.train, family = binomial(link = "logit"))
+summary(model)
+```
+##### odds ratio
+```{r}
+exp(coef(model))
+```
+
+#### stepwise logistic regression 수행
+```{r include= FALSE}
+model <- step(model, direction = "backward")
+```
+```{r}
+summary(model)
+```
+##### odds ratio
+```{r}
+odds.ratio <- exp(coef(model))
+odds.ratio
+```
+
+### 2-2. 모델 테스트
+
+#### odds ratio 시각화
+```{r}
+library(moonBook)
+ORplot(model,
+    type = 2, show.OR = FALSE, show.CI = TRUE,
+    pch = 15, lwd = 3, col = c("blue", "red")
+)
+```
+
+#### 예측테스트(임계값 0.5)
+```{r}
+probability <- predict(model, brain.train, type = "response")
+predict_A <- as.factor(ifelse(probability > 0.5, "1", "0"))
+```
+
+#### 혼동행렬 확인
+```{r}
+library(caret)
+confusionMatrix(predict_A, brain.train$stroke)
+```
+
+#### 다중 공산성 확인
+```{r}
+library(car)
+vif(model)
+```
+
+### 2-3. ROC Curve를 통해서 최적의 임계값 구하기
+    - 참고 사이트
+    - https://www.theissaclee.com/post/logistic-regression-beta/
+    - https://www.verywellhealth.com/negative-predictive-value-3132879
+
+#### 방법1. Sensitivity, Specificity
+```{r}
+library(pROC)
+ROC <- roc(brain.train$stroke, probability)
+plot.roc(ROC,
+    col = "royalblue",
+    print.auc = TRUE,
+    max.auc.polygon = TRUE,
+    print.thres = TRUE, print.thres.pch = 19, print.thres.col = "red",
+    auc.polygon = TRUE, auc.polygon.col = "lightblue"
+)
+```
+
+#### 방법2. False positive rate, True positive rate 
+```{r}
+library(ROCR)
+library(dplyr)
+
+prediction(probability, brain.train$stroke) %>%
+    performance(measure = "tpr", x.measure = "fpr") -> result
+
+plotdata <- data.frame(
+    x = result@x.values[[1]],
+    y = result@y.values[[1]],
+    p = result@alpha.values[[1]]
+)
+
+p <- ggplot(data = plotdata) +
+    geom_path(aes(x = x, y = y)) +
+    xlab(result@x.name) +
+    ylab(result@y.name) +
+    theme_bw()
+
+dist_vec <- plotdata$x^2 + (1 - plotdata$y)^2
+opt_pos <- which.min(dist_vec)
+
+p +
+    geom_point(
+        data = plotdata[opt_pos, ],
+        aes(x = x, y = y), col = "red"
+    ) +
+    annotate("text",
+        x = plotdata[opt_pos, ]$x + 0.1,
+        y = plotdata[opt_pos, ]$y,
+        label = paste("p =", round(plotdata[opt_pos, ]$p, 3))
+    )
+
+min_pos <- which.max(plotdata$y >= 0.85)
+
+p +
+    geom_point(
+        data = plotdata[plotdata$y >= 0.85, ],
+        aes(x = x, y = y), size = 0.2, col = "green"
+    ) +
+    geom_hline(yintercept = 0.85, linetype = "dashed") +
+    geom_point(data = plotdata[min_pos, ], aes(x = x, y = y), col = "red") +
+    annotate("text",
+        x = plotdata[min_pos, ]$x + 0.07,
+        y = plotdata[min_pos, ]$y - 0.02,
+        label = paste("p =", round(plotdata[min_pos, ]$p, 3)),
+        col = "red"
+    ) +
+    geom_point(
+        data = plotdata[opt_pos, ],
+        aes(x = x, y = y), col = "black"
+    ) +
+    annotate("text",
+        x = plotdata[opt_pos, ]$x + 0.05,
+        y = plotdata[opt_pos, ]$y - 0.05,
+        label = paste("p =", round(plotdata[opt_pos, ]$p, 3))
+    )
+```
+
+#### 새로운 임계값으로 예측값 확인
+```{r}
+predict_C <- as.factor(ifelse(probability > 0.049, "1", "0"))
+confusionMatrix(predict_C, brain.train$stroke)
+```
+
+
+### 2-4. 만든 모델로 test데이터 예측
+```{r}
+probability_test <- predict(model, brain.test, type = "response")
+predict_test <- as.factor(ifelse(probability_test > 0.049, "1", "0"))
+confusionMatrix(predict_test, brain.test$stroke)
+```
+
