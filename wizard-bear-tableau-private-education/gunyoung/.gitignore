@@ -1,0 +1,11 @@
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+.vscode
+*/.vscode/*
+
+*.Rproj
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
