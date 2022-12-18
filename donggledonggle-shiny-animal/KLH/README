@@ -1,0 +1,13 @@
+# link
+https://public.tableau.com/app/profile/raputer/viz/LiveTogether/Storyboard_1
+
+# tableau workbook
+Live Together.twbx
+
+# data
+pet_species_US.csv : 'Species' sheet on Live Together.twbx  
+pet_species(2011~2022).csv : 'duration' sheet on Live Together.twbx  
+
+# image
+icon folder : icon png files
+planet-animals-VectorStock.jpg : main page image
