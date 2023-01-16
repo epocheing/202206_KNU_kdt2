@@ -1,5 +1,5 @@
- show databases;
- 
+show databases;
+
 create database Siu_db;
 ALTER DATABASE Siu_db CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 use Siu_db;
