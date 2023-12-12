@@ -1,0 +1,81 @@
+---
+title: "team2_orange"
+---
+
+## 팀명 : R2(결정계수)
+
+## 팀장 : 조건영
+
+## 느낀점
+
+- 팀장이라는 직책을 2주 연속으로 하다보니 책임감이 너무 필요해 몇주간은 휴식이 필요해 보임
+- 부족한 팀장을 믿고 따라와 준 팀원 분들에게 감사
+
+## 팀원
+
+### 1. 신나령
+#### 1) 데이터
+
+- 와인데이터(레드 와인)
+- 출처: <https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009>
+
+#### 2) 분석
+
+- 이항로지스틱 분석으로 와인 품질의 예측
+- 와인의 밀도가 높을수록 품질이 떨어지는 것을 확인함
+
+### 2. 허채범
+#### 1) 데이터
+
+- 나라별 데이터 직무 자료
+- 출처: <https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries>
+
+#### 2) 분석
+
+- 회사규모/원격업무 비중을 활용한 이원분산분석
+- 등분산성과 정규성에 따르지 않아 분석을 할 수 있을까???
+
+### 3. 방영찬
+#### 1) 데이터
+
+- 성격검사 설문조사
+- 출처: library(psychTools)의 bfi데이터셋
+
+#### 2) 분석방법
+
+- 교차분석/분산분석/다항회귀분석을 활용한 여러 결론
+- 설문지에서 종속변수를 찾기
+
+### 4. 곽영효
+#### 1) 데이터
+
+- 어몽어스 승패 예측
+- 출처: <https://www.kaggle.com/datasets/ruchi798/among-us-dataset>
+
+#### 2) 분석방법
+
+- 로지스틱에서 범주형 데이터가 문제
+- 교차분석/로지스틱분석을 통한 결과로 어몽어스 시작!!
+
+### 5. 송인욱
+#### 1) 데이터
+
+- 뇌졸증 데이터
+- 출처: <https://www.kaggle.com/datasets/zzettrkalpakbal/full-filled-brain-stroke-dataset/code?datasetId=2343381&sortBy=voteCount>
+
+#### 2) 분석방법
+
+- 혈액포도당/나이/비만도의 바탕으로 뇌졸증을 예측
+- 임계치의 잘못된 설정으로 인한 민감도와 특이도의 불균형
+- 분석방법의 한계
+
+### 6. 김도영
+#### 1) 데이터
+
+- 심혈관
+- 출처: <https://www.kaggle.com/datasets/yassinehamdaoui1/cardiovascular-disease?datasetId=552987&sortBy=voteCount>
+
+#### 2) 분석방법
+
+- 카이제곱/이항로지스틱분석으로 인한 심혈관 진단 예측
+- 임계치 찾기 어려움

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Among Us</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="amongus_files/libs/clipboard/clipboard.min.js"></script>
+<script src="amongus_files/libs/quarto-html/quarto.js"></script>
+<script src="amongus_files/libs/quarto-html/popper.min.js"></script>
+<script src="amongus_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="amongus_files/libs/quarto-html/anchor.min.js"></script>
+<link href="amongus_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="amongus_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="amongus_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="amongus_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="amongus_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Among Us</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="서론" class="level2">
+<h2 class="anchored" data-anchor-id="서론">서론</h2>
+<p>출처</p>
+<p><a href="https://www.kaggle.com/datasets/ruchi798/among-us-dataset" class="uri">https://www.kaggle.com/datasets/ruchi798/among-us-dataset</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./amongus.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">amongus</figcaption><p></p>
+</figure>
+</div>
+<p>MT 등지에서 많이들 플레이되는 마피아 게임을 온라인 게임으로 구현한 게임</p>
+<p>최소 4명 ~ 최대 15명의 플레이어가 진행한다.</p>
+<ul>
+<li><p>크루원</p>
+<ul>
+<li><p>참가자들의 정체를 알 수 없다.</p></li>
+<li><p>‘유령을 포함한’ 크루원 전원이 모든 임무를 완료하면 승리한다.</p></li>
+<li><p>모든 임포스터를 투표로 방출하면 승리한다.</p></li>
+</ul></li>
+<li><p>임포스터</p>
+<ul>
+<li><p>참가자들의 정체를 알 수 있다.</p></li>
+<li><p>살인 및 투표로 크루원을 제거해서 크루원과 임포스터의 생존 인원의 수를 같게 만들면 승리한다.</p></li>
+<li><p>방해 공작의 제한 시간이 0이 되면 승리한다.</p></li>
+</ul></li>
+<li><p>유령</p>
+<ul>
+<li><p>투표로 방출되거나, 살해당할 경우 유령이 된다.</p></li>
+<li><p>크루원 유령은 여전히 임무를 수행할 수 있다.</p></li>
+<li><p>임포스터 유령은 여전히 방해공작을 펼칠 수 있다.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="전처리" class="level2">
+<h2 class="anchored" data-anchor-id="전처리">전처리</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./python1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">전처리1</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./python2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">전처리2</figcaption><p></p>
+</figure>
+</div>
+<p>콰르토에서 판다스를 지원하지 않아 주피터로 데이터 전처리 시행</p>
+<ul>
+<li><p>csv 1개로 통합</p></li>
+<li><p>열 삭제</p></li>
+<li><p>Game_Length 데이터를 초 단위로 변환</p></li>
+</ul>
+</section>
+<section id="eda" class="level2">
+<h2 class="anchored" data-anchor-id="eda">EDA</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>graph1 <span class="ot">=</span> <span class="fu">barplot</span>(mat1, <span class="at">beside =</span> T,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">main =</span> <span class="st">'Win / Lose'</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">'Win'</span>, <span class="st">'Lose'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="amongus_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(result<span class="sc">$</span>Team, result<span class="sc">$</span>Outcome, <span class="at">chisq=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 
+   Cell Contents
+|-------------------------|
+|                       N |
+| Chi-square contribution |
+|           N / Row Total |
+|           N / Col Total |
+|         N / Table Total |
+|-------------------------|
+
+ 
+Total Observations in Table:  2227 
+
+ 
+             | result$Outcome 
+ result$Team |         1 |         0 | Row Total | 
+-------------|-----------|-----------|-----------|
+    Crewmate |       981 |       780 |      1761 | 
+             |     0.001 |     0.002 |           | 
+             |     0.557 |     0.443 |     0.791 | 
+             |     0.790 |     0.792 |           | 
+             |     0.441 |     0.350 |           | 
+-------------|-----------|-----------|-----------|
+    Imposter |       261 |       205 |       466 | 
+             |     0.005 |     0.006 |           | 
+             |     0.560 |     0.440 |     0.209 | 
+             |     0.210 |     0.208 |           | 
+             |     0.117 |     0.092 |           | 
+-------------|-----------|-----------|-----------|
+Column Total |      1242 |       985 |      2227 | 
+             |     0.558 |     0.442 |           | 
+-------------|-----------|-----------|-----------|
+
+ 
+Statistics for All Table Factors
+
+
+Pearson's Chi-squared test 
+------------------------------------------------------------
+Chi^2 =  0.01358838     d.f. =  1     p =  0.9072015 
+
+Pearson's Chi-squared test with Yates' continuity correction 
+------------------------------------------------------------
+Chi^2 =  0.004111993     d.f. =  1     p =  0.9488708 
+
+ </code></pre>
+</div>
+</div>
+</section>
+<section id="분석" class="level2">
+<h2 class="anchored" data-anchor-id="분석">분석</h2>
+<p>한 게임 당 평균 임포스터의 비율은 약 20.9%</p>
+<p>크루원의 평균 승률: 55.7%</p>
+<p>임포스터의 평균 승률: 56.0%</p>
+<p>전체 평균 승률: 55.8%</p>
+<p>카이스퀘어 검정 결과: 독립적</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrgram)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrgram</span>(df, <span class="at">upper.panel =</span> panel.conf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="amongus_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="분석-1" class="level2">
+<h2 class="anchored" data-anchor-id="분석-1">분석</h2>
+<p>임무 완료수와 게임 시간은 강한 양의 상관관계</p>
+<p>임포스터의 킬수와 게임 시간 간의 상관관계에 대해서</p>
+<p>뒤에서 따로 분석 실행</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Game_Length <span class="sc">~</span> Imposter_Kills,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">data=</span>imposter) </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Game_Length ~ Imposter_Kills, data = imposter)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-795.44 -235.90  -27.61  201.55 1007.67 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)      459.96      30.53  15.066  &lt; 2e-16 ***
+Imposter_Kills    66.18      12.33   5.367 1.27e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 312.2 on 464 degrees of freedom
+Multiple R-squared:  0.05845,   Adjusted R-squared:  0.05642 
+F-statistic:  28.8 on 1 and 464 DF,  p-value: 1.268e-07</code></pre>
+</div>
+</div>
+</section>
+<section id="임포스터의-킬수와-게임시간" class="level2">
+<h2 class="anchored" data-anchor-id="임포스터의-킬수와-게임시간">임포스터의 킬수와 게임시간</h2>
+<p>임포스터의 킬수와 게임시간은 상관관계가 있다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(imposter<span class="sc">$</span>Imposter_Kills, imposter<span class="sc">$</span>Outcome,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">chisq =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 
+   Cell Contents
+|-------------------------|
+|                       N |
+| Chi-square contribution |
+|           N / Row Total |
+|           N / Col Total |
+|         N / Table Total |
+|-------------------------|
+
+ 
+Total Observations in Table:  466 
+
+ 
+                        | imposter$Outcome 
+imposter$Imposter_Kills |         1 |         0 | Row Total | 
+------------------------|-----------|-----------|-----------|
+                      0 |         6 |        10 |        16 | 
+                        |     0.979 |     1.246 |           | 
+                        |     0.375 |     0.625 |     0.034 | 
+                        |     0.023 |     0.049 |           | 
+                        |     0.013 |     0.021 |           | 
+------------------------|-----------|-----------|-----------|
+                      1 |        60 |        65 |       125 | 
+                        |     1.431 |     1.822 |           | 
+                        |     0.480 |     0.520 |     0.268 | 
+                        |     0.230 |     0.317 |           | 
+                        |     0.129 |     0.139 |           | 
+------------------------|-----------|-----------|-----------|
+                      2 |        95 |        72 |       167 | 
+                        |     0.023 |     0.029 |           | 
+                        |     0.569 |     0.431 |     0.358 | 
+                        |     0.364 |     0.351 |           | 
+                        |     0.204 |     0.155 |           | 
+------------------------|-----------|-----------|-----------|
+                      3 |        52 |        43 |        95 | 
+                        |     0.027 |     0.035 |           | 
+                        |     0.547 |     0.453 |     0.204 | 
+                        |     0.199 |     0.210 |           | 
+                        |     0.112 |     0.092 |           | 
+------------------------|-----------|-----------|-----------|
+                      4 |        38 |        12 |        50 | 
+                        |     3.568 |     4.542 |           | 
+                        |     0.760 |     0.240 |     0.107 | 
+                        |     0.146 |     0.059 |           | 
+                        |     0.082 |     0.026 |           | 
+------------------------|-----------|-----------|-----------|
+                      5 |         5 |         3 |         8 | 
+                        |     0.060 |     0.077 |           | 
+                        |     0.625 |     0.375 |     0.017 | 
+                        |     0.019 |     0.015 |           | 
+                        |     0.011 |     0.006 |           | 
+------------------------|-----------|-----------|-----------|
+                      6 |         4 |         0 |         4 | 
+                        |     1.382 |     1.760 |           | 
+                        |     1.000 |     0.000 |     0.009 | 
+                        |     0.015 |     0.000 |           | 
+                        |     0.009 |     0.000 |           | 
+------------------------|-----------|-----------|-----------|
+                      8 |         1 |         0 |         1 | 
+                        |     0.346 |     0.440 |           | 
+                        |     1.000 |     0.000 |     0.002 | 
+                        |     0.004 |     0.000 |           | 
+                        |     0.002 |     0.000 |           | 
+------------------------|-----------|-----------|-----------|
+           Column Total |       261 |       205 |       466 | 
+                        |     0.560 |     0.440 |           | 
+------------------------|-----------|-----------|-----------|
+
+ 
+Statistics for All Table Factors
+
+
+Pearson's Chi-squared test 
+------------------------------------------------------------
+Chi^2 =  17.76726     d.f. =  7     p =  0.01306537 
+
+
+ </code></pre>
+</div>
+</div>
+</section>
+<section id="분석킬수와-승패" class="level2">
+<h2 class="anchored" data-anchor-id="분석킬수와-승패">분석(킬수와 승패)</h2>
+<p>37.5% =&gt; 48% =&gt; 56.9% =&gt; 54.7% =&gt; 62.5% =&gt; …</p>
+<p>0킬부터 점점 킬수가 많아질수록</p>
+<p>임포스터의 승률은 높아진다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(crew<span class="sc">$</span>Murdered, crew<span class="sc">$</span>Outcome, <span class="at">chisq =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 
+   Cell Contents
+|-------------------------|
+|                       N |
+| Chi-square contribution |
+|           N / Row Total |
+|           N / Col Total |
+|         N / Table Total |
+|-------------------------|
+
+ 
+Total Observations in Table:  1761 
+
+ 
+              | crew$Outcome 
+crew$Murdered |         1 |         0 | Row Total | 
+--------------|-----------|-----------|-----------|
+           No |       589 |       305 |       894 | 
+              |    16.620 |    20.903 |           | 
+              |     0.659 |     0.341 |     0.508 | 
+              |     0.600 |     0.391 |           | 
+              |     0.334 |     0.173 |           | 
+--------------|-----------|-----------|-----------|
+          Yes |       392 |       475 |       867 | 
+              |    17.138 |    21.554 |           | 
+              |     0.452 |     0.548 |     0.492 | 
+              |     0.400 |     0.609 |           | 
+              |     0.223 |     0.270 |           | 
+--------------|-----------|-----------|-----------|
+ Column Total |       981 |       780 |      1761 | 
+              |     0.557 |     0.443 |           | 
+--------------|-----------|-----------|-----------|
+
+ 
+Statistics for All Table Factors
+
+
+Pearson's Chi-squared test 
+------------------------------------------------------------
+Chi^2 =  76.21588     d.f. =  1     p =  2.542884e-18 
+
+Pearson's Chi-squared test with Yates' continuity correction 
+------------------------------------------------------------
+Chi^2 =  75.38046     d.f. =  1     p =  3.882133e-18 
+
+ </code></pre>
+</div>
+</div>
+</section>
+<section id="분석-2" class="level2">
+<h2 class="anchored" data-anchor-id="분석-2">분석</h2>
+<p>살해됨 O : 승률 65.9%</p>
+<p>살해됨 X : 승률 45.2%</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(crew<span class="sc">$</span>Ejected, crew<span class="sc">$</span>Outcome, <span class="at">chisq=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 
+   Cell Contents
+|-------------------------|
+|                       N |
+| Chi-square contribution |
+|           N / Row Total |
+|           N / Col Total |
+|         N / Table Total |
+|-------------------------|
+
+ 
+Total Observations in Table:  1761 
+
+ 
+             | crew$Outcome 
+crew$Ejected |         1 |         0 | Row Total | 
+-------------|-----------|-----------|-----------|
+          No |       965 |       741 |      1706 | 
+             |     0.225 |     0.284 |           | 
+             |     0.566 |     0.434 |     0.969 | 
+             |     0.984 |     0.950 |           | 
+             |     0.548 |     0.421 |           | 
+-------------|-----------|-----------|-----------|
+         Yes |        16 |        39 |        55 | 
+             |     6.994 |     8.797 |           | 
+             |     0.291 |     0.709 |     0.031 | 
+             |     0.016 |     0.050 |           | 
+             |     0.009 |     0.022 |           | 
+-------------|-----------|-----------|-----------|
+Column Total |       981 |       780 |      1761 | 
+             |     0.557 |     0.443 |           | 
+-------------|-----------|-----------|-----------|
+
+ 
+Statistics for All Table Factors
+
+
+Pearson's Chi-squared test 
+------------------------------------------------------------
+Chi^2 =  16.29995     d.f. =  1     p =  5.40655e-05 
+
+Pearson's Chi-squared test with Yates' continuity correction 
+------------------------------------------------------------
+Chi^2 =  15.20549     d.f. =  1     p =  9.642273e-05 
+
+ </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(imposter<span class="sc">$</span>Ejected, imposter<span class="sc">$</span>Outcome, <span class="at">chisq=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 
+   Cell Contents
+|-------------------------|
+|                       N |
+| Chi-square contribution |
+|           N / Row Total |
+|           N / Col Total |
+|         N / Table Total |
+|-------------------------|
+
+ 
+Total Observations in Table:  466 
+
+ 
+                 | imposter$Outcome 
+imposter$Ejected |         1 |         0 | Row Total | 
+-----------------|-----------|-----------|-----------|
+              No |       255 |       129 |       384 | 
+                 |     7.412 |     9.437 |           | 
+                 |     0.664 |     0.336 |     0.824 | 
+                 |     0.977 |     0.629 |           | 
+                 |     0.547 |     0.277 |           | 
+-----------------|-----------|-----------|-----------|
+             Yes |         6 |        76 |        82 | 
+                 |    34.711 |    44.193 |           | 
+                 |     0.073 |     0.927 |     0.176 | 
+                 |     0.023 |     0.371 |           | 
+                 |     0.013 |     0.163 |           | 
+-----------------|-----------|-----------|-----------|
+    Column Total |       261 |       205 |       466 | 
+                 |     0.560 |     0.440 |           | 
+-----------------|-----------|-----------|-----------|
+
+ 
+Statistics for All Table Factors
+
+
+Pearson's Chi-squared test 
+------------------------------------------------------------
+Chi^2 =  95.75303     d.f. =  1     p =  1.301475e-22 
+
+Pearson's Chi-squared test with Yates' continuity correction 
+------------------------------------------------------------
+Chi^2 =  93.36984     d.f. =  1     p =  4.338108e-22 
+
+ </code></pre>
+</div>
+</div>
+</section>
+<section id="분석방출" class="level2">
+<h2 class="anchored" data-anchor-id="분석방출">분석(방출)</h2>
+<p>방출됨 X =&gt; O</p>
+<ul>
+<li><p>크루원: 56.6% =&gt; 29.1%</p></li>
+<li><p>임포스터: 66.4% =&gt; 7.3%</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(crew<span class="sc">$</span>All_Tasks_Completed, crew<span class="sc">$</span>Outcome, <span class="at">chisq =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 
+   Cell Contents
+|-------------------------|
+|                       N |
+| Chi-square contribution |
+|           N / Row Total |
+|           N / Col Total |
+|         N / Table Total |
+|-------------------------|
+
+ 
+Total Observations in Table:  1761 
+
+ 
+                         | crew$Outcome 
+crew$All_Tasks_Completed |         1 |         0 | Row Total | 
+-------------------------|-----------|-----------|-----------|
+                      No |       517 |       476 |       993 | 
+                         |     2.365 |     2.975 |           | 
+                         |     0.521 |     0.479 |     0.564 | 
+                         |     0.527 |     0.610 |           | 
+                         |     0.294 |     0.270 |           | 
+-------------------------|-----------|-----------|-----------|
+                     Yes |       464 |       304 |       768 | 
+                         |     3.058 |     3.846 |           | 
+                         |     0.604 |     0.396 |     0.436 | 
+                         |     0.473 |     0.390 |           | 
+                         |     0.263 |     0.173 |           | 
+-------------------------|-----------|-----------|-----------|
+            Column Total |       981 |       780 |      1761 | 
+                         |     0.557 |     0.443 |           | 
+-------------------------|-----------|-----------|-----------|
+
+ 
+Statistics for All Table Factors
+
+
+Pearson's Chi-squared test 
+------------------------------------------------------------
+Chi^2 =  12.24361     d.f. =  1     p =  0.0004668534 
+
+Pearson's Chi-squared test with Yates' continuity correction 
+------------------------------------------------------------
+Chi^2 =  11.90745     d.f. =  1     p =  0.0005590976 
+
+ </code></pre>
+</div>
+</div>
+</section>
+<section id="분석전체-임무-완료와-크루원의-승률" class="level2">
+<h2 class="anchored" data-anchor-id="분석전체-임무-완료와-크루원의-승률">분석(전체 임무 완료와 크루원의 승률)</h2>
+<p>완료: X =&gt; O</p>
+<p>승률: 52.1% =&gt; 60.4%</p>
+<p>’크루원 전원’이 전체 임무를 완료해야하기 때문에</p>
+<p>내가 전체 임무를 완료했다고 해서 승률이 드라마틱하게 오르지는 않는다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>Game_Length, <span class="at">breaks =</span> <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="amongus_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>crew.logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(Outcome <span class="sc">~</span> Task_Completed <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                  Game_Length <span class="sc">+</span> Sabotages_Fixed <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                  Ejected <span class="sc">+</span> Murdered <span class="sc">+</span> All_Tasks_Completed,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> crew,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">'logit'</span>))</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(crew.logit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Outcome ~ Task_Completed + Game_Length + Sabotages_Fixed + 
+    Ejected + Murdered + All_Tasks_Completed, family = binomial(link = "logit"), 
+    data = crew)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.7139  -1.0118  -0.7564   1.1362   1.8017  
+
+Coefficients:
+                         Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)            -0.6425254  0.1457911  -4.407 1.05e-05 ***
+Task_Completed          0.0911016  0.0344938   2.641 0.008264 ** 
+Game_Length            -0.0007214  0.0002067  -3.489 0.000484 ***
+Sabotages_Fixed         0.1146374  0.0688562   1.665 0.095936 .  
+EjectedYes              1.6887708  0.3092335   5.461 4.73e-08 ***
+MurderedYes             1.0765991  0.1053419  10.220  &lt; 2e-16 ***
+All_Tasks_CompletedYes -0.5773121  0.1560910  -3.699 0.000217 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2418.3  on 1760  degrees of freedom
+Residual deviance: 2271.3  on 1754  degrees of freedom
+AIC: 2285.3
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(crew.logit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           (Intercept)         Task_Completed            Game_Length 
+             0.5259625              1.0953803              0.9992789 
+       Sabotages_Fixed             EjectedYes            MurderedYes 
+             1.1214667              5.4128231              2.9346819 
+All_Tasks_CompletedYes 
+             0.5614053 </code></pre>
+</div>
+</div>
+</section>
+<section id="패배와-관련된-로지스틱-회귀분석크루원" class="level2">
+<h2 class="anchored" data-anchor-id="패배와-관련된-로지스틱-회귀분석크루원">패배와 관련된 로지스틱 회귀분석(크루원)</h2>
+<p>방출됨 O, 살해당함 O =&gt; 승률 ↓</p>
+<p>전체 임무 완료 O, 게임 시간 ↑ =&gt; 승률 ↑</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>crew<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(crew.logit<span class="sc">$</span>fitted.values <span class="sc">&lt;=</span> <span class="fl">0.5</span>,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                         <span class="st">'Yes'</span>, <span class="st">'No'</span>))</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(crew<span class="sc">$</span>Outcome, crew<span class="sc">$</span>pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+     No Yes
+  1 262 719
+  0 391 389</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">table</span>(crew<span class="sc">$</span>Outcome, crew<span class="sc">$</span>pred)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>TP <span class="ot">&lt;-</span> tab1[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>TN <span class="ot">&lt;-</span> tab1[<span class="dv">2</span>,<span class="dv">1</span>]</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>FP <span class="ot">&lt;-</span> tab1[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>FN <span class="ot">&lt;-</span> tab1[<span class="dv">2</span>,<span class="dv">2</span>]</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>accuracy_crew <span class="ot">&lt;-</span> (TP <span class="sc">+</span> TN) <span class="sc">/</span> (TP <span class="sc">+</span> TN <span class="sc">+</span> FP <span class="sc">+</span> FN)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>accuracy_crew</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6303237</code></pre>
+</div>
+</div>
+<p>정확도: 63%</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roc</span>(Outcome <span class="sc">~</span> crew.logit<span class="sc">$</span>fitted.values, <span class="at">data =</span> crew,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">'ROC CURVE'</span>, <span class="at">col=</span><span class="st">'tomato'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting levels: control = 1, case = 0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting direction: controls &lt; cases</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="amongus_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+roc.formula(formula = Outcome ~ crew.logit$fitted.values, data = crew,     plot = TRUE, main = "ROC CURVE", col = "tomato")
+
+Data: crew.logit$fitted.values in 981 controls (Outcome 1) &lt; 780 cases (Outcome 0).
+Area under the curve: 0.663</code></pre>
+</div>
+</div>
+</section>
+<section id="분석-3" class="level2">
+<h2 class="anchored" data-anchor-id="분석-3">분석</h2>
+<p>ROC 그래프의 AUC가 0.663으로써 0.7 이하이므로 가치가 높지 않다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>imposter.logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(Outcome <span class="sc">~</span> Imposter_Kills <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                  Game_Length <span class="sc">+</span> Ejected,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> imposter,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">'logit'</span>))</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(imposter.logit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Outcome ~ Imposter_Kills + Game_Length + Ejected, 
+    family = binomial(link = "logit"), data = imposter)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.7803  -0.7787  -0.5124   0.8034   2.2162  
+
+Coefficients:
+                 Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)    -1.3732722  0.3123550  -4.397 1.10e-05 ***
+Imposter_Kills -0.5220570  0.1148085  -4.547 5.44e-06 ***
+Game_Length     0.0028602  0.0004118   6.946 3.76e-12 ***
+EjectedYes      3.4611606  0.4534005   7.634 2.28e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 639.27  on 465  degrees of freedom
+Residual deviance: 465.33  on 462  degrees of freedom
+AIC: 473.33
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(imposter.logit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   (Intercept) Imposter_Kills    Game_Length     EjectedYes 
+     0.2532768      0.5932989      1.0028643     31.8539256 </code></pre>
+</div>
+</div>
+</section>
+<section id="패배와-관련된-로지스틱-회귀분석임포스터" class="level2">
+<h2 class="anchored" data-anchor-id="패배와-관련된-로지스틱-회귀분석임포스터">패배와 관련된 로지스틱 회귀분석(임포스터)</h2>
+<p>방출됨 O, 게임시간 ↑ =&gt; 승률 ↓</p>
+<p>크루원 킬수 ↑ =&gt; 승률 ↑</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>imposter<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(imposter.logit<span class="sc">$</span>fitted.values <span class="sc">&lt;=</span> <span class="fl">0.5</span>,<span class="st">'Yes'</span>, <span class="st">'No'</span>))</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(imposter<span class="sc">$</span>Outcome, imposter<span class="sc">$</span>pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+     No Yes
+  1  33 228
+  0 129  76</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> <span class="fu">table</span>(imposter<span class="sc">$</span>Outcome, imposter<span class="sc">$</span>pred)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>TP <span class="ot">&lt;-</span> tab2[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>TN <span class="ot">&lt;-</span> tab2[<span class="dv">2</span>,<span class="dv">1</span>]</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>FP <span class="ot">&lt;-</span> tab2[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>FN <span class="ot">&lt;-</span> tab2[<span class="dv">2</span>,<span class="dv">2</span>]</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>accuracy_imposter <span class="ot">&lt;-</span> (TP <span class="sc">+</span> TN) <span class="sc">/</span> (TP <span class="sc">+</span> TN <span class="sc">+</span> FP <span class="sc">+</span> FN)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>accuracy_imposter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7660944</code></pre>
+</div>
+</div>
+<p>정확도 76.6%</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roc</span>(Outcome <span class="sc">~</span> imposter.logit<span class="sc">$</span>fitted.values, <span class="at">data =</span> imposter,</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">'ROC CURVE'</span>, <span class="at">col=</span><span class="st">'tomato'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting levels: control = 1, case = 0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting direction: controls &lt; cases</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="amongus_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+roc.formula(formula = Outcome ~ imposter.logit$fitted.values,     data = imposter, plot = TRUE, main = "ROC CURVE", col = "tomato")
+
+Data: imposter.logit$fitted.values in 261 controls (Outcome 1) &lt; 205 cases (Outcome 0).
+Area under the curve: 0.8328</code></pre>
+</div>
+</div>
+</section>
+<section id="분석-4" class="level2">
+<h2 class="anchored" data-anchor-id="분석-4">분석</h2>
+<p>ROC 그래프의 AUC가 0.8328로써 어느정도 가치가 있다.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

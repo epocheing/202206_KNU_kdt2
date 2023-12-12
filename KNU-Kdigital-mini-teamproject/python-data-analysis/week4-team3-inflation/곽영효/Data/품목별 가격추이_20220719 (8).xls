@@ -1,0 +1,59 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+	<meta content="application/vnd.ms-excel; charset=UTF-8" name="Content-type">
+	<meta content="Excel.Sheet" name="ProgId">
+	<meta content="PHP5" name="Generator">
+	<title>소비자물가정보서비스</title>
+</head>
+<body>
+	<table border='1'>
+	    <tr>
+			<td colspan='9' align='center'>품목별 가격추이</td>
+		</tr>
+		<tr>
+			<td bgcolor='#EAEAEA'>품목명</td>
+			<td bgcolor='#EAEAEA'>제품명</td>
+			<td bgcolor='#EAEAEA'>용량</td>
+					<td bgcolor='#EAEAEA'>1월</td>
+					<td bgcolor='#EAEAEA'>2월</td>
+					<td bgcolor='#EAEAEA'>3월</td>
+					<td bgcolor='#EAEAEA'>4월</td>
+					<td bgcolor='#EAEAEA'>5월</td>
+					<td bgcolor='#EAEAEA'>6월</td>
+				</tr>
+                    	<tr>
+                        	<td class="R_line">된장</td>
+                            <td class="R_line">[CJ제일제당]해찬들 담백한 재래식 된장</td>
+                            <td class="R_line">사각1kg</td>
+							                            <td class='R_line'>6,447</td>
+							                            <td class='R_line'>6,697</td>
+							                            <td class='R_line'>7,022</td>
+							                            <td class='R_line'>7,188</td>
+							                            <td class='R_line'>7,098</td>
+							                            <td class='R_line'>7,128</td>
+							                        </tr>
+                    	<tr>
+                        	<td class="R_line">된장</td>
+                            <td class="R_line">[대상]청정원 순창 재래식 생된장</td>
+                            <td class="R_line">사각1kg</td>
+							                            <td class='R_line'>5,999</td>
+							                            <td class='R_line'>7,147</td>
+							                            <td class='R_line'>6,785</td>
+							                            <td class='R_line'>6,915</td>
+							                            <td class='R_line'>7,172</td>
+							                            <td class='R_line'>7,134</td>
+							                        </tr>
+                    	<tr>
+                        	<td class="R_line R_line_blue" colspan="2">평균</td>
+                            <td class="R_line R_line_blue"></td>
+							                            <td class="R_line R_line_blue">6,223</td>
+							                            <td class="R_line R_line_blue">6,922</td>
+							                            <td class="R_line R_line_blue">6,903</td>
+							                            <td class="R_line R_line_blue">7,051</td>
+							                            <td class="R_line R_line_blue">7,135</td>
+							                            <td class="R_line R_line_blue">7,131</td>
+							                        </tr>
+	</table>
+</body>
+</html>

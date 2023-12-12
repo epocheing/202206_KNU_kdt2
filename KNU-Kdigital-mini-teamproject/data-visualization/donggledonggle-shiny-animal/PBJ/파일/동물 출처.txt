@@ -1,0 +1,6 @@
+동물복지축산농장목록
+- 동물보호관리시스템 https://www.animal.go.kr/front/awtis/certification/certificationList.do?totalCount=393&pageSize=10&menuNo=3000000012&&page=1
+
+
+동물치료소_현황
+- KOSIS https://kosis.kr/statHtml/statHtml.do?orgId=150&tblId=TX_15002_A040&vw_cd=MT_ZTITLE&list_id=150_150002_20_003&seqNo=&lang_mode=ko&language=kor&obj_var_id=&itm_id=&conn_path=MT_ZTITLE

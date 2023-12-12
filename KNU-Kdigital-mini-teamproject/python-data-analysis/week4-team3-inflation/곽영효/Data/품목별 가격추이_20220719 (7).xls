@@ -1,0 +1,83 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+	<meta content="application/vnd.ms-excel; charset=UTF-8" name="Content-type">
+	<meta content="Excel.Sheet" name="ProgId">
+	<meta content="PHP5" name="Generator">
+	<title>소비자물가정보서비스</title>
+</head>
+<body>
+	<table border='1'>
+	    <tr>
+			<td colspan='15' align='center'>품목별 가격추이</td>
+		</tr>
+		<tr>
+			<td bgcolor='#EAEAEA'>품목명</td>
+			<td bgcolor='#EAEAEA'>제품명</td>
+			<td bgcolor='#EAEAEA'>용량</td>
+					<td bgcolor='#EAEAEA'>1월</td>
+					<td bgcolor='#EAEAEA'>2월</td>
+					<td bgcolor='#EAEAEA'>3월</td>
+					<td bgcolor='#EAEAEA'>4월</td>
+					<td bgcolor='#EAEAEA'>5월</td>
+					<td bgcolor='#EAEAEA'>6월</td>
+					<td bgcolor='#EAEAEA'>7월</td>
+					<td bgcolor='#EAEAEA'>8월</td>
+					<td bgcolor='#EAEAEA'>9월</td>
+					<td bgcolor='#EAEAEA'>10월</td>
+					<td bgcolor='#EAEAEA'>11월</td>
+					<td bgcolor='#EAEAEA'>12월</td>
+				</tr>
+                    	<tr>
+                        	<td class="R_line">된장</td>
+                            <td class="R_line">[CJ제일제당]해찬들 담백한 재래식 된장</td>
+                            <td class="R_line">사각1kg</td>
+							                            <td class='R_line'>6,503</td>
+							                            <td class='R_line'>6,530</td>
+							                            <td class='R_line'>6,660</td>
+							                            <td class='R_line'>6,555</td>
+							                            <td class='R_line'>6,388</td>
+							                            <td class='R_line'>6,492</td>
+							                            <td class='R_line'>6,568</td>
+							                            <td class='R_line'>6,310</td>
+							                            <td class='R_line'>6,490</td>
+							                            <td class='R_line'>6,227</td>
+							                            <td class='R_line'>6,234</td>
+							                            <td class='R_line'>6,651</td>
+							                        </tr>
+                    	<tr>
+                        	<td class="R_line">된장</td>
+                            <td class="R_line">[대상]청정원 순창 재래식 생된장</td>
+                            <td class="R_line">사각1kg</td>
+							                            <td class='R_line'>6,169</td>
+							                            <td class='R_line'>6,145</td>
+							                            <td class='R_line'>5,819</td>
+							                            <td class='R_line'>5,919</td>
+							                            <td class='R_line'>5,822</td>
+							                            <td class='R_line'>6,026</td>
+							                            <td class='R_line'>5,781</td>
+							                            <td class='R_line'>5,802</td>
+							                            <td class='R_line'>5,797</td>
+							                            <td class='R_line'>6,017</td>
+							                            <td class='R_line'>6,089</td>
+							                            <td class='R_line'>5,762</td>
+							                        </tr>
+                    	<tr>
+                        	<td class="R_line R_line_blue" colspan="2">평균</td>
+                            <td class="R_line R_line_blue"></td>
+							                            <td class="R_line R_line_blue">6,336</td>
+							                            <td class="R_line R_line_blue">6,337</td>
+							                            <td class="R_line R_line_blue">6,240</td>
+							                            <td class="R_line R_line_blue">6,237</td>
+							                            <td class="R_line R_line_blue">6,105</td>
+							                            <td class="R_line R_line_blue">6,259</td>
+							                            <td class="R_line R_line_blue">6,175</td>
+							                            <td class="R_line R_line_blue">6,056</td>
+							                            <td class="R_line R_line_blue">6,144</td>
+							                            <td class="R_line R_line_blue">6,122</td>
+							                            <td class="R_line R_line_blue">6,161</td>
+							                            <td class="R_line R_line_blue">6,206</td>
+							                        </tr>
+	</table>
+</body>
+</html>

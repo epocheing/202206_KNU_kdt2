@@ -1,0 +1,20 @@
+project:
+  type: website
+
+website:
+  title: "team2_orange"
+  navbar:
+    left:
+      - index.qmd
+      - naryoung.qmd
+      - chaebeom.qmd
+      - yeongchan.qmd
+      - younghyo.qmd
+      - inuk.qmd
+      - doyoung.qmd
+
+format:
+  html: 
+    theme: cosmo
+    css: style.css
+
