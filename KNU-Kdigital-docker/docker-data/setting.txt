@@ -1,0 +1,19 @@
+### jupyter lab ###
+localhost:8888
+password: 1111
+root password: 1111
+config:
+jupyter lab --generate-config
+/home/jovyan/.jupyter/
+
+
+### R studio ###
+localhost:8787
+rstudio
+password: 1111
+config:
+volume r_libs, rstudio
+
+
+### mysql ###
+password: 1111

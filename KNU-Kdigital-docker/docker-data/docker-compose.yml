@@ -1,0 +1,83 @@
+version: '3.9'
+
+volumes:
+  mysqldb:
+    name: mysqldb
+  r_libs:
+    name: r_libs
+  rstudio:
+    name: rstudio
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql
+    restart: always
+    environment:
+      - TZ=Asia/Seoul
+      - MYSQL_ROOT_PASSWORD=1111
+    ports:
+      - "3306:3306"
+    privileged: true
+    volumes:
+      - type: volume
+        source: mysqldb
+        target: /var/lib/mysql
+      - type: bind
+        source: ../workspace
+        target: /workspace
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+
+  jupyter:
+    container_name: jupyterlab-kr
+    build:
+      context: ./jupyter
+      dockerfile: Dockerfile
+    image: jupyterlab-kr
+    restart: always
+    environment:
+      - TZ=Asia/Seoul
+      - JUPYTER_ENABLE_LABS=yes
+      - JUPYTER_TOKEN=1111
+      - CHOWN_HOME=yes
+    ports:
+      - "8888:8888"
+    privileged: true
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: ../workspace
+        target: /home/jovyan/workspace
+      - type: bind
+        source: ./jupyter-lab-setting
+        target: /home/jovyan/.jupyter
+  
+  rstudio:
+    container_name: rocker-kr
+    build:
+      context: ./rstudio
+      dockerfile: Dockerfile
+    image: rocker-kr
+    restart: always
+    environment:
+      - PASSWORD=1111
+      - TZ=Asia/Seoul
+    ports:
+      - "8787:8787"
+    privileged: true
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: ../workspace
+        target: /home/rstudio/projects
+      - type: volume
+        source: rstudio
+        target: /home/rstudio
+      - type: volume
+        source: r_libs
+        target: /usr/local/lib/R
+

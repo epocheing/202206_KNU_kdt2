@@ -1,0 +1,6 @@
+konlpy
+lckr-jupyterlab-variableinspector
+jupyterlab_flake8
+jupyterlab-git
+jupyterlab-code-formatter
+plotly_express
