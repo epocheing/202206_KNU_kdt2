@@ -1,0 +1,273 @@
+# 데이터 시각화
+
+## 데이터 불러오기
+```{r}
+library(tidyverse)
+anscombe
+ans <- anscombe
+```
+
+## 데이터 확인
+```{r}
+mean(ans$x1)
+mean(ans$x2)
+mean(ans$x3)
+mean(ans$x4)
+```
+
+```{r}
+mean(ans$y1)
+mean(ans$y2)
+mean(ans$y3)
+mean(ans$y4)
+```
+
+```{r}
+cor(ans$x1, ans$y1)
+cor(ans$x2, ans$y2)
+cor(ans$x3, ans$y3)
+cor(ans$x4, ans$y4)
+```
+
+```{r}
+lm(y1 ~ x1, data = ans)
+lm(y2 ~ x2, data = ans)
+lm(y3 ~ x3, data = ans)
+lm(y4 ~ x4, data = ans)
+```
+
+
+```{r}
+par(mfrow = c(2, 2))
+plot(ans$x1, ans$y1, col = "orange", pch = 19)
+abline(lm(y1 ~ x1, data = ans), col = "tomato")
+plot(ans$x2, ans$y2, col = "orange", pch = 19)
+abline(lm(y2 ~ x2, data = ans), col = "tomato")
+plot(ans$x3, ans$y3, col = "orange", pch = 19)
+abline(lm(y3 ~ x3, data = ans), col = "tomato")
+plot(ans$x4, ans$y4, col = "orange", pch = 19)
+abline(lm(y4 ~ x4, data = ans), col = "tomato")
+par(mfrow = c(1, 1))
+```
+
+## ggplot 
+
+### geom_point
+
+```{r}
+str(mpg)
+```
+
+```{r}
+p <- ggplot(
+    data = mpg,
+    mapping = aes(x = displ, y = hwy)
+) +
+    geom_point(
+        mapping = aes(
+            color = class,
+            size = class,
+            alpha = 0.3,
+            shape = class
+        )
+    )
+p
+```
+
+```{r}
+p <- ggplot(
+    data = mpg,
+    mapping = aes(x = displ, y = hwy)
+) +
+    geom_point(
+        mapping = aes(color = "tomato")
+    ) +
+    facet_wrap(drv ~ cyl)
+p
+```
+
+```{r}
+p <- ggplot(
+    data = mpg,
+    mapping = aes(x = displ, y = hwy)
+) +
+    geom_point(
+        mapping = aes(color = "tomato")
+    ) +
+    facet_wrap(~class, nrow = 2)
+p
+```
+
+
+```{r}
+p <- ggplot(
+    data = mpg,
+    mapping = aes(x = displ, y = hwy)
+) +
+    geom_point(mapping = aes(color = class)) +
+    geom_smooth(color = "cyan")
+p
+```
+
+### geom_bar
+
+```{r}
+p <- ggplot(
+    data = diamonds,
+    mapping = aes(x = cut)
+)
+
+table(diamonds$cut)
+
+p + geom_bar(
+    mapping = aes(fill = clarity),
+)
+```
+
+```{r}
+p + geom_bar(
+    mapping = aes(fill = clarity),
+    position = "fill"
+)
+```
+
+```{r}
+p + geom_bar(
+    mapping = aes(fill = clarity),
+    position = "dodge"
+)
+```
+
+# datasaurus
+
+```{r}
+library(datasauRus)
+dd <- datasaurus_dozen
+str(dd)
+unique(dd$dataset)
+```
+
+```{r}
+plot(
+    y ~ x,
+    data = subset(dd, dataset == "dino"),
+    pch = 19, col = "tomato"
+)
+```
+
+```{r}
+ggplot(
+    data = subset(dd),
+    mapping = aes(x = x, y = y)
+) +
+    geom_point(mapping = aes(color = dataset)) +
+    facet_wrap(~dataset, nrow = 3)
+```
+
+
+## boxplot
+
+```{r}
+p <- ggplot(mpg, aes(x = class, y = hwy))
+p +
+    geom_boxplot(fill = "tomato") +
+    coord_flip()
+```
+
+```{r}
+p <- ggplot(diamonds, aes(x = cut, fill = cut))
+p +
+    geom_bar(show.legend = FALSE, width = 0.5)
+```
+
+```{r}
+p +
+    geom_bar(show.legend = FALSE, width = 1) +
+    coord_polar()
+```
+
+# 다양한 데이터 시각화
+
+## 지도 데이터
+
+```{r}
+world <- map_data("world")
+ggplot(
+    world,
+    aes(long, lat, group = group)
+) +
+    geom_polygon(fill = "lightyellow", color = "blue")
+```
+
+## mpg
+
+```{r}
+data(mpg)
+mpg_set <- mpg[mpg$hwy > mean(mpg$hwy), c(1, 2, 9, 11)]
+sd(mpg$hwy)
+
+v <- c(10, 20, 30, 40)
+sort(v)
+```
+
+```{r}
+best_in_class <- mpg %>%
+    group_by(class) %>%
+    filter(row_number(desc(hwy)) == 1)
+
+p <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy))
+
+p + geom_point(mapping = aes(color = class)) +
+    geom_text(
+        mapping = aes(label = model), data = best_in_class
+    )
+```
+
+```{r}
+p + geom_point(mapping = aes(color = class)) +
+    geom_label(
+        mapping = aes(label = model),
+        data = best_in_class,
+        nudge_y = 2, alpha = 0.5
+    ) +
+    theme(legend.position = "bottom") +
+    theme_minimal()
+# ggsave(file = "myplot.pdf")
+```
+
+# R graph gallery
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(hrbrthemes)
+library(palmerpenguins)
+
+pg <- penguins
+pg <- pg[complete.cases(pg), ]
+
+p <- pg %>%
+    ggplot(aes(x = body_mass_g, fill = sex)) +
+    geom_histogram(color = "#e9ecef", alpha = 0.6, position = "identity") +
+    scale_fill_manual(values = c("#69b3a2", "#404080")) +
+    theme_ipsum() +
+    labs(fill = "")
+p
+```
+
+# esquisse 이용하기
+```{r eval=FALSE}
+esquisse::esquisser()
+```
+
+```{r}
+library(gapminder)
+ggplot(gapminder::gapminder) +
+    aes(x = gdpPercap, y = lifeExp, colour = continent, size = pop) +
+    geom_point(shape = "circle") +
+    scale_color_hue(direction = 1) +
+    labs(x = "gdp", y = "life exp", title = "myplot") +
+    theme_minimal() +
+    facet_wrap(vars(year))
+```
+

@@ -1,0 +1,169 @@
+---
+title: "이번주 마지막이다 흑흑"
+date: "2022-08-12"
+autor: "Inuk Song"
+---
+```{r include=FALSE}
+knitr::opts_chunk$set(message = FALSE)
+```
+
+# Prestige 데이터셋 활용하기
+
+## 데이터 불러오기
+```{r}
+library(car)
+data(Prestige)
+df <- Prestige
+str(df)
+```
+
+## 데이터 요약
+
+### 타입 barplot
+```{r}
+table(df$type)
+barplot(table(df$type), col = "orange")
+```
+
+### 소득 hist
+```{r}
+hist(df$income, col = "tomato", breaks = 20)
+```
+
+    - 샤피로 테스트
+```{r}
+shapiro.test(df$income)
+```
+
+### 교육 hist
+```{r}
+hist(df$education, col = "tomato", breaks = 20)
+```
+
+    - 샤피로 테스트
+```{r}
+shapiro.test(df$education)
+```
+
+### 명예 hist
+```{r}
+hist(df$prestige, col = "tomato", breaks = 20)
+```
+
+    - 샤피로 테스트
+```{r}
+shapiro.test(df$prestige)
+```
+
+
+### 산점도 그려보기
+```{r}
+plot(df[, -(5:6), ], col = "steelblue", pch = 19)
+```
+
+## 선형회귀 분석
+
+### 선형회귀 정보
+```{r}
+lm(income ~ education, data = df)
+cor(df[, -(5:6)])
+```
+```{r}
+model <- lm(income ~ education, data = df)
+summary(model)
+```
+
+### 그래프 그리기
+
+#### 소득 ~ 교육
+```{r}
+plot(income ~ education,
+    data = df,
+    col = "steelblue", pch = 19
+)
+abline(model, col = "tomato", lwd = 2)
+```
+
+#### 소득 ~ 여성
+```{r}
+model <- lm(income ~ women, data = df)
+summary(model)
+plot(income ~ women,
+    data = df,
+    col = "lightgreen", pch = 19
+)
+abline(model, col = "tomato", lwd - 2)
+```
+
+# 회귀분석의 유형
+
+## 다중 선형회귀
+    - 종속변수에 영향을 미치는 독립변수가 여러개일 경우
+
+### 같은 상관관계를 가진 변수를 사용시 하나는 죽음
+```{r}
+# 교육 + 여성 + 명예 -> 교육의 p값이 높게나옴
+model <- lm(income ~ education + women + prestige,
+    data = df
+)
+summary(model)
+
+# 교육 + 여성
+model <- lm(income ~ education + women,
+    data = df
+)
+summary(model)
+
+# 교육 + 명예
+model <- lm(income ~ education + prestige,
+    data = df
+)
+summary(model)
+
+# 여성 + 명예
+model <- lm(income ~ women + prestige,
+    data = df
+)
+summary(model)
+```
+
+### 다중 선형회귀 테이블
+```{r}
+library(stargazer)
+stargazer(model, type = "text")
+```
+
+### 선형성 가정
+```{r}
+par(mfrow = c(2, 2))
+plot(model)
+par(mfrow = c(1, 1))
+```
+
+### 다항 선형회귀
+```{r}
+model <- lm(income ~ education, data = df)
+plot(income ~ education,
+    data = df,
+    col = "skyblue", pch = 19
+)
+summary(model)
+```
+
+```{r}
+# library(dplyr)
+# library(tidyverse)
+# model <- lm(income ~ education + I(education^2), data = df)
+# summary(model)
+# with(df, lines(arrange(data.frame(education, fitted(model)), education),
+#     lty = 1, lwd = 3, col = "tomato"
+# ))
+```
+
+
+
+
+
+
+
+

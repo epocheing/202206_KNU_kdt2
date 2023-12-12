@@ -1,0 +1,34 @@
+---
+title: "Penguins_dataset_analys_Report"
+autor: "Siu"
+date: "2022-08-08"
+output: html_document
+---
+
+## 이제부터 그림을 그려볼거야.
+
+이런 순서로 해보자.
+
+1. 부리 길이 - 부리 깊이 의 산점도를 그린다.
+    * 음의 상관이 있는 것처럼 보이는가?
+    * 이것은 Simpson's Paradox로 인한 것이다.
+2. 펭귄의 종별로 색깔을 입힌다.
+    * 종별로 구분하니 양의 상관이 있는 것처럼 보이지 않는가?  
+    * 심슨의 역설은 우리가 조심해야 할 통계의 함정이다.
+
+```{r}
+library(palmerpenguins)
+df <- na.omit(penguins)
+plot(df$bill_depth_mm ~ df$bill_length_mm, pch = 19, col = "tomato")
+```
+
+```{r}
+my.color <- ifelse(penguins$species == "Gentoo", "yellow",
+    ifelse(penguins$species == "Adelie", "royalblue", "black")
+)
+
+plot(penguins$bill_length_mm ~ penguins$bill_depth_mm,
+    pch = "★",
+    col = my.color
+)
+```

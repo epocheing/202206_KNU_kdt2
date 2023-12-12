@@ -1,0 +1,38 @@
+---
+title: '나도몰라'
+date: '2022-08-12'
+autor: '송인욱'
+---
+
+```{r}
+data(iris)
+df <- split(iris, f = iris$Species)
+df <- rbind(df$setosa, df$versicolor)
+plot(df[, c(3, 5)])
+```
+
+# 포아송 회귀분석
+
+```{r}
+library(robust)
+data(breslow.dat)
+df <- breslow.dat
+str(df)
+
+df <- df[, c("Base", "Age", "Trt", "sumY")]
+
+model <- glm(sumY ~ ., data = df, family = poisson)
+```
+
+## iris 데이터
+```{r}
+df <- split(iris, f = iris$Species)
+df <- rbind(df$setosa, df$versicolor)
+
+plot(df[, c(3, 5)])
+
+model <- glm(Species ~ Petal.Lenght,
+    data = df,
+    family = binomial()
+)
+```

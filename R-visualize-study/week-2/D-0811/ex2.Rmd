@@ -1,0 +1,139 @@
+---
+title: R_Study
+date: 2022-08-11
+---
+```{r include=FALSE}
+knitr::opts_chunk$set(message = FALSE)
+```
+
+# F 분포와 분산분석
+
+```{r}
+v <- rf(n = 10000, df1 = 1, df2 = 30)
+hist(v, col = "lightgreen", prob = TRUE)
+x <- seq(0, 15, length = 200)
+curve(df(x, df1 = 1, df2 = 30), 0, 15, add = TRUE, col = "tomato", lwd = 2, lty = 1)
+curve(df(x, df1 = 5, df2 = 50), 0, 15, add = TRUE, col = "darkblue", lwd = 2, lty = 1)
+curve(df(x, df1 = 10, df2 = 80), 0, 15, add = TRUE, col = "magenta", lwd = 2, lty = 2)
+```
+
+```{r}
+qf(p = 0.95, df1 = 1, df2 = 30)
+pf(q = 4.170877, df1 = 1, df2 = 30)
+```
+
+## 일원 분산분석과 이원 분산분석
+
+```{r}
+df <- InsectSprays
+str(df)
+boxplot(count ~ spray, data = df, col = 2:7)
+aov.result <- aov(count ~ spray, data = df)
+summary(aov.result)
+TukeyHSD(aov.result)
+```
+
+## 시각화
+
+### gplot, plot
+```{r}
+library(gplots)
+plotmeans(count ~ spray,
+    data = df,
+    col = "tomato", lwd = 3,
+    barcol = "orange", barwidth = 3
+)
+```
+
+```{r}
+model.tables(aov.result, type = "effect")
+plot(TukeyHSD(aov.result), las = 1, col = "tomato")
+```
+
+### 정규분포 샤피로 테스트 시각화
+```{r}
+library(car)
+qqPlot(df$count, pch = 19, col = "orange")
+shapiro.test(df$count)
+```
+
+### 등분산 테스트
+```{r}
+df <- InsectSprays
+leveneTest(count ~ spray, data = df)
+```
+
+### 원웨이 테스트
+```{r}
+oneway.test(count ~ spray, data = df)
+```
+
+## 
+
+```{r}
+df <- ToothGrowth
+str(df)
+
+df$dose <- factor(df$dose,
+    levels = c(0.5, 1.0, 2.0),
+    labels = c("L", "M", "H")
+)
+
+str(df)
+
+with(df, tapply(len, list(SUPP = supp, DOSE = dose), mean))
+
+boxplot(len ~ supp * dose,
+    data = df,
+    col = c("orange", "tomato")
+)
+```
+
+# 상관계수와 상관분석
+
+```{r}
+library(MASS)
+data(cats)
+cor(cats$Bwt, cats$Hwt)
+
+cor(cats$Bwt, cats$Hwt, method = "pearson")
+cor(cats$Bwt, cats$Hwt, method = "spearman")
+cor(cats$Bwt, cats$Hwt, method = "kendall")
+```
+
+
+# 선형회귀의 이해
+
+### 데이터 불러오기
+```{r}
+library(HistData)
+df <- GaltonFamilies
+str(df)
+```
+
+### 상관분석
+```{r}
+cor(df$midparentHeight, df$childHeight)
+plot(jitter(childHeight) ~ jitter(midparentHeight),
+    data = df,
+    col = adjustcolor("steelblue", alpha = 0.5),
+    pch = 19
+)
+
+model <- lm(childHeight ~ midparentHeight, data = df)
+abline(model, col = "tomato", lwd = 3)
+```
+
+## 선형 회귀모델
+    - 평균절대오차, 평균제곱오차, 제곱근 평균제곱오차
+
+```{r}
+x <- runif(n = 100, min = 0, max = 100)
+y <- 3 * x + 5 + rnorm(100, 0, 20)
+plot(x, y, pch = 19, col = "skyblue")
+
+cor(x, y)
+model <- lm(y ~ x)
+abline(model, col = "tomato", lwd = 2)
+summary(model)
+```
